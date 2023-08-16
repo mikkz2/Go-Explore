@@ -30,13 +30,13 @@
                 <div class="nav-links">
                     <a class="nav-link-1" href="#">Let's Explore</a>
                     <a class="nav-link-2" href="#">Where to Go</a>
-                    <a class="nav-link-3" href="#">Calendar of Activities</a>
-                    <a class="nav-link-4" href="#">Love Our Planet</a>
+                    <a class="nav-link-3" href="calendar.php">Calendar of Activities</a>
+                    <a class="nav-link-4" href="love_our_planet.php">Love Our Planet</a>
                     <a class="nav-link-5" href="#">Favorites</a>
-                    <a class="nav-search-icon" href="#">
+                    <a class="nav-search-icon" href="search_page.php">
                         <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                     </a>
-                    <a class="nav-user-icon" href="#">
+                    <a class="nav-user-icon" href="login_register.php">
                         <i class="fa-solid fa-user" style="color: #ffffff;"></i>
                     </a>
                 </div>

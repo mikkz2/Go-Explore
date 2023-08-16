@@ -1,0 +1,10 @@
+{
+    "user":[
+        {
+            "id":1,
+            "username":"goexplore",
+            "password":"123",
+            "email":"goexplore@gmail.com"
+        }
+    ]
+}

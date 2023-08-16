@@ -12,8 +12,7 @@ const footerSections = [
             { title: "Nature", url: "#" },
             { title: "Beach", url: "#" },
             { title: "Adventure", url: "#" },
-            { title: "Food", url: "#" },
-            { title: "Festival", url: "#" }
+            { title: "Festival", url: "#calendar.php" }
         ]
     },
     {
@@ -21,8 +20,8 @@ const footerSections = [
         links: [
             { title: "Let's Explore", url: "#" },
             { title: "Where to Go", url: "#" },
-            { title: "Calendar of Activities", url: "#" },
-            { title: "Love Our Planet", url: "#" },
+            { title: "Calendar of Activities", url: "calendar.php" },
+            { title: "Love Our Planet", url: "love_our_planet.php" },
             { title: "Favorites", url: "#" }
         ]
     }
