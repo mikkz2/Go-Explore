@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="https://kit.fontawesome.com/83c0f4a797.js" crossorigin="anonymous"></script>
 
     <link href="css/login_register.css" rel="stylesheet">
@@ -35,9 +34,9 @@
             <div class="white-panel">
                 <div class="login-show">
                     <h2>LOGIN</h2>
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input type="button" value="Login">
+                    <input type="text" placeholder="Email" name="email" id="email" >
+                    <input type="password" placeholder="Password" name="password" id="password">
+                    <input type="button" value="Login" id="loginButton">
                     <a href="">Forgot password?</a>
                     <p>By proceeding, you agree to our <a href="">Terms of Use</a> and confirm you have read our <a href="">Privacy and Cookie Statement</a>.
                         <br><br>This site is protected by reCAPTCHA and the <a href="link-to-google-privacy-policy">Google Privacy Policy</a> and <a href="link-to-terms-of-service">Terms of Service</a> apply.
@@ -45,13 +44,15 @@
                 </div>
                 <div class="register-show">
                     <h2>REGISTER</h2>
-                    <input type="text" placeholder="Name" id="name" autocomplete="off">
-                    <input type="text" placeholder="Country" id="from_country" autocomplete="off">
-                    <input type="text" placeholder="City" id="current_city" autocomplete="off">
-                    <input type="text" placeholder="Baranggay" id="current_baranggay" autocomplete="off">
-                    <input type="text" placeholder="Email" id="email" autocomplete="off">
-                    <input type="password" placeholder="Password" id="password" autocomplete="off">
-                    <input type="button" value="Register">
+                    <input type="text" placeholder="First Name" name="first_name" id="first_name" autocomplete="off">
+                    <input type="text" placeholder="Last Name" name="last_name" id="last_name" autocomplete="off">
+                    <input type="text" placeholder="Email" name="email" id="email" autocomplete="off">
+                    <input type="password" placeholder="Password" name="password" id="password" autocomplete="off">
+                    <input type="text" placeholder="Country" name="from_country" id="from_country" autocomplete="off">
+                    <input type="text" placeholder="Province" name="current_province" id="current_province" autocomplete="off">
+                    <input type="text" placeholder="City" name="city" id="current_city" autocomplete="off">
+                    <input type="text" placeholder="Baranggay"  name="current_baranggay" id="current_baranggay" autocomplete="off">
+                    <input type="button" id="registerButton" value="Register">
                 </div>
                 <div class="login-reg-panel-mini">
                     <div class="login-info-box-mini">
@@ -69,10 +70,36 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+    <div id="errorModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Invalid login. Please check your credentials.</p>
+    </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Attention</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Invalid Input. Please check your credentials
+      </div>
+    </div>
+  </div>
+</div>
+
     <?php include 'footer.php'; ?>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="js/login_register.js"></script>
 </body>
 
