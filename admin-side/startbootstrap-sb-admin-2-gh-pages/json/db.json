@@ -1,44 +1,27 @@
 {
   "users": [
     {
+      "id": 1,
       "first_name": "Mikkay",
       "last_name": "Gabinete",
-      "email": "mikkayarana2@gmail.com",
+      "email": "mikkay@gmail.com",
       "password": "mikkay",
       "from_country": "Philippines",
       "current_province": "Bicol",
       "current_city": "Legazpi",
       "current_baranggay": "Taysan",
-      "created_at": "17-08-2023",
-      "id": 1
-    },
-    {
-      "first_name": "cxvxc",
-      "last_name": "vcxvxc",
-      "email": "vcxvxc",
-      "password": "vxcvcx",
-      "from_country": "cxvxc",
-      "current_province": "vxcvxc",
-      "current_city": "vxcvxc",
-      "current_baranggay": "cxvxcvxc",
       "created_at": "18-08-2023",
-      "id": 2
+      "updated_at": "18-08-2023"
     }
   ],
   "admin": [
     {
       "id": 1,
-      "user_name": "cvcxv",
-      "email": "cxvcx",
-      "password": "vcxvxc",
-      "created_at": "18-08-2023"
-    },
-    {
-      "user_name": "fg",
-      "email": "gdfgdf",
-      "password": "fdgfdg",
+      "user_name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin1",
       "created_at": "18-08-2023",
-      "id": 2
+      "updated_at": "18-08-2023"
     }
   ]
 }

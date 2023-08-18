@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const addButton = document.getElementById('addButton');
   const addModal = new bootstrap.Modal(document.getElementById('addModal'));
   const addAccountButton = document.getElementById('btn-add-account');
+  const editModal = new bootstrap.Modal(document.getElementById('editModal')); // Add this line
+  const editForm = document.getElementById('edit-user-form'); // Add this line
 
   // Fetch data from JSON server and populate the table
   function populateTable() {
@@ -63,9 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
                       <td>${user.current_city}</td>
                       <td>${user.current_baranggay}</td>
                       <td>${user.created_at}</td>
+                      <td>${user.updated_at}</td>
                       <!-- ... Other cells ... -->
                       <td>
-                          <button class="btn btn-primary btn-sm">
+                      <button class="btn btn-primary btn-sm edit-button" data-user-id="${user.id}">
                               <i class="fa fa-pen"></i>
                           </button>
                           <button class="btn btn-danger btn-sm delete-button">
@@ -79,56 +82,120 @@ document.addEventListener('DOMContentLoaded', function () {
         deleteButtons.forEach(button => {
           button.addEventListener('click', deleteRow);
         });
+        const editButtons = document.querySelectorAll('.edit-button');
+        editButtons.forEach(button => {
+          button.addEventListener('click', editRow);
+        });
       })
       .catch(error => console.error('Error fetching data:', error));
   }
+  function editRow(event) {
+    const button = event.target;
+    const row = button.closest('tr');
+    const userId = row.querySelector('td:first-child').textContent;
+    fetch(`http://localhost:3000/users/${userId}`)
+      .then(response => response.json())
+      .then(user => {
 
-// Handle form submission and add new user
-// const addButton = document.getElementById('addButton');
-addButton.addEventListener('click', () => {
-  addModal.show();
-});
+        const date = new Date();
 
-addAccountButton.addEventListener('click', () => {
-  const form = document.getElementById('add-user-form');
-  const formData = new FormData(form);
+        let currentDay = String(date.getDate()).padStart(2, '0');
+        let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
+        let currentYear = date.getFullYear();
+        let updated_at = `${currentDay}-${currentMonth}-${currentYear}`;
 
-  // Convert form data to JSON object
-  const user = {};
-  formData.forEach((value, key) => {
-    user[key] = value;
-  });
-  const date = new Date();
+        // user['created_at'] = currentDate;
+        // Populate the edit form fields with user data
+        editForm.elements.id.value = user.id;
+        editForm.elements.first_name.value = user.first_name;
+        editForm.elements.last_name.value = user.last_name;
+        editForm.elements.email.value = user.email;
+        editForm.elements.password.value = user.password;
+        editForm.elements.from_country.value = user.from_country;
+        editForm.elements.current_province.value = user.current_province;
+        editForm.elements.current_city.value = user.current_city;
+        editForm.elements.current_baranggay.value = user.current_baranggay;
+        editForm.elements.created_at.value = user.created_at;
+        editForm.elements.updated_at.value = updated_at;
+        // Show the edit modal
+        editModal.show();
+      })
+      .catch(error => console.error('Error fetching user data:', error));
+  }
 
-  let currentDay= String(date.getDate()).padStart(2, '0');
-  
-  let currentMonth = String(date.getMonth()+1).padStart(2,"0");
-  
-  let currentYear = date.getFullYear();
+  // Handle edit form submission
+  editForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(editForm);
+    const updatedUser = {};
+    formData.forEach((value, key) => {
+      updatedUser[key] = value;
+    });
 
-  // we will display the date as DD-MM-YYYY 
-
-  let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
- // Add current date to the user object
- user['created_at'] = currentDate; // or any other format you prefer
-
-  // Send POST request to JSON server
-  fetch('http://localhost:3000/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(user)
-  })
-    .then(response => response.json())
-    .then(data => {
-      form.reset();
-      addModal.hide();
-
-      populateTable();
+    // Send PUT request to update user data
+    fetch(`http://localhost:3000/users/${updatedUser.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedUser)
     })
-    .catch(error => console.error('Error adding user:', error));
-});
+      .then(response => response.json())
+      .then(data => {
+        editForm.reset();
+        editModal.hide();
+        populateTable(); // Refresh the table to reflect changes
+      })
+      .catch(error => console.error('Error updating user data:', error));
+  });
+
+
+  // Handle form submission and add new user
+  // const addButton = document.getElementById('addButton');
+  addButton.addEventListener('click', () => {
+    addModal.show();
+  });
+
+  addAccountButton.addEventListener('click', () => {
+    const form = document.getElementById('add-user-form');
+    const formData = new FormData(form);
+
+    // Convert form data to JSON object
+    const user = {};
+    formData.forEach((value, key) => {
+      user[key] = value;
+    });
+    const date = new Date();
+
+    let currentDay = String(date.getDate()).padStart(2, '0');
+
+    let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
+
+    let currentYear = date.getFullYear();
+
+    // we will display the date as DD-MM-YYYY 
+
+    let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+    // Add current date to the user object
+    user['created_at'] = currentDate; // or any other format you prefer
+
+    // Send POST request to JSON server
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(response => response.json())
+      .then(data => {
+        form.reset();
+        addModal.hide();
+
+        populateTable();
+      })
+      .catch(error => console.error('Error adding user:', error));
+  });
 
   function deleteRow(event) {
     const button = event.target;

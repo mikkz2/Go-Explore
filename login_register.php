@@ -46,7 +46,7 @@
                     <h2>REGISTER</h2>
                     <input type="text" placeholder="First Name" name="first_name" id="first_name" autocomplete="off">
                     <input type="text" placeholder="Last Name" name="last_name" id="last_name" autocomplete="off">
-                    <input type="text" placeholder="Email" name="email" id="email" autocomplete="off">
+                    <input type="email" placeholder="Email" name="email" id="email" autocomplete="off">
                     <input type="password" placeholder="Password" name="password" id="password" autocomplete="off">
                     <input type="text" placeholder="Country" name="from_country" id="from_country" autocomplete="off">
                     <input type="text" placeholder="Province" name="current_province" id="current_province" autocomplete="off">
