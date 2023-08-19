@@ -9,12 +9,7 @@ $(document).ready(function () {
     $("#addModal").modal("show");
   });
 });
-// modal for add event
-$(document).ready(function () {
-  $("#addButton").click(function () {
-    $("#addEventModal").modal("show");
-  });
-});
+
 // modal for add places
 $(document).ready(function () {
   $("#addButton").click(function () {
@@ -22,20 +17,7 @@ $(document).ready(function () {
   });
 });
 
-// month and day picker
-// document.addEventListener('DOMContentLoaded', function () {
-//   const eventDateInput = document.getElementById('eventDate');
 
-//   eventDateInput.addEventListener('input', function () {
-//     const inputValue = eventDateInput.value;
-
-//     if (!/^(January|February|March|April|May|June|July|August|September|October|November|December) (0?[1-9]|[12][0-9]|3[01])$/.test(inputValue)) {
-//       eventDateInput.setCustomValidity('Please enter a valid date in the format "Month Day" (e.g., "July 23").');
-//     } else {
-//       eventDateInput.setCustomValidity('');
-//     }
-//   });
-// });
 
 // USER MANAGEMENT DATA
 document.addEventListener('DOMContentLoaded', function () {

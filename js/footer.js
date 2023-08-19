@@ -2,8 +2,7 @@
 const footerSections = [
     {
         title: "About",
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        about:""
     },
     {
         title: "Categories",
@@ -12,7 +11,7 @@ const footerSections = [
             { title: "Nature", url: "#" },
             { title: "Beach", url: "#" },
             { title: "Adventure", url: "#" },
-            { title: "Festival", url: "#calendar.php" }
+            { title: "Festival", url: "calendar.php" }
         ]
     },
     {
@@ -39,16 +38,17 @@ function generateFooterContent() {
         } else {
             col.classList.add("col-xs-6", "col-md-3");
         }
-        
+
         const sectionTitle = document.createElement("h6");
         sectionTitle.textContent = section.title;
 
         col.appendChild(sectionTitle);
 
-        if (section.content) {
+        if (section.about !== undefined) {
             const sectionContent = document.createElement("p");
             sectionContent.classList.add("text-justify");
-            sectionContent.textContent = section.content;
+            sectionContent.id = "about"; 
+            sectionContent.textContent = section.about;
             col.appendChild(sectionContent);
         }
 
@@ -71,6 +71,31 @@ function generateFooterContent() {
         footerContentContainer.appendChild(col);
     });
 }
+
+// Function to update the "About" content
+function updateFooterAboutContent(about) {
+    const aboutElement = document.getElementById('about');
+    aboutElement.textContent = about;
+
+    // Update the about value in the footerSections array
+    footerSections[0].about = about;
+}
+
+// Fetch the JSON data from your server
+fetch('http://localhost:3000/footer')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+
+    const about = data[0].about;
+    console.log(about);
+    
+    updateFooterAboutContent(about);
+
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
 
 // Call the function to generate the dynamic content for the footer
 generateFooterContent();

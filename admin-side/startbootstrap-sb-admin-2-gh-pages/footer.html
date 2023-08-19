@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Calendar of Activities</title>
+    <title>Footer</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,8 +47,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 Interface
@@ -60,6 +58,7 @@
                     <span>Admin Management</span>
                 </a>
             </li>
+
             <!-- Nav Item - User Management Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="users-management.html">
@@ -67,6 +66,7 @@
                     <span>User Management</span>
                 </a>
             </li>
+
             <!-- Nav Item - Categories Collapse Menu -->
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -81,6 +81,7 @@
                         <a class="collapse-item" href="calendar-of-activities.html">Calendar of Activities</a>
                         <a class="collapse-item" href="loveourplanet.html">Love Our Planet</a>
                         <a class="collapse-item" href="">Favorites</a>
+                        <a class="collapse-item" href="">Learn More</a>
                         <a class="collapse-item" href="footer.html">Footer</a>
                         <a class="collapse-item" href="">Learn More</a>
                     </div>
@@ -89,7 +90,6 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -170,9 +170,9 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Festivals</h1>
-                    <p class="mb-4">Here you can add, edit, and delete festival contents from your <a target="_blank"
-                            href="https://datatables.net">Go Explore Website</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Footer</h1>
+                    <p class="mb-4">Here you can edit your footer content for <a target="_blank"
+                            href="https://datatables.net">Go Explore</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -180,9 +180,6 @@
                             <div class="row">
                                 <div class="col-10">
                                     <h6 class="m-0 font-weight-bold text-primary">Database Table</h6>
-                                </div>
-                                <div class="col-2">
-                                    <button class="btn btn-primary btn-sm" id="addButton">Add Event</button>
                                 </div>
                             </div>
                         </div>
@@ -193,19 +190,13 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Title</th>
-                                            <th>Description</th>
-                                            <th>Festival Date</th>
-                                            <th>Province</th>
-                                            <th>City</th>
-                                            <th>Date Created</th>
-                                            <th>Date Updated</th>
+                                            <th>About</th>
+                                            <th>Updated Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody">
-                                        <!-- dynamic -->
+                                        <!-- datas in database -->
                                     </tbody>
                                 </table>
                             </div>
@@ -214,92 +205,20 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Form to add event details -->
-                                <form id="add-user-form" enctype="multipart/form-data">
-                                    <div class="mb-3">
-                                        <label for="eventImage" class="form-label">Event Image</label>
-                                        <input type="file" class="form-control" id="image" name="image" accept="image/*">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventTitle" class="form-label">Title</label>
-                                        <input type="text" class="form-control" id="title" name="title" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventDescription" class="form-label">Description</label>
-                                        <textarea class="form-control" id="description" name="description" rows="3"
-                                            required></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventDate" class="form-label">Date (Month Day)</label>
-                                        <input type="text" class="form-control" id="date" name="date" required
-                                            placeholder="Month Day"
-                                            pattern="^(January|February|March|April|May|June|July|August|September|October|November|December) (0?[1-9]|[12][0-9]|3[01])$">
-                                        <div class="mb-3">
-                                            <label for="eventProvince" class="form-label">Province</label>
-                                            <input type="text" class="form-control" id="province" name="province" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="eventCity" class="form-label">City</label>
-                                            <input type="text" class="form-control" id="city" name="city" required>
-                                        </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" id="btn-cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" id="btn-add-account" class="btn btn-primary">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="editModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit User</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title" id="editModalLabel">Edit About</h5>
                         </div>
                         <div class="modal-body">
-                            <form id="edit-user-form" enctype="multipart/form-data">
+                            <form id="edit-user-form">
                                 <input type="hidden" name="id" id="edit-id">
                                 <div class="mb-3">
-                                    <label for="eventImage" class="form-label">Event Image</label>
-                                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                                    <label for="edit-about" class="form-label">Description</label>
+                                    <input type="text" class="form-control" id="about" name="about">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="eventTitle" class="form-label">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title"  required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="eventDescription" class="form-label">Description</label>
-                                    <textarea class="form-control" id="description" name="description"  rows="3"
-                                        required></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="eventDate" class="form-label">Date (Month Day)</label>
-                                    <input type="text" class="form-control" id="date" name="date" required
-                                        placeholder="Month Day"
-                                        pattern="^(January|February|March|April|May|June|July|August|September|October|November|December) (0?[1-9]|[12][0-9]|3[01])$">
-                                    <div class="mb-3">
-                                        <label for="eventProvince" class="form-label">Province</label>
-                                        <input type="text" class="form-control" id="province" name="province" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="city" name="city" required>
-                                    </div>
-                                <input type="hidden" name="created_at">
                                 <input type="hidden" name="updated_at">
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </form>
@@ -363,7 +282,7 @@
                 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
                 <!-- Page level custom scripts -->
-                <script src="js/demo/calendar-of-activities.js"></script>
+                <script src="js/demo/footer.js"></script>
 
 </body>
 
