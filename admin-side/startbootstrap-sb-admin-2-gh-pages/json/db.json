@@ -19,9 +19,9 @@
       "id": 1,
       "user_name": "admin",
       "email": "admin@gmail.com",
-      "password": "admin1",
+      "password": "admin",
       "created_at": "18-08-2023",
-      "updated_at": "18-08-2023"
+      "updated_at": "20-08-2023"
     }
   ],
   "festival": [
