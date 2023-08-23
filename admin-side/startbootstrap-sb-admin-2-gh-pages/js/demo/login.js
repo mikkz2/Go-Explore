@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            fetch('http://localhost:3001/auth/login', {
+            fetch('http://localhost:3001/auth/verify', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -19,7 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.access_token && data.refresh_token) {
-                    // ValSid login
+                    // Valid login
+                    localStorage.setItem('access_token', data.access_token);
+                    localStorage.setItem('refresh_token', data.refresh_token);
+
+                    console.log(data);
                     console.log('Login successful');
                     window.location.href = 'index.html'; 
                 } else {

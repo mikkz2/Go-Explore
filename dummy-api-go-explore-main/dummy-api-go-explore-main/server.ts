@@ -1,50 +1,90 @@
-import express, { Request, Response, json } from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { sign } from 'jsonwebtoken';
 import multer from 'multer';
+import axios from 'axios'; 
 
 const server = express();
 const upload = multer({ dest: './public/images' });
+
+interface Admin {
+    email: string;
+    password: string;
+}
+
+async function fetchAdminData(): Promise<Admin[]> {
+    try {
+        const response = await axios.get('http://localhost:3000/admin');
+        return response.data as Admin[];
+    } catch (error) {
+        throw error;
+    }
+}
 
 server.use(express.json());
 server.use(cors());
 
 server.use(express.static('./public'));
 
-server.post('/auth/login', (req: Request, res: Response) => {
+// server.post('/auth/login', (req: Request, res: Response) => {
+//     const clientEmail = req.body.email;
+//     const clientPassword = req.body.password;
 
-    const clientEmail = req.body.email;
-    const clientPassword = req.body.password;
+//     const email = 'server@gmail.com';
+//     const password = 'server123';
 
-    const email = 'server@gmail.com';
-    const password = 'server123';
-    console.log(clientEmail +" "+ clientPassword)
-    if (clientEmail === email && clientPassword === password) {
+//     if (clientEmail === email && clientPassword === password) {
+//         const access_token = sign({ clientEmail }, 'TOP_SECRET_KEY');
+//         const refresh_token = sign({ access_token }, 'TOP_SECRET_KEY');
 
-        const access_token = sign({ clientEmail }, 'TOP_SECRET_KEY');
-        const refresh_token = sign({ access_token }, 'TOP_SECRET_KEY');
-
-        res.status(200).json({
-            access_token,
-            refresh_token
-        });
-
-        return;
-
-    } else {
-        res.status(400).json({
-            message: 'Invalid email or password'
-        });
-
-        return;
-    }
-
-});
+//         res.status(200).json({
+//             access_token,
+//             refresh_token
+//         });
+//     } else {
+//         res.status(400).json({
+//             message: 'Invalid email or password'
+//         });
+//     }
+// });
 
 server.post('/images', upload.single('image'), (req: Request, res: Response) => {
     res.status(201).json({ url: `http://localhost:3001/images/${req.file?.filename}` });
 });
 
+server.post('/auth/verify', async (req: Request, res: Response) => {
+    const clientEmail = req.body.email;
+    const clientPassword = req.body.password;
+
+    try {
+        const adminData = await fetchAdminData();
+        console.log('Admin data:', adminData);
+
+        const matchedAdmin = adminData.find((admin) => admin.email === clientEmail && admin.password === clientPassword);
+
+        if (matchedAdmin) {
+            console.log('Login successful for:', clientEmail);
+            const access_token = sign({ clientEmail }, 'TOP_SECRET_KEY');
+            const refresh_token = sign({ access_token }, 'TOP_SECRET_KEY');
+
+            res.status(200).json({
+                access_token,
+                refresh_token
+            });
+        } else {
+            console.log('Invalid login for:', clientEmail);
+            res.status(400).json({
+                message: 'Invalid email or password'
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching admin data:', error);
+        res.status(500).json({
+            message: 'Internal server error'
+        });
+    }
+});
+
 server.listen(3001, () => {
-    console.log('Server is runnong on PORT 3001');
+    console.log('Server is running on PORT 3001');
 });

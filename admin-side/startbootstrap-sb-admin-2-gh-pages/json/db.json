@@ -17,11 +17,18 @@
   "admin": [
     {
       "id": 1,
-      "user_name": "admin",
-      "email": "admin@gmail.com",
-      "password": "admin",
-      "created_at": "18-08-2023",
-      "updated_at": "20-08-2023"
+      "user_name": "admin1",
+      "email": "test@gmail.com",
+      "password": "test",
+      "created_at": "23-08-2023",
+      "updated_at": "23-08-2023"
+    },
+    {
+      "user_name": "admin2",
+      "email": "server@gmail.com",
+      "password": "server",
+      "created_at": "23-08-2023",
+      "id": 2
     }
   ],
   "festival": [
