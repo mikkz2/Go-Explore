@@ -43,6 +43,44 @@
 // festivalDetails.appendChild(festivalDescription);
 // festivalContainer.appendChild(festivalDetails);
 
+// Assume festivalData is fetched from the database
+const festivalData = [];
+
+// Find the elements to populate
+const bgImage = document.querySelector('.bg-image');
+const overlayTitle = document.querySelector('.overlay-title');
+const festivalTitle = document.querySelector('.festival-title');
+const festivalDescription = document.querySelector('.festival-description');
+
+// Populate the elements with dynamic content
+function populateElements(data) {
+    bgImage.style.backgroundImage = `url('${data.imageSrc}')`;
+    overlayTitle.textContent = data.overlayTitle;
+    festivalTitle.textContent = data.festivalTitle;
+    festivalDescription.textContent = data.festivalDescription;
+}
+
+// Fetch data from your server or database
+fetch('http://localhost:3000/festival') // Replace with your actual data source URL
+    .then(response => response.json())
+    .then(data => {
+        // Assuming data is an array, you can select the first item as festivalData
+        if (data.length > 0) {
+            const firstFestival = data[0];
+            festivalData.push({
+                imageSrc: firstFestival.image, // Assuming image is the field name in the data
+                overlayTitle: firstFestival.title,
+                festivalTitle: firstFestival.title,
+                festivalDescription: firstFestival.description,
+            });
+
+            // Call the function with the fetched item
+            populateElements(festivalData[0]);
+        }
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+
 // CARD DATA
 const contentData = [
     {
