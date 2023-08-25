@@ -1,38 +1,31 @@
 
-const festivalData = [];
-
 // Find the elements to populate
 const bgImage = document.querySelector('.bg-image');
 const overlayTitle = document.querySelector('.overlay-title');
 const festivalTitle = document.querySelector('.festival-title');
 const festivalDescription = document.querySelector('.festival-description');
 
-// Populate the elements with dynamic content
+// Function to populate the template with dynamic content
 function populateElements(data) {
-    bgImage.style.backgroundImage = `url('${data.imageSrc}')`;
-    overlayTitle.textContent = data.overlayTitle;
-    festivalTitle.textContent = data.festivalTitle;
-    festivalDescription.textContent = data.festivalDescription;
+    bgImage.style.backgroundImage = `url('${data.image}')`; 
+    overlayTitle.textContent = data.title; 
+    festivalTitle.textContent = data.title;
+    festivalDescription.textContent = data.description;
 }
 
-// Fetch data from your server or database
-fetch('http://localhost:3000/festival') 
+// Get the item_id query parameter from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const itemId = urlParams.get('item_id');
+
+// Fetch data from your server or database using the specific item_id
+fetch(`http://localhost:3000/festival/${itemId}`)
     .then(response => response.json())
     .then(data => {
 
-        if (data.length > 0) {
-            const firstFestival = data[0];
-            festivalData.push({
-                imageSrc: firstFestival.image, 
-                overlayTitle: firstFestival.title,
-                festivalTitle: firstFestival.title,
-                festivalDescription: firstFestival.description,
-            });
-
-            populateElements(festivalData[0]);
-        }
+        populateElements(data);
     })
     .catch(error => console.error('Error fetching data:', error));
+
 
 
 // CARD DATA
