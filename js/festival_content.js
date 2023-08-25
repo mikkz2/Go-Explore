@@ -1,49 +1,4 @@
-// FESTIVAL CONTENTS
-// const festivalData = {
-//     backgroundImage: 'image/Sublian1.jpg',
-//     title: 'SUBLIAN FESTIVAL',
-//     description: '-The Sublian festival, a two weeklong celebration which culminates every year on the 23rd of July, is rooted in the Batangueños’ devotion to the town’s patron: the Holy Cross in Bauan and Agoncillo, and the Sto. Niño in Batangas City.',
-// };
 
-// const festivalContainer = document.querySelector('.festival-container');
-
-// // Create and populate the background image div
-// const bgImageDiv = document.createElement('div');
-// bgImageDiv.classList.add('bg-image');
-// bgImageDiv.style.backgroundImage = `url('${festivalData.backgroundImage}')`;
-// bgImageDiv.style.height = '450px';
-// bgImageDiv.style.backgroundRepeat = 'no-repeat';
-// bgImageDiv.style.backgroundSize = 'cover';
-
-// const overlayDiv = document.createElement('div');
-// overlayDiv.classList.add('overlay');
-
-// const overlayText = document.createElement('h1');
-// overlayText.classList.add('overlay-text');
-// overlayText.textContent = festivalData.title;
-
-// overlayDiv.appendChild(overlayText);
-// bgImageDiv.appendChild(overlayDiv);
-// festivalContainer.appendChild(bgImageDiv);
-
-// Create and populate the festival title
-// const festivalTitle = document.createElement('div');
-// festivalTitle.classList.add('festival-title');
-// festivalTitle.textContent = festivalData.title;
-// festivalContainer.appendChild(festivalTitle);
-
-// Create and populate the festival details
-// const festivalDetails = document.createElement('div');
-// festivalDetails.classList.add('festival-details');
-
-// const festivalDescription = document.createElement('div');
-// festivalDescription.classList.add('festival-description');
-// festivalDescription.textContent = festivalData.description;
-
-// festivalDetails.appendChild(festivalDescription);
-// festivalContainer.appendChild(festivalDetails);
-
-// Assume festivalData is fetched from the database
 const festivalData = [];
 
 // Find the elements to populate
@@ -61,20 +16,19 @@ function populateElements(data) {
 }
 
 // Fetch data from your server or database
-fetch('http://localhost:3000/festival') // Replace with your actual data source URL
+fetch('http://localhost:3000/festival') 
     .then(response => response.json())
     .then(data => {
-        // Assuming data is an array, you can select the first item as festivalData
+
         if (data.length > 0) {
             const firstFestival = data[0];
             festivalData.push({
-                imageSrc: firstFestival.image, // Assuming image is the field name in the data
+                imageSrc: firstFestival.image, 
                 overlayTitle: firstFestival.title,
                 festivalTitle: firstFestival.title,
                 festivalDescription: firstFestival.description,
             });
 
-            // Call the function with the fetched item
             populateElements(festivalData[0]);
         }
     })
@@ -189,4 +143,5 @@ for (let i = 0; i < contentData.length; i += 3) {
     // Append the carousel item to the carousel inner
     carouselInner.appendChild(carouselItem);
 }
+
 

@@ -4,6 +4,7 @@
       "id": 1,
       "first_name": "Mikkay",
       "last_name": "Gabinete",
+      "gender": "Female",
       "email": "mikkay@gmail.com",
       "password": "mikkay",
       "from_country": "Philippines",
@@ -11,7 +12,7 @@
       "current_city": "Legazpi",
       "current_baranggay": "Taysan",
       "created_at": "18-08-2023",
-      "updated_at": "18-08-2023"
+      "updated_at": "25-08-2023"
     }
   ],
   "admin": [
@@ -42,6 +43,87 @@
       "city": "Batangas City",
       "created_at": "18-08-2023",
       "updated_at": "24-08-2023"
+    },
+    {
+      "title": "Parada ng Lechon",
+      "description": "- Balayan town celebrates the feast of St. John the Baptist every June 24th with a parade of roast pig (lechon). In parody of the time-honored ritual of baptism, townsfolk throw water on each other during the parade in the spirit of fun. After the lechon has been blessed, everyone sits down to partake in the feast. ",
+      "date": "June 24",
+      "province": "Batangas",
+      "city": "Balayan",
+      "image": "http://localhost:3001/images/1bd7d1e8efbe17bf751247825ca1e976",
+      "created_at": "25-08-2023",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "image": "http://localhost:3001/images/8c58ca101f60b37c0d1914523211cdfd",
+      "title": "Tapusan Festival",
+      "description": "- Starting on the first of May, floral offerings are laid before an old cross in the town of Alitagtag. The honoring of the Holy Cross peaks on the last day of May with a procession during which the cross is mounted on a beautifully decorated float and drawn through the streets with other flower-bedecked floats carrying Marian images.",
+      "date": "May 31",
+      "province": "Batangas",
+      "city": "Alitagtag",
+      "created_at": "25-08-2023",
+      "updated_at": "25-08-2023"
+    },
+    {
+      "title": "Anihan Festival",
+      "description": "- The Anihan Festival is first and foremost a thanksgiving celebration for the people’s bountiful harvest. It is likewise a tribute to the farmers whose efforts are a significant factor in the success of agricultural development in Lobo.\n-Anihan Festival is an annual celebration of the Loboeño’s gratitude and veneration to St. Michael the Archangel and most of all, to give the highest respect and adoration to the Almighty God. It is part of the week-long commemoration and celebration of Lobo Foundation Anniversary that usually ends on the 29th day of September – the feast day of St. Michael the Archangel. Various activities such as Alay-Lakad, Kasalang Bayan, Entertainment Night, Job Fair, Agri-Trade Fair, Search for Miss Lobo Pageant, Street Dancing Competition, Float Parade, Search for Anihan Festival Queen, Cultural Presentation and Fluvial Procession are being celebrated. These activities or events are being participated in by LGU, students from both private and public secondary schools, senior high school, elementary school pupils of the district, and other private individuals whose active involvement is so excellent. The contingent’s' outfits were made from crude materials from items which Lobo is known for. The innovative outfits were decorated and made from buli, corn, coconut husk, anahaw leaf, and shells. A large portion of the outfits were likely designed with atis-inspired props. The participants could make use of popular music to dance to. Each school’s best dancers take time and effort to lead other pupils to dance using modern choreography. Hours would be spent perfecting the dance and stunts routine. Props too add color and excitement to their presentations and to rival competitors. The plethora of sights and sounds of the Anihan Festival draws crowds of thousands to the town plaza to watch the event. Adding color to the festivity are the parade of creatively designed floats, with muses of competing tribes, and the Search for Anihan Festival Queen.",
+      "date": "September 27",
+      "province": "Batangas",
+      "city": "Lobo",
+      "image": "http://localhost:3001/images/1725b41e3efbf64f78f9a970f209a13d",
+      "created_at": "25-08-2023",
+      "id": 4
+    },
+    {
+      "title": "CALACAtchara Festival",
+      "description": "- The Calacatchara Festival derived from combining Calaca and Atchara, the town’s famous product. Atchara is an appetizer and/or side dish made of pickled raw pap aya. Usually runs for a week ending in October 24, the feast day of the town’s patron saint, St. Raphael the Archangel.",
+      "date": "May 1 to 10",
+      "province": "Batangas",
+      "city": "Calaca",
+      "image": "http://localhost:3001/images/869ad71ab228df6ec71ea2a4552e9bca",
+      "created_at": "25-08-2023",
+      "id": 5
+    },
+    {
+      "title": "EL PASUBAT Festival",
+      "description": "- Celebrated annually during the month of April, EL PASUBAT Festival is the conglomeration of the trademarks of Taal, Batangas. EL PASUBAT stands for Empanada, Longganisa, Panutsa, Suman, Balisong, Barong Tagalog, Tapa, Tamales, Tawilis, Tulingan — the delicacies and crafts that Taal is known for.\n-The festival is one grandiose way of highlighting the products of Taal in a celebration made to ignite Taaleños’ pride of the things that contributed to the economic growth of the municipality and the unity that strengthens the people.",
+      "date": "April 28-30",
+      "province": "Batangas",
+      "city": "Taal",
+      "image": "http://localhost:3001/images/1af02b7b7960f20365978ea7d37411a1",
+      "created_at": "25-08-2023",
+      "id": 6
+    },
+    {
+      "title": "Kambingan Festival",
+      "description": "- The Kambingan Festival is the local way of honoring their town, and a town plaza night food market where people can buy foods. products given by goats are one of the town’s blessings. The annual celebration during August 12 is also a way of honoring their town where different activities are being held within the municipality.\n",
+      "date": "August 12 30",
+      "province": "Batangas",
+      "city": "Tuy",
+      "image": "http://localhost:3001/images/97b46da608d3dbb6675b2981a832680c",
+      "created_at": "25-08-2023",
+      "id": 7
+    },
+    {
+      "title": "Sublian Festival",
+      "description": "-The municipality of Bauan celebrates the Sublian every May 2nd. This festival aims to revive the centuries-old tradition of dancing the Subli, an indigenous dance of Bauan. This dance ritual is being done to pay homage to the Holy Cross of Bauan.",
+      "date": "May 2",
+      "province": "Batangas",
+      "city": "Bauan",
+      "image": "http://localhost:3001/images/c7672514b12f1c00d5f1f67e43fd8d74",
+      "created_at": "25-08-2023",
+      "id": 8
+    },
+    {
+      "title": "Punlad Festival",
+      "description": "- Punlad Festival is a celebration of the town’s main produce — punla or saplings (or seedlings). Talisay is tagged as the seedling bowl of the nation where a lot of other towns and provinces are getting seedlings for their farmlands. Punlad came from their line “punla sa pag-unlad”.",
+      "date": "February 6",
+      "province": "Batangas",
+      "city": "Talisay",
+      "image": "http://localhost:3001/images/e05797e76dd5666328b944c46636e4fb",
+      "created_at": "25-08-2023",
+      "id": 9
     }
   ],
   "footer": [
@@ -51,5 +133,4 @@
       "updated_at": "19-08-2023"
     }
   ]
-
 }

@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                       <td>${user.id}</td>
                       <td>${user.first_name}</td>
                       <td>${user.last_name}</td>
+                      <td>${user.gender}</td>
                       <td>${user.email}</td>
                       <td>${maskPassword(user.password)}</td>
                       <td>${user.from_country}</td>
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         editForm.elements.id.value = user.id;
         editForm.elements.first_name.value = user.first_name;
         editForm.elements.last_name.value = user.last_name;
+        editForm.elements.gender.value = user.gender;
         editForm.elements.email.value = user.email;
         editForm.elements.password.value = user.password;
         editForm.elements.from_country.value = user.from_country;

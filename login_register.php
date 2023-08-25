@@ -34,7 +34,7 @@
             <div class="white-panel">
                 <div class="login-show">
                     <h2>LOGIN</h2>
-                    <input type="text" placeholder="Email" name="email" id="email" >
+                    <input type="text" placeholder="Email" name="email" id="email">
                     <input type="password" placeholder="Password" name="password" id="password">
                     <input type="button" value="Login" id="loginButton">
                     <a href="">Forgot password?</a>
@@ -46,12 +46,19 @@
                     <h2>REGISTER</h2>
                     <input type="text" placeholder="First Name" name="first_name" id="first_name" autocomplete="off">
                     <input type="text" placeholder="Last Name" name="last_name" id="last_name" autocomplete="off">
-                    <input type="text" placeholder="Email" name="email" id="email" autocomplete="off">
-                    <input type="password" placeholder="Password" name="password" id="password" autocomplete="off">
+                    <div class="form-group">
+                        <select class="form-control" name="gender" id="gender">
+                            <option disabled selected value="">Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <input type="text" placeholder="Email" name="email" id="emailInput" autocomplete="off">
+                    <input type="password" placeholder="Password" name="password" id="passwordInput" autocomplete="off">
                     <input type="text" placeholder="Country" name="from_country" id="from_country" autocomplete="off">
                     <input type="text" placeholder="Province" name="current_province" id="current_province" autocomplete="off">
                     <input type="text" placeholder="City" name="city" id="current_city" autocomplete="off">
-                    <input type="text" placeholder="Baranggay"  name="current_baranggay" id="current_baranggay" autocomplete="off">
+                    <input type="text" placeholder="Baranggay" name="current_baranggay" id="current_baranggay" autocomplete="off">
                     <input type="button" id="registerButton" value="Register">
                 </div>
                 <div class="login-reg-panel-mini">
@@ -72,27 +79,27 @@
         </div>
     </div>
     <div id="errorModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Invalid login. Please check your credentials.</p>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Invalid login. Please check your credentials.</p>
+        </div>
     </div>
-</div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Attention</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Invalid Input. Please check your credentials
-      </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Attention</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Invalid Input. Please check your credentials
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <?php include 'footer.php'; ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

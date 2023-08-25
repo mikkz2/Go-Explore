@@ -148,8 +148,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">ADMIN</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -186,7 +185,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -195,6 +194,7 @@
                                             <th>ID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
+                                            <th>Gender</th>
                                             <th>Email</th>
                                             <th>Password</th>
                                             <th>Country</th>
@@ -207,7 +207,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody">
-                                       <!-- datas in database -->
+                                        <!-- datas in database -->
                                     </tbody>
                                 </table>
                             </div>
@@ -216,7 +216,8 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="adduser" aria-hidden="true">
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="adduser"
+                    aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -229,41 +230,57 @@
                                 <form id="add-user-form">
                                     <div class="form-group">
                                         <label for="firstname">First Name</label>
-                                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter first name">
+                                        <input type="text" class="form-control" name="first_name" id="first_name"
+                                            placeholder="Enter first name">
                                     </div>
                                     <div class="form-group">
                                         <label for="lastname">Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter last name">
+                                        <input type="text" class="form-control" name="last_name" id="last_name"
+                                            placeholder="Enter last name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" name="gender" id="gender">
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+                                        <input type="password" class="form-control" name="password" id="password"
+                                            placeholder="Enter password">
                                     </div>
                                     <div class="form-group">
                                         <label for="country">Country</label>
-                                        <input type="text" class="form-control" name="from_country" id="from_country" placeholder="Enter country">
+                                        <input type="text" class="form-control" name="from_country" id="from_country"
+                                            placeholder="Enter country">
                                     </div>
                                     <div class="form-group">
                                         <label for="province">Province</label>
-                                        <input type="text" class="form-control" name="current_province" id="current_province" placeholder="Enter province">
+                                        <input type="text" class="form-control" name="current_province"
+                                            id="current_province" placeholder="Enter province">
                                     </div>
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" class="form-control" name="current_city" id="current_city" placeholder="Enter city">
+                                        <input type="text" class="form-control" name="current_city" id="current_city"
+                                            placeholder="Enter city">
                                     </div>
                                     <div class="form-group">
                                         <label for="baranggay">Baranggay</label>
-                                        <input type="text" class="form-control" name="current_baranggay" id="current_baranggay" placeholder="Enter baranggay">
+                                        <input type="text" class="form-control" name="current_baranggay"
+                                            id="current_baranggay" placeholder="Enter baranggay">
                                     </div>
 
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="btn-cancel" id="btn-cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="btn-cancel" id="btn-cancel" class="btn btn-secondary"
+                                    data-dismiss="modal">Cancel</button>
                                 <button type="submit" id="btn-add-account" class="btn btn-primary">Add</button>
                             </div>
                         </div>
@@ -272,112 +289,122 @@
             </div>
 
             <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="edit-user-form">
-                    <input type="hidden" name="id" id="edit-id">
-                    <div class="mb-3">
-                        <label for="edit-first-name" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-last-name" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-from-county" class="form-label">Country</label>
-                        <input type="text" class="form-control" id="from_country" name="from_country">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-current-province" class="form-label">Province</label>
-                        <input type="text" class="form-control" id="current_province" name="current_province">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-current-city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="current_city" name="current_city">
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-current-baranggay" class="form-label">Baranggay</label>
-                        <input type="text" class="form-control" id="current_baranggay" name="current_baranggay">
-                    </div>
-                    <input type="hidden" name="created_at">
-                    <input type="hidden" name="updated_at">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </form>
-            </div>
-            <!-- End of Main Content -->
+                aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-user-form">
+                                <input type="hidden" name="id" id="edit-id">
+                                <div class="mb-3">
+                                    <label for="edit-first-name" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-last-name" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select class="form-control" name="gender" id="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-email" class="form-label">Email</label>
+                                    <input type="text" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-from-county" class="form-label">Country</label>
+                                    <input type="text" class="form-control" id="from_country" name="from_country">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-current-province" class="form-label">Province</label>
+                                    <input type="text" class="form-control" id="current_province"
+                                        name="current_province">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-current-city" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="current_city" name="current_city">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-current-baranggay" class="form-label">Baranggay</label>
+                                    <input type="text" class="form-control" id="current_baranggay"
+                                        name="current_baranggay">
+                                </div>
+                                <input type="hidden" name="created_at">
+                                <input type="hidden" name="updated_at">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                        <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; Your Website 2020</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
+                    </div>
+                    <!-- End of Content Wrapper -->
+
+                </div>
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.html">Logout</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    </div>
-    <!-- End of Page Wrapper -->
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                <!-- Page level plugins -->
+                <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/users-management.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="js/demo/users-management.js"></script>
 
 </body>
 

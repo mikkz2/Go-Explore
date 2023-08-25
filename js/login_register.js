@@ -32,8 +32,9 @@ registerButton.addEventListener('click', () => {
     // Collect form data
     const first_name = document.getElementById('first_name').value;
     const last_name = document.getElementById('last_name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const gender = document.getElementById('gender').value;
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
     const from_country = document.getElementById('from_country').value;
     const current_province = document.getElementById('current_province').value;
     const current_city = document.getElementById('current_city').value;
@@ -46,6 +47,7 @@ registerButton.addEventListener('click', () => {
     const user = {
         first_name,
         last_name,
+        gender,
         email,
         password,
         from_country,

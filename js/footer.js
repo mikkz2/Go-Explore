@@ -85,10 +85,8 @@ function updateFooterAboutContent(about) {
 fetch('http://localhost:3000/footer')
   .then(response => response.json())
   .then(data => {
-    console.log(data);
 
     const about = data[0].about;
-    console.log(about);
     
     updateFooterAboutContent(about);
 
