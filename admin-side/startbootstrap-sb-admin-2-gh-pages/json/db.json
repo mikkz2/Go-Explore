@@ -126,6 +126,68 @@
       "id": 9
     }
   ],
+  "places": [
+    {
+      "title": "AJ POGI",
+      "description": "He is the love of elly's life",
+      "category": "swim",
+      "province": "Batangas",
+      "city": "Padre Garcia",
+      "barangay": "Pansol",
+      "contact": "09387020491",
+      "image": "http://localhost:3001/images/032f68abe431b09639940763bb4764c4",
+      "created_at": "25-08-2023",
+      "id": 1
+    },
+    {
+      "title": "Papanget",
+      "description": "papa pogi",
+      "category": "nature",
+      "province": "batangas",
+      "city": "lipa",
+      "barangay": "san jose",
+      "contact": "09 7282323",
+      "image": "http://localhost:3001/images/88cf76e23cb771b4267110112508c4a0",
+      "created_at": "25-08-2023",
+      "id": 2
+    },
+    {
+      "title": "family",
+      "description": "hakdog",
+      "category": "nature",
+      "province": "batangas",
+      "city": "lipa",
+      "barangay": "san jose",
+      "contact": "hehe",
+      "image": "http://localhost:3001/images/3cba0b28dff0446f57661bcd57a8d8e1",
+      "created_at": "25-08-2023",
+      "id": 3
+    },
+    {
+      "title": "bellay and me",
+      "description": "hehehehe",
+      "category": "events",
+      "province": "batangas",
+      "city": "lipa",
+      "barangay": "rosario",
+      "contact": "027127",
+      "image": "http://localhost:3001/images/75a5b09ac66d62d45a6042adf9f2fcb4",
+      "created_at": "25-08-2023",
+      "id": 4
+    },
+    {
+      "title": "hallo",
+      "description": "elly",
+      "category": "",
+      "province": "faa",
+      "city": "faf",
+      "barangay": "eaaaa",
+      "contact": "fadfa",
+      "image": "http://localhost:3001/images/e3f4de03ba42b6dedf6a8680bbb9a498",
+      "created_at": "25-08-2023",
+      "id": 5
+    }
+  ],
   "footer": [
     {
       "id": 1,

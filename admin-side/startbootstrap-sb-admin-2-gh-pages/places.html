@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Users Management</title>
+    <title>Calendar of Activities</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,6 +47,8 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 Interface
@@ -88,6 +90,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -111,7 +114,6 @@
                             <i class="fa fa-bars"></i>
                         </button>
                     </form>
-
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -169,7 +171,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Places</h1>
-                    <p class="mb-4">Here you can add, edit, and delete places contents from your <a target="_blank"
+                    <p class="mb-4">Here you can add, edit, and delete place contents from your <a target="_blank"
                             href="https://datatables.net">Go Explore Website</a>.</p>
 
                     <!-- DataTales Example -->
@@ -180,7 +182,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Database Table</h6>
                                 </div>
                                 <div class="col-2">
-                                    <button class="btn btn-primary btn-sm" id="addButton">Add Place</button>
+                                    <button class="btn btn-primary btn-sm" id="addButton">Add Event</button>
                                 </div>
                             </div>
                         </div>
@@ -197,105 +199,15 @@
                                             <th>Category</th>
                                             <th>Province</th>
                                             <th>City</th>
-                                            <th>Baranggay</th>
+                                            <th>Barangay</th>
                                             <th>Contact</th>
                                             <th>Date Created</th>
                                             <th>Date Updated</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <a href="image/resorts/1.png" target="_blank">
-                                                    <img src="image/resorts/1.png" alt="Camp Netanya Resort and Spa"
-                                                        class="img-thumbnail" width="100px">
-                                                </a>
-
-                                            </td>
-                                            <td>Camp Netanya Resort and Spa</td>
-                                            <td>Camp Netanya Resort and Spa claims its popularity from its Santorini
-                                                architecture giving rise to its brilliant blue
-                                                domes and white wash buildings. Camp Netanya offers 48 guest rooms and
-                                                villas, dive shop, wellness center and family and
-                                                friend everyone should enjoy. </td>
-                                            <td>Hotels</td>
-                                            <td>Batangas</td>
-                                            <td>Mabini</td>
-                                            <td>Baun - Mabini Rd</td>
-                                            <td>0912345678</td>
-                                            <td>08/16/23</td>
-                                            <td>08/16/23</td>
-                                            <td><button class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-pen"></i>
-                                                </button>
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <a href="image/resorts/2.png" target="_blank">
-                                                    <img src="image/resorts/2.png" alt="Aquaventure Reef Club"
-                                                        class="img-thumbnail" width="100px">
-                                                </a>
-                                            </td>
-                                            <td>Aquaventure Reef Club</td>
-                                            <td>-Located in the stunning peninsula of Mabini along Batangas Bay,
-                                                AquaVenture Reef Club is a full service dive resort,
-                                                offering everything from airport pickup round-trip, comfortable, clean
-                                                and Covid-Safe suites, diving classes to make the
-                                                oceans accessible,local diving, ocean adventure tours and a diverse menu
-                                                with a local flair in their restaurant.
-                                            </td>
-                                            <td>Hotels</td>
-                                            <td>Batangas</td>
-                                            <td>Mabini</td>
-                                            <td>Sitio Looc, Barangay Bagalangit</td>
-                                            <td>0912345678</td>
-                                            <td>08/16/23</td>
-                                            <td>08/16/23</td>
-                                            <td><button class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-pen"></i>
-                                                </button>
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <a href="image/resorts/3.png" target="_blank">
-                                                    <img src="image/resorts/3.png" alt="Casita Ysabel"
-                                                        class="img-thumbnail" width="100px">
-                                                </a>
-                                            </td>
-                                            <td>Casita Ysabel</td>
-                                            <td>- Casita Ysabel is know for its rustic comfortnestled in Mabini,
-                                                Batangas. It has now become a favorite destination among local
-                                                and foreign guest who are looking for privacy and comfort. A place of
-                                                true relaxation, rejuvenation and a distinct rainforest ocean
-                                                experience. It’s beauty and tranquility enfolds you with the warmth and
-                                                charm of a pradise home.</td>
-                                            <td>Hotels</td>
-                                            <td>Batangas</td>
-                                            <td>Mabini</td>
-                                            <td> Brgy, San Teodoro</td>
-                                            <td>0912345678</td>
-                                            <td>08/16/23</td>
-                                            <td>08/16/23</td>
-                                            <td><button class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-pen"></i>
-                                                </button>
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tableBody">
+                                        <!-- dynamic -->
                                     </tbody>
                                 </table>
                             </div>
@@ -304,116 +216,172 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <div class="modal fade" id="addPlaceModal" tabindex="-1" aria-labelledby="addPlaceModalLabel"
+                <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="addPlaceModalLabel">Add Places</h5>
+                                <h5 class="modal-title" id="addEventModalLabel">Add Places</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <!-- Form to add event details -->
-                                <form>
+                                <form id="add-user-form" enctype="multipart/form-data">
                                     <div class="mb-3">
-                                        <label for="PlaceImage" class="form-label">Place Image</label>
-                                        <input type="file" class="form-control" id="PlaceImage" accept="image/*">
+                                        <label for="eventImage" class="form-label">Places Image</label>
+                                        <input type="file" class="form-control" id="PlaceImage" name="image" accept="image/*">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="PlacesTitle" class="form-label">Title</label>
-                                        <input type="text" class="form-control" id="PlacesTitle" required>
+                                        <label for="eventTitle" class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="PlacesTitle" name="title" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="PlacesDescription" class="form-label">Description</label>
-                                        <textarea class="form-control" id="PlacesDescription" rows="3"
+                                        <label for="eventDescription" class="form-label">Description</label>
+                                        <textarea class="form-control" id="PlacesDescription" name="description" rows="3"
                                             required></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="PlacesCity" class="form-label">Category</label>
-                                        <input type="text" class="form-control" id="PlacesCity" required>
+                                        <label for="PlacesCategory" class="form-label">Category</label>
+                                        <select class="form-control" id="PlacesCategory" name="category" required readonly>
+                                            <option value="">Select a category</option>
+                                            <option value="swim">SWIM AND BEACHES</option>
+                                            <option value="nature">NATURE TRIP</option>
+                                            <option value="churches">CHURCHES</option>
+                                            <option value="events">EVENTS AND CULTURE</option>
+                                            <option value="hotels">HOTELS</option>
+                                            <option value="tourists">TOURIST SPOT</option>
+                                        </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="PlacesProvince" class="form-label">Province</label>
-                                        <input type="text" class="form-control" id="PlacesProvince" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="PlacesCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="PlacesCity" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="PlacesCity" class="form-label">Baranggay</label>
-                                        <input type="text" class="form-control" id="PlacesCity" required>
-                                    </div>
+                                    
+                                        <div class="mb-3">
+                                            <label for="eventProvince" class="form-label">Province</label>
+                                            <input type="text" class="form-control" id="PlacesProvince" name="province" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="eventCity" class="form-label">City</label>
+                                            <input type="text" class="form-control" id="PlacesCity" name="city" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="eventCity" class="form-label">Barangay</label>
+                                            <input type="text" class="form-control" id="PlacesBarangay" name="barangay" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="eventCity" class="form-label">Contact</label>
+                                            <input type="text" class="form-control" id="PlacesContact" name="contact" required>
+                                        </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary">Add</button>
+                                <button type="button" id="btn-cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" id="btn-add-account" class="btn btn-primary">Add</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- End of Main Content -->
+            <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-user-form" enctype="multipart/form-data">
+                                <input type="hidden" name="id" id="edit-id">
+                                <div class="mb-3">
+                                    <label for="eventImage" class="form-label">Event Image</label>
+                                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="eventTitle" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="title" name="title"  required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="eventDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" name="description"  rows="3"
+                                        required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="eventDate" class="form-label">Date (Month Day)</label>
+                                    <input type="text" class="form-control" id="date" name="date" required
+                                        placeholder="Month Day"
+                                        pattern="^(January|February|March|April|May|June|July|August|September|October|November|December) (0?[1-9]|[12][0-9]|3[01])$">
+                                    <div class="mb-3">
+                                        <label for="eventProvince" class="form-label">Province</label>
+                                        <input type="text" class="form-control" id="province" name="province" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="eventCity" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="city" name="city" required>
+                                    </div>
+                                <input type="hidden" name="created_at">
+                                <input type="hidden" name="updated_at">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                        <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; Your Website 2020</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
+                    </div>
+                    <!-- End of Content Wrapper -->
+
+                </div>
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.html">Logout</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    </div>
-    <!-- End of Page Wrapper -->
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                <!-- Page level plugins -->
+                <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="js/demo/places.js"></script>
 
 </body>
 
