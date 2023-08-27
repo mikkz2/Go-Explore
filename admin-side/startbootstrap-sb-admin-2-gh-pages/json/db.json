@@ -205,29 +205,175 @@
       "id": 1,
       "image": "http://localhost:3001/images/78775629ea9b3b620de365e7c3a11fb4",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "created_at": "",
       "updated_at": "27-08-2023"
     },
     {
       "id": 2,
       "image": "http://localhost:3001/images/f17ae3ae0e5b7015b4e302df29c0054c",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "created_at": "",
       "updated_at": "27-08-2023"
     },
     {
       "id": 3,
       "image": "http://localhost:3001/images/b249fc512d58af338b5f7b25ecb0dcfb",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "created_at": "",
       "updated_at": "27-08-2023"
     },
     {
       "id": 4,
       "image": "http://localhost:3001/images/32c58fabc5d2e4f29c5d27cf23f7ba70",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "updated_at": "27-08-2023"
+    }
+  ],
+  "thingstobring": [
+    {
+      "id": 1,
+      "image": "http://localhost:3001/images/407449a28794c16d962c5287f5fa6822",
+      "title": "OXYBENZONE-FREE SUNBLOCK",
+      "description": "Better reef-safe than sorry: keeping a tube of this stashed in your bag protects not just your skin, but nature as well.",
       "created_at": "",
       "updated_at": "27-08-2023"
+    },
+    {
+      "id": 2,
+      "image": "http://localhost:3001/images/5ba0161883618302249cf96e06a386d1",
+      "title": "Refillable Tumbler",
+      "description": "Staying hydrated never looked this cool! Bring along your favorite reusable bottle for all your water consumption.",
+      "created_at": "",
+      "updated_at": "27-08-2023"
+    },
+    {
+      "id": 3,
+      "image": "http://localhost:3001/images/47da12617683a9dc037d6d5027d5a9c6",
+      "title": "Reusable Straws & Cutlery",
+      "description": "Whether you’re going camping or eating takeout in transit, bringing these along makes meals all the more satisfying.",
+      "created_at": "",
+      "updated_at": "27-08-2023"
+    },
+    {
+      "title": "A Trusty Ecobag",
+      "description": "Make sure it’s roomy enough for all your essentials! With a tote in tow, you’d never miss those single-use plastic bags.",
+      "image": "http://localhost:3001/images/ab37f6937893de998a40a84047bc2577",
+      "created_at": "27-08-2023",
+      "id": 4
+    },
+    {
+      "title": "E-boarding Tickets",
+      "description": "Going on a flight? No need for those wasteful printouts! Just save your details on your phone and show them at the airport. No fuss, no trash.",
+      "image": "http://localhost:3001/images/909c67851b3b29fcf8a415bcf606e70e",
+      "created_at": "27-08-2023",
+      "id": 5
+    },
+    {
+      "title": "Deet-Free Insect Repellent",
+      "description": "When out exploring nature, it’s only fitting to use products that are natural as well! Opt for formulations that make use of minimal chemicals.",
+      "image": "http://localhost:3001/images/75e6df4c07353a63e6d536f8074069cd",
+      "created_at": "27-08-2023",
+      "id": 6
+    },
+    {
+      "title": "Rechargeable Batteries",
+      "description": "The disposable kinds become toxic waste when improperly thrown away. Skip the risk, and save up in the long run: just invest in batteries that will last you multiple cycles.",
+      "image": "http://localhost:3001/images/1fd18cbff020f617a21bd83e6a032770",
+      "created_at": "27-08-2023",
+      "id": 7
+    },
+    {
+      "title": "Downloaded Maps on Phone",
+      "description": "Make your way through your adventures with digital maps! They’re easily saved on your devices, and they won’t end up as trash either!",
+      "image": "http://localhost:3001/images/4ce47900f2fb25c1c86b943c8e2ffc70",
+      "created_at": "27-08-2023",
+      "id": 8
+    }
+  ],
+  "whattoavoid": [
+    {
+      "id": 1,
+      "image": "http://localhost:3001/images/b33e54bd76734f3350dd0e0fe3f95664",
+      "title": "Overusing Electricity",
+      "description": "Too much power usage contributes to our carbon footprint. So why not set down your devices – simply unplug and enjoy your vacation!",
+      "created_at": "",
+      "updated_at": "27-08-2023"
+    },
+    {
+      "title": "Wasting Food",
+      "description": "Only get what you can finish, and just get seconds if you want more. You can be sustainable starting with your own plate!",
+      "image": "http://localhost:3001/images/c47015d0116c17f6cef459813f92a8f1",
+      "created_at": "27-08-2023",
+      "id": 2
+    },
+    {
+      "title": "Touching Wildlife",
+      "description": "When guides warn guests against interacting with animals, it’s not only for human protection. Some creatures, like the whale sharks, are so sensitive that touching them causes harm.",
+      "image": "http://localhost:3001/images/dcca55ccabe7619da96254f44df62167",
+      "created_at": "27-08-2023",
+      "id": 3
+    },
+    {
+      "title": "Leaving Trash Around",
+      "description": "Treat your destinations like your own home. Clean as you go, and set a great example: clean up after strangers as well.",
+      "image": "http://localhost:3001/images/0479271cbc4bf17162281bde711aa951",
+      "created_at": "27-08-2023",
+      "id": 4
+    },
+    {
+      "title": "Taking Shells and Sand Home",
+      "description": "Keep in mind that not everything is a souvenir. Let’s leave our nature as is, and just get better pasalubongs from small shops!",
+      "image": "http://localhost:3001/images/14f22133b9f0b5ab1f5fa61b9bb5966b",
+      "created_at": "27-08-2023",
+      "id": 5
+    },
+    {
+      "title": "Long Showers",
+      "description": "Here’s a fact that should be made more public: water is a finite resource. Humans have access to only 1% of the world’s fresh water, so conservation should be a priority especially when we travel.",
+      "image": "http://localhost:3001/images/adce50113ce3b6d4ea7e68aaabd7d6cc",
+      "created_at": "27-08-2023",
+      "id": 6
+    }
+  ],
+  "stufftoremember": [
+    {
+      "title": "Understanding Every Site’s Rules",
+      "description": "Each place has regulations set for a reason. Knowing what these are and respecting them, we get to keep the place fun and enjoyable!",
+      "image": "http://localhost:3001/images/8f8f10307a409a2d9c02ae17272e1354",
+      "created_at": "27-08-2023",
+      "id": 1
+    },
+    {
+      "title": "Research Before Visiting",
+      "description": "Though some travelers prefer spontaneity, it’s also a good choice to be prepared. Learn about the destinations beforehand so you can dress respectfully, converse with locals, and immerse yourself better!",
+      "image": "http://localhost:3001/images/8fee0fd9cac5a6ef8d2f4a4272735fc8",
+      "created_at": "27-08-2023",
+      "id": 2
+    },
+    {
+      "title": "Support Local Businesses",
+      "description": "Sustainability also means making sure that locals benefit from travelers. Bring small bills along and buy what you need from those quaint shops run by locals!",
+      "image": "http://localhost:3001/images/445c4fc28d9cdb62235a991e2d467530",
+      "created_at": "27-08-2023",
+      "id": 3
+    },
+    {
+      "title": "Respect the Locals",
+      "description": "Ask permission before you take someone’s photograph. After all, you wouldn’t want total strangers",
+      "image": "http://localhost:3001/images/7cf10292eca2ba0a382476acc1a92992",
+      "created_at": "27-08-2023",
+      "id": 4
+    },
+    {
+      "title": "Book DOT-Accredited Establishments",
+      "description": "Take the guesswork out of planning ahead: choose accommodations and activities that have already been vetted as safe and trustworthy by the country’s tourism authority.",
+      "image": "http://localhost:3001/images/9c9c4aa9564c3ec1e90b9c84b5fbc272",
+      "created_at": "27-08-2023",
+      "id": 5
+    },
+    {
+      "title": "Bring Only What’s Necessary",
+      "description": "Travel with your essentials, and just leave the rest at home. The lighter your bag, the easier it will be to move around on foot and on bike, and there’s no need to check stuff in too!",
+      "image": "http://localhost:3001/images/d9fcddea35e74e4379c2c74ebae8ff29",
+      "created_at": "27-08-2023",
+      "id": 6
     }
   ]
 }

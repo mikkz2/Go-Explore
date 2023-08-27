@@ -117,18 +117,13 @@ $(document).ready(function () {
           })
           .then(data => {
             console.log('Uploaded image URL:', data.url);
-  
-            // Update the user's image URL only if a new image is uploaded
             updatedUser.image = data.url;
-  
-            // Continue with sending the PUT request to update user data
             sendEditRequest(updatedUser);
           })
           .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
           });
       } else {
-        // No new image file, just send the PUT request to update user data
         sendEditRequest(updatedUser);
       }
     });

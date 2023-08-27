@@ -30,7 +30,7 @@ const dynamicImages = [
         image: 'image/LAMBAYOK5.PNG',
         overlayText: 'RESPECT THE CULTURE <br> RESPECT THE ENVIRONMENT',
     },
-    // Add more objects as needed
+
 ];
 
 const container = document.getElementById('dynamic-images-container');
@@ -119,94 +119,57 @@ const dynamicOptions = [
     }
 }
 
-// thing to bring 
-const dynamicSlides = [
-    {
-        image: 'image/things/1.png',
-        title: 'OXYBENZONE-FREE SUNBLOCK',
-        details: 'Better reef-safe than sorry: keeping a tube of this stashed in your bag protects not just your skin, but nature as well.',
-        link: '#'
-    },
-    {
-        image: 'image/things/2.png',
-        title: 'Refillable Tumblers',
-        details: 'Staying hydrated never looked this cool! Bring along your favorite reusable bottle for all your water consumption.',
-        link: '#'
-    },
-    {
-        image: 'image/things/3.png',
-        title: 'Reusable Straws & Cutlery',
-        details: 'Whether you’re going camping or eating takeout in transit, bringing these along makes meals all the more satisfying.',
-        link: '#'
-    },
-    {
-        image: 'image/things/4.png',
-        title: 'A Trusty Ecobag',
-        details: 'Make sure it’s roomy enough for all your essentials! With a tote in tow, you’d never miss those single-use plastic bags.',
-        link: '#'
-    },
-    {
-        image: 'image/things/5.png',
-        title: 'E-boarding Tickets',
-        details: 'Going on a flight? No need for those wasteful printouts! Just save your details on your phone and show them at the airport. No fuss, no trash.',
-        link: '#'
-    },
-    {
-        image: 'image/things/6.png',
-        title: 'Deet-Free Insect Repellent',
-        details: 'When out exploring nature, it’s only fitting to use products that are natural as well! Opt for formulations that make use of minimal chemicals.',
-        link: '#'
-    },
-    {
-        image: 'image/things/7.png',
-        title: 'Rechargeable Batteries',
-        details: 'The disposable kinds become toxic waste when improperly thrown away. Skip the risk, and save up in the long run: just invest in batteries that will last you multiple cycles.',
-        link: '#'
-    },
-    {
-        image: 'image/things/8.png',
-        title: 'Downloaded Maps on Phone',
-        details: 'Make your way through your adventures with digital maps! They’re easily saved on your devices, and they won’t end up as trash either!',
-        link: '#'
-    },
-    // Add more slides as needed
-];
 
-const sectionTitle = document.getElementById('section-title');
-const slider = document.getElementById('slider');
+// THINGS TO BRING
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('slider');
 
-sectionTitle.innerText = 'THINGS TO BRING'; 
+    const baseURL = 'http://localhost:3000/thingstobring'; // Replace with your actual base URL
 
-dynamicSlides.forEach((item) => {
-    const slide = document.createElement('div');
-    slide.classList.add('slide');
+    function populateSlider(data) {
+        data.forEach(item => {
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
 
-    const slideImage = document.createElement('div');
-    slideImage.classList.add('slide-image');
-    slideImage.style.backgroundImage = `url('${item.image}')`;
+            const slideImage = document.createElement('div');
+            slideImage.classList.add('slide-image');
+            slideImage.style.backgroundImage = `url('${baseURL}/${item.image}')`;
 
-    const slideDetails = document.createElement('div');
-    slideDetails.classList.add('slide-details');
+            const slideDetails = document.createElement('div');
+            slideDetails.classList.add('slide-details');
 
-    const slideTitle = document.createElement('h3');
-    slideTitle.innerText = item.title;
+            const slideTitle = document.createElement('h3');
+            slideTitle.innerText = item.title;
 
-    const slideDescription = document.createElement('p');
-    slideDescription.innerText = item.details;
+            const slideDescription = document.createElement('p');
+            slideDescription.innerText = item.description;
 
-    const slideLink = document.createElement('a');
-    slideLink.href = item.link;
-    slideLink.classList.add('facebook-button');
-    slideLink.innerText = 'Share';
+            const slideLink = document.createElement('a');
+            slideLink.href = item.link;
+            slideLink.classList.add('facebook-button');
+            slideLink.innerText = 'Share';
 
-    slideDetails.appendChild(slideTitle);
-    slideDetails.appendChild(slideDescription);
-    slideDetails.appendChild(slideLink);
+            slideDetails.appendChild(slideTitle);
+            slideDetails.appendChild(slideDescription);
+            slideDetails.appendChild(slideLink);
 
-    slide.appendChild(slideImage);
-    slide.appendChild(slideDetails);
+            slide.appendChild(slideImage);
+            slide.appendChild(slideDetails);
 
-    slider.appendChild(slide);
+            slider.appendChild(slide);
+        });
+    }
+
+    function fetchDataAndPopulateSlider() {
+        fetch('http://localhost:3000/thingstobring')
+            .then(response => response.json())
+            .then(data => {
+                populateSlider(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    fetchDataAndPopulateSlider();
 });
 
 // what to avoid 
@@ -317,7 +280,7 @@ const dynamicRememberSlides = [
     {
         image: 'image/things/5.png',
         title: 'Book DOT-Accredited Establishments',
-        details: 'TTake the guesswork out of planning ahead: choose accommodations and activities that have already been vetted as safe and trustworthy by the country’s tourism authority.',
+        details: 'Take the guesswork out of planning ahead: choose accommodations and activities that have already been vetted as safe and trustworthy by the country’s tourism authority.',
         link: '#'
     },
     {
