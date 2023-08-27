@@ -77,34 +77,37 @@
       "updated_at": "25-08-2023"
     },
     {
+      "id": 5,
+      "image": "http://localhost:3001/images/a95a0143c99f265b37464404a18c5055",
       "title": "CALACAtchara Festival",
       "description": "- The Calacatchara Festival derived from combining Calaca and Atchara, the town’s famous product. Atchara is an appetizer and/or side dish made of pickled raw pap aya. Usually runs for a week ending in October 24, the feast day of the town’s patron saint, St. Raphael the Archangel.",
-      "date": "May 1 to 10",
+      "date": "May 1",
       "province": "Batangas",
       "city": "Calaca",
-      "image": "http://localhost:3001/images/869ad71ab228df6ec71ea2a4552e9bca",
       "created_at": "25-08-2023",
-      "id": 5
+      "updated_at": "27-08-2023"
     },
     {
+      "id": 6,
+      "image": "http://localhost:3001/images/f5fdbed439caffbf9213f94680b124d1",
       "title": "EL PASUBAT Festival",
       "description": "- Celebrated annually during the month of April, EL PASUBAT Festival is the conglomeration of the trademarks of Taal, Batangas. EL PASUBAT stands for Empanada, Longganisa, Panutsa, Suman, Balisong, Barong Tagalog, Tapa, Tamales, Tawilis, Tulingan — the delicacies and crafts that Taal is known for.\n-The festival is one grandiose way of highlighting the products of Taal in a celebration made to ignite Taaleños’ pride of the things that contributed to the economic growth of the municipality and the unity that strengthens the people.",
-      "date": "April 28-30",
+      "date": "April 28",
       "province": "Batangas",
       "city": "Taal",
-      "image": "http://localhost:3001/images/1af02b7b7960f20365978ea7d37411a1",
       "created_at": "25-08-2023",
-      "id": 6
+      "updated_at": "27-08-2023"
     },
     {
+      "id": 7,
+      "image": "http://localhost:3001/images/74c04c4fbf2ad218dba21888c633cb71",
       "title": "Kambingan Festival",
       "description": "- The Kambingan Festival is the local way of honoring their town, and a town plaza night food market where people can buy foods. products given by goats are one of the town’s blessings. The annual celebration during August 12 is also a way of honoring their town where different activities are being held within the municipality.\n",
-      "date": "August 12 30",
+      "date": "August 12",
       "province": "Batangas",
       "city": "Tuy",
-      "image": "http://localhost:3001/images/97b46da608d3dbb6675b2981a832680c",
       "created_at": "25-08-2023",
-      "id": 7
+      "updated_at": "27-08-2023"
     },
     {
       "title": "Sublian Festival",
@@ -117,14 +120,15 @@
       "id": 8
     },
     {
+      "id": 9,
+      "image": "http://localhost:3001/images/4056c2f87cfca7e6cd5e5dc2bd527482",
       "title": "Punlad Festival",
       "description": "- Punlad Festival is a celebration of the town’s main produce — punla or saplings (or seedlings). Talisay is tagged as the seedling bowl of the nation where a lot of other towns and provinces are getting seedlings for their farmlands. Punlad came from their line “punla sa pag-unlad”.",
       "date": "February 6",
       "province": "Batangas",
       "city": "Talisay",
-      "image": "http://localhost:3001/images/e05797e76dd5666328b944c46636e4fb",
       "created_at": "25-08-2023",
-      "id": 9
+      "updated_at": "27-08-2023"
     }
   ],
   "places": [
@@ -194,6 +198,36 @@
       "id": 1,
       "about": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
       "updated_at": "19-08-2023"
+    }
+  ],
+  "learnmore": [
+    {
+      "id": 1,
+      "image": "http://localhost:3001/images/78775629ea9b3b620de365e7c3a11fb4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "created_at": "",
+      "updated_at": "27-08-2023"
+    },
+    {
+      "id": 2,
+      "image": "http://localhost:3001/images/f17ae3ae0e5b7015b4e302df29c0054c",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "created_at": "",
+      "updated_at": "27-08-2023"
+    },
+    {
+      "id": 3,
+      "image": "http://localhost:3001/images/b249fc512d58af338b5f7b25ecb0dcfb",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "created_at": "",
+      "updated_at": "27-08-2023"
+    },
+    {
+      "id": 4,
+      "image": "http://localhost:3001/images/32c58fabc5d2e4f29c5d27cf23f7ba70",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "created_at": "",
+      "updated_at": "27-08-2023"
     }
   ]
 }

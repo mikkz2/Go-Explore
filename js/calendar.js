@@ -36,11 +36,9 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(responseData => {
                 data = responseData;
-
+    
                 const galleryItems = data.slice(startIndex, startIndex + itemsPerPage);
-
-                galleryContainer.empty();
-
+    
                 galleryItems.forEach(item => {
                     // Build and append gallery item HTML
                     const itemHtml = `
@@ -62,14 +60,15 @@ $(document).ready(function () {
                     `;
                     galleryContainer.append(itemHtml);
                 });
-
+    
                 startIndex += itemsPerPage;
+    
                 if (startIndex >= data.length) {
                     loadMoreButton.hide();
                 } else {
                     loadMoreButton.show();
                 }
-
+    
                 galleryItemLinks.forEach(link => {
                     link.addEventListener('click', event => {
                         event.preventDefault();
@@ -103,7 +102,10 @@ $(document).ready(function () {
             return festivalMonth === parseInt(month);
         });
 
-        startIndex = 0;
+        const currentlyDisplayedItems = galleryContainer.find('.gallery-item').length;
+        startIndex = currentlyDisplayedItems;
+
+        // startIndex = 0;
         loadMoreButton.show();
         
         festivalsToRender.slice(startIndex, startIndex + itemsPerPage).forEach(item => {
@@ -149,7 +151,14 @@ function populateCarousel() {
     fetch('http://localhost:3000/festival')
         .then(response => response.json())
         .then(data => {
-            const incomingFestivals = data;
+            const currentDate = new Date();
+            const incomingFestivals = data.filter(festival => {
+                const festivalDate = new Date(festival.date);
+                return (
+                    (festivalDate.getMonth() === currentDate.getMonth() && festivalDate.getDate() >= currentDate.getDate()) ||
+                    festivalDate.getMonth() > currentDate.getMonth()
+                );
+            });
 
             for (let i = 0; i < incomingFestivals.length; i += 3) {
                 const carouselItem = document.createElement('div');
