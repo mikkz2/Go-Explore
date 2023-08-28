@@ -21,7 +21,7 @@
 
         <div class="row height d-flex justify-content-center align-items-center">
 
-            <div class="col-md-8">
+            <div class="col-md-10">
 
                 <div class="search">
                     <i class="fa fa-search"></i>
@@ -30,7 +30,14 @@
                 </div>
 
             </div>
+        </div>
 
+        <div class="image-gallery">
+                    <!-- Image gallery items will be dynamically added here -->
+        </div>
+        <div class="text-center mt-4">
+                    <button class="btn btn-custom load-more">Load More</button>
+                    <button class="btn btn-custom load-less" style="display: none;">Load Less</button>
         </div>
     </div>
     <?php include 'footer.php'; ?>

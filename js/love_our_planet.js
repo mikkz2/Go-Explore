@@ -1,21 +1,21 @@
 
 
-$(document).ready(function () {
-    $('.slider').slick({
-        dots: true,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
-});
+// $(document).ready(function () {
+//     $('.slider').slick({
+//         dots: true,
+//         arrows: false,
+//         autoplay: true,
+//         autoplaySpeed: 5000,
+//         responsive: [
+//             {
+//                 breakpoint: 768,
+//                 settings: {
+//                     slidesToShow: 1,
+//                 }
+//             }
+//         ]
+//     });
+// });
 
 const dynamicImages = [
     {
@@ -119,214 +119,190 @@ const dynamicOptions = [
     }
 }
 
-
 // THINGS TO BRING
+const sectionTitle = document.getElementById('section-title');
+const slider = document.getElementById('slider');
+
+sectionTitle.innerText = 'THINGS TO BRING'; 
+
 document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.getElementById('slider');
+  fetch('http://localhost:3000/thingstobring') 
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => {
+        const slide = document.createElement('div');
+        slide.classList.add('slide');
+        
+        const slideImage = document.createElement('div');
+        slideImage.classList.add('slide-image');
+        slideImage.style.backgroundImage = `url('${item.image}')`;
 
-    const baseURL = 'http://localhost:3000/thingstobring'; // Replace with your actual base URL
+        const slideDetails = document.createElement('div');
+        slideDetails.classList.add('slide-details');
 
-    function populateSlider(data) {
-        data.forEach(item => {
-            const slide = document.createElement('div');
-            slide.classList.add('slide');
+        const slideTitle = document.createElement('h3');
+        slideTitle.innerText = item.title;
 
-            const slideImage = document.createElement('div');
-            slideImage.classList.add('slide-image');
-            slideImage.style.backgroundImage = `url('${baseURL}/${item.image}')`;
+        const slideDescription = document.createElement('p');
+        slideDescription.innerText = item.description; 
 
-            const slideDetails = document.createElement('div');
-            slideDetails.classList.add('slide-details');
+        const slideLink = document.createElement('a');
+        slideLink.href = item.link;
+        slideLink.classList.add('facebook-button');
+        slideLink.innerText = 'Share';
 
-            const slideTitle = document.createElement('h3');
-            slideTitle.innerText = item.title;
+        slideDetails.appendChild(slideTitle);
+        slideDetails.appendChild(slideDescription);
+        slideDetails.appendChild(slideLink);
 
-            const slideDescription = document.createElement('p');
-            slideDescription.innerText = item.description;
+        slide.appendChild(slideImage);
+        slide.appendChild(slideDetails);
 
-            const slideLink = document.createElement('a');
-            slideLink.href = item.link;
-            slideLink.classList.add('facebook-button');
-            slideLink.innerText = 'Share';
+        slider.appendChild(slide);
+      });
 
-            slideDetails.appendChild(slideTitle);
-            slideDetails.appendChild(slideDescription);
-            slideDetails.appendChild(slideLink);
-
-            slide.appendChild(slideImage);
-            slide.appendChild(slideDetails);
-
-            slider.appendChild(slide);
-        });
-    }
-
-    function fetchDataAndPopulateSlider() {
-        fetch('http://localhost:3000/thingstobring')
-            .then(response => response.json())
-            .then(data => {
-                populateSlider(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
-
-    fetchDataAndPopulateSlider();
+      // Initialize Slick slider for the "Things to Bring" section
+      $('#slider').slick({
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+      });
+    })
+    .catch(error => console.error('Error fetching data:', error));
 });
 
-// what to avoid 
-const dynamicAvoidSlides = [
-    {
-        image: 'image/things/9.png',
-        title: 'Overusing Electricity',
-        details: 'Too much power usage contributes to our carbon footprint. So why not set down your devices – simply unplug and enjoy your vacation!',
-        link: '#'
-    },
-    {
-        image: 'image/things/10.png',
-        title: 'Wasting Food',
-        details: 'Only get what you can finish, and just get seconds if you want more. You can be sustainable starting with your own plate!',
-        link: '#'
-    },
-    {
-        image: 'image/things/11.png',
-        title: 'Touching Wildlife',
-        details: 'When guides warn guests against interacting with animals, it’s not only for human protection. Some creatures, like the whale sharks, are so sensitive that touching them causes harm.',
-        link: '#'
-    },
-    {
-        image: 'image/things/12.png',
-        title: 'Leaving Trash Around',
-        details: 'Treat your destinations like your own home. Clean as you go, and set a great example: clean up after strangers as well.',
-        link: '#'
-    },
-    {
-        image: 'image/things/13.png',
-        title: 'Taking Shells and Sand Home',
-        details: 'Keep in mind that not everything is a souvenir. Let’s leave our nature as is, and just get better pasalubongs from small shops!',
-        link: '#'
-    },
-    {
-        image: 'image/things/14.png',
-        title: 'Long Showers',
-        details: 'Here’s a fact that should be made more public: water is a finite resource. Humans have access to only 1% of the world’s fresh water, so conservation should be a priority especially when we travel.',
-        link: '#'
-    },
-    // Add more slides as needed
-];
 
+// WHAT TO AVOID
 const avoidSectionTitle = document.getElementById('avoid-section-title');
 const avoidSlider = document.getElementById('avoid-slider');
 
 avoidSectionTitle.innerText = 'WHAT TO AVOID'; // Set the section title
 
-dynamicAvoidSlides.forEach((item) => {
-    const slide = document.createElement('div');
-    slide.classList.add('slide');
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('http://localhost:3000/whattoavoid') 
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => {
+        const slide = document.createElement('div');
+        slide.classList.add('slide');
+        
+        const slideImage = document.createElement('div');
+        slideImage.classList.add('slide-image');
+        slideImage.style.backgroundImage = `url('${item.image}')`;
 
-    const slideImage = document.createElement('div');
-    slideImage.classList.add('slide-image');
-    slideImage.style.backgroundImage = `url('${item.image}')`;
+        const slideDetails = document.createElement('div');
+        slideDetails.classList.add('slide-details');
 
-    const slideDetails = document.createElement('div');
-    slideDetails.classList.add('slide-details');
+        const slideTitle = document.createElement('h3');
+        slideTitle.innerText = item.title;
 
-    const slideTitle = document.createElement('h3');
-    slideTitle.innerText = item.title;
+        const slideDescription = document.createElement('p');
+        slideDescription.innerText = item.description; 
 
-    const slideDescription = document.createElement('p');
-    slideDescription.innerText = item.details;
+        const slideLink = document.createElement('a');
+        slideLink.href = item.link;
+        slideLink.classList.add('facebook-button');
+        slideLink.innerText = 'Share';
 
-    const slideLink = document.createElement('a');
-    slideLink.href = item.link;
-    slideLink.classList.add('facebook-button');
-    slideLink.innerText = 'Share';
+        slideDetails.appendChild(slideTitle);
+        slideDetails.appendChild(slideDescription);
+        slideDetails.appendChild(slideLink);
 
-    slideDetails.appendChild(slideTitle);
-    slideDetails.appendChild(slideDescription);
-    slideDetails.appendChild(slideLink);
+        slide.appendChild(slideImage);
+        slide.appendChild(slideDetails);
 
-    slide.appendChild(slideImage);
-    slide.appendChild(slideDetails);
-
-    avoidSlider.appendChild(slide);
+        avoidSlider.appendChild(slide);
+      });
+      // Initialize Slick slider for the "What to Avoid" section
+      $('#avoid-slider').slick({
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+      });
+    })
+    .catch(error => console.error('Error fetching data:', error));
 });
 
+
 // stuff to remember
-
-const dynamicRememberSlides = [
-    {
-        image: 'image/things/15.png',
-        title: 'Understanding Every Site’s Rules',
-        details: 'Each place has regulations set for a reason. Knowing what these are and respecting them, we get to keep the place fun and enjoyable!',
-        link: '#'
-    },
-    {
-        image: 'image/things/16.png',
-        title: 'Research Before Visiting',
-        details: 'Though some travelers prefer spontaneity, it’s also a good choice to be prepared. Learn about the destinations beforehand so you can dress respectfully, converse with locals, and immerse yourself better!',
-        link: '#'
-    },
-    {
-        image: 'image/things/17.png',
-        title: 'Support Local Businesses',
-        details: 'Sustainability also means making sure that locals benefit from travelers. Bring small bills along and buy what you need from those quaint shops run by locals!',
-        link: '#'
-    },
-    {
-        image: 'image/things/18.png',
-        title: 'Respect the Locals',
-        details: 'Ask permission before you take someone’s photograph. After all, you wouldn’t want total strangers',
-        link: '#'
-    },
-    {
-        image: 'image/things/5.png',
-        title: 'Book DOT-Accredited Establishments',
-        details: 'Take the guesswork out of planning ahead: choose accommodations and activities that have already been vetted as safe and trustworthy by the country’s tourism authority.',
-        link: '#'
-    },
-    {
-        image: 'image/things/20.png',
-        title: 'Bring Only What’s Necessary',
-        details: 'Travel with your essentials, and just leave the rest at home. The lighter your bag, the easier it will be to move around on foot and on bike, and there’s no need to check stuff in too!',
-        link: '#'
-    },
-    // Add more slides as needed
-];
-
+const dynamicRememberSlides = [];
 const rememberSectionTitle = document.getElementById('remember-section-title');
 const rememberSlider = document.getElementById('remember-slider');
 
 rememberSectionTitle.innerText = 'STUFF TO REMEMBER'; // Set the section title
 
-dynamicRememberSlides.forEach((item) => {
-    const slide = document.createElement('div');
-    slide.classList.add('slide');
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('http://localhost:3000/stufftoremember')
+    .then(response => response.json())
+    .then(data => {
+      dynamicRememberSlides.push(...data); // Add fetched data to the array
+      
+      // Loop through the array and create slides
+      dynamicRememberSlides.forEach(item => {
+        const slide = document.createElement('div');
+        slide.classList.add('slide');
 
-    const slideImage = document.createElement('div');
-    slideImage.classList.add('slide-image');
-    slideImage.style.backgroundImage = `url('${item.image}')`;
+        const slideImage = document.createElement('div');
+        slideImage.classList.add('slide-image');
+        slideImage.style.backgroundImage = `url('${item.image}')`;
 
-    const slideDetails = document.createElement('div');
-    slideDetails.classList.add('slide-details');
+        const slideDetails = document.createElement('div');
+        slideDetails.classList.add('slide-details');
 
-    const slideTitle = document.createElement('h3');
-    slideTitle.innerText = item.title;
+        const slideTitle = document.createElement('h3');
+        slideTitle.innerText = item.title;
 
-    const slideDescription = document.createElement('p');
-    slideDescription.innerText = item.details;
+        const slideDescription = document.createElement('p');
+        slideDescription.innerText = item.description;
 
-    const slideLink = document.createElement('a');
-    slideLink.href = item.link;
-    slideLink.classList.add('facebook-button');
-    slideLink.innerText = 'Share';
+        const slideLink = document.createElement('a');
+        slideLink.href = item.link;
+        slideLink.classList.add('facebook-button');
+        slideLink.innerText = 'Share';
 
-    slideDetails.appendChild(slideTitle);
-    slideDetails.appendChild(slideDescription);
-    slideDetails.appendChild(slideLink);
+        slideDetails.appendChild(slideTitle);
+        slideDetails.appendChild(slideDescription);
+        slideDetails.appendChild(slideLink);
 
-    slide.appendChild(slideImage);
-    slide.appendChild(slideDetails);
+        slide.appendChild(slideImage);
+        slide.appendChild(slideDetails);
 
-    rememberSlider.appendChild(slide);
+        rememberSlider.appendChild(slide);
+      });
+            // Initialize Slick slider for the "What to Avoid" section
+            $('#remember-slider').slick({
+                dots: true,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                ]
+              });
+    })
+    .catch(error => console.error('Error fetching data:', error));
 });
-
 
