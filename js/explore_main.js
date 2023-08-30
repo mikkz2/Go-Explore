@@ -1,105 +1,14 @@
-// const servicesData = [
-//     {
-//       id: 1,
-//       category: 'SWIM AND BEACHES',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/swimandbeaches.png',
-//     },
-//     {
-//       id: 2,
-//       category: 'SWIM AND BEACHES',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/swimandbeaches.png',
-//     },
-//     {
-//       id: 3,
-//       category: 'SWIM AND BEACHES',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/swimandbeaches.png',
-//     },
-//     {
-//       id: 4,
-//       category: 'NATURE TRIP',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/naturetrip.png',
-//     },
-//     {
-//       id: 5,
-//       category: 'TOURIST SPOT',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/touristspots.png',
-//     },
-//     {
-//       id: 6,
-//       category: 'HOTEL',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/hotels.png',
-//     },
-//     {
-//       id: 7,
-//       category: 'CHURCHES',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.', 
-//       backgroundImage: 'assets/images/churches.png',},
-//     {
-//       id: 8,
-//       category: 'NATURE TRIP',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/naturetrip.png',
-//     },
-//     {
-//       id: 18,
-//       category: 'EVENTS AND CULTURE',
-//       title: 'Lobo Beach',
-//       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam consequatur necessitatibus eaque.',
-//       backgroundImage: 'assets/images/eventsandculture.png',},
-//   ];
 
-//   const iconMappings = {
-//     'SWIM AND BEACHES': 'fas fa-water',
-//     'NATURE TRIP': 'fas fa-leaf',
-//     'TOURIST SPOT': 'fas fa-location-dot',
-//     'HOTEL': 'fas fa-hotel',
-//     'CHURCHES': 'fas fa-church',
-//     'EVENTS AND CULTURE': 'fas fa-calendar-days',
-//   };
-
-//   function generateServiceCard(service) {
-// const iconClass = iconMappings[service.category] || 'fas fa-question';
-
-// return `
-// <div class="column">
-//     <a href="explore_cardcontent.php?id=${service.id}" class="card-link">
-//     <div class="card">
-//       <div class="background-image" style="background-image: url('${service.backgroundImage}');"></div>
-//       <div class="icon-wrapper">
-//         <i class="${iconClass}"></i>
-//       </div>
-//       <div class="card-content">
-//         <h3>${service.title}</h3>
-//         <p>${service.description}</p>
-//       </div>
-//     </div>
-//   </div>
-// `;
-// }
 
 const servicesData = []; // Initialize as an empty array
 
 const iconMappings = {
-  'SWIM AND BEACHES': 'fas fa-water',
-  'NATURE TRIP': 'fas fa-leaf',
-  'TOURIST SPOT': 'fas fa-location-dot',
-  'HOTELS': 'fas fa-hotel',
-  'CHURCHES': 'fas fa-church',
-  'EVENTS AND CULTURE': 'fas fa-calendar-days',
+  'swim': 'fas fa-water',
+  'nature': 'fas fa-leaf',
+  'tourist': 'fas fa-location-dot',
+  'hotels': 'fas fa-hotel',
+  'churches': 'fas fa-church',
+  'events': 'fas fa-calendar-days',
 };
 
 function generateServiceCard(service) {
@@ -202,6 +111,8 @@ contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 
 function resetContent() {
+  
+  console.log('hello');
 currentPage = 1;
 const activeCategory = document.querySelector('.category-link.active');
 if (activeCategory) {

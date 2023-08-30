@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const addAccountButton = document.getElementById('btn-add-account');
   const editModal = new bootstrap.Modal(document.getElementById('editModal')); // Add this line
   const editForm = document.getElementById('edit-user-form'); // Add this line
+  let updatedUser = {};
 
 
   // Fetch data from JSON server and populate the table
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <td>${user.city}</td>
                         <td>${user.barangay}</td>
                         <td>${user.contact}</td>
+                        <td>${user.website}</td>
                         <td>${user.created_at}</td>
                         <td>${user.updated_at}</td>
                         <!-- ... Other cells ... -->
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const addForm = document.getElementById('add-user-form');
 
 
+  
   function editRow(event) {
     const button = event.target;
     const row = button.closest('tr');
@@ -85,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let updated_at = `${currentDay}-${currentMonth}-${currentYear}`;
 
         editForm.elements.id.value = user.id;
-        editForm.elements.image.value = user.image;
         editForm.elements.title.value = user.title;
         editForm.elements.description.value = user.description;
         editForm.elements.category.value = user.category;
@@ -93,14 +95,14 @@ document.addEventListener('DOMContentLoaded', function () {
         editForm.elements.city.value = user.city;
         editForm.elements.barangay.value = user.barangay;
         editForm.elements.contact.value = user.contact;
+        editForm.elements.website.value = user.website;
         editForm.elements.created_at.value = user.created_at;
         editForm.elements.updated_at.value = updated_at;
 
         // Get the existing image URL from the table row
-        const existingImageCell = row.querySelector('td.image-cell');
-        if (existingImageCell) {
-          editForm.elements.image.value = existingImageCell.textContent;
-        }
+        const existingImageCell = row.querySelector('td:nth-child(2)');
+        const existingImageURL = existingImageCell.querySelector('img').getAttribute('src');
+        editForm.elements.existingImage.value = existingImageURL;
 
         editModal.show();
       })
@@ -185,63 +187,61 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageFile = imageInput.files[0];
 
     if (imageFile) {
-      formData.delete('image');
-      formData.append('image', imageFile);
+        formData.delete('image');
+        formData.append('image', imageFile);
     }
 
     var formData2 = new FormData();
     formData2.append('image', imageFile);
 
     fetch('http://localhost:3001/images', {
-      method: 'POST',
-      body: formData2
+        method: 'POST',
+        body: formData2
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Network response was not ok.');
-        }
-      })
-      .then(data => {
-        console.log('Uploaded image URL:', data.url);
-
-        // Capture the image data URL
-        const imageDataUrl = data.url;
-
-        const date = new Date();
-        let currentDay = String(date.getDate()).padStart(2, '0');
-        let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
-        let currentYear = date.getFullYear();
-        let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
-
-        // Include the image data URL in the user object
-        const user = {
-          ...Object.fromEntries(formData.entries()),
-          image: imageDataUrl,
-          created_at: currentDate
-        };
-
-        // Send POST request to JSON server
-        fetch('http://localhost:3000/places', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(user)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Network response was not ok.');
+            }
         })
-          .then(response => response.json())
-          .then(data => {
-            form.reset();
-            this.location.reload();
-            populateTable();
-          })
-          .catch(error => console.error('Error adding item:', error));
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
-  });
+        .then(data => {
+            console.log('Uploaded image URL:', data.url);
+
+            // Declare and define the currentDate variable here
+            const date = new Date();
+            let currentDay = String(date.getDate()).padStart(2, '0');
+            let currentMonth = String(date.getMonth() + 1).padStart(2, '0');
+            let currentYear = date.getFullYear();
+            let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+
+            // Include the image data URL in the user object
+            const user = {
+                ...Object.fromEntries(formData.entries()),
+                image: data.url,
+                created_at: currentDate
+            };
+
+            // Send POST request to JSON server
+            fetch('http://localhost:3000/places', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.json())
+            .then(data => {
+                form.reset();
+                this.location.reload();
+                populateTable();
+            })
+            .catch(error => console.error('Error adding item:', error));
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+});
 
   // handle delete button
   function deleteRow(event) {

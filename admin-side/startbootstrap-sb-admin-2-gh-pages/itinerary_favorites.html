@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Places</title>
+    <title>Calendar of Activities</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -99,6 +99,12 @@
                         <a class="collapse-item" href="stuff-to-remember.html">Stuff to Remember</a>
                     </div>
 
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Itinerary</h6>
+                        <a class="collapse-item" href="itinerary_favorites.html">Favorites</a>
+                        <a class="collapse-item" href="itinerary_visited.html">Visited</a>
+                    </div>
+
                 </div>
 
             </li>
@@ -186,8 +192,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Places</h1>
-                    <p class="mb-4">Here you can add, edit, and delete place contents from your <a target="_blank"
+                    <h1 class="h3 mb-2 text-gray-800">Favorites</h1>
+                    <p class="mb-4">Favorites list<a target="_blank"
                             href="https://datatables.net">Go Explore Website</a>.</p>
 
                     <!-- DataTales Example -->
@@ -196,9 +202,6 @@
                             <div class="row">
                                 <div class="col-10">
                                     <h6 class="m-0 font-weight-bold text-primary">Database Table</h6>
-                                </div>
-                                <div class="col-2">
-                                    <button class="btn btn-primary btn-sm" id="addButton">Add Event</button>
                                 </div>
                             </div>
                         </div>
@@ -209,18 +212,10 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Title</th>
-                                            <th>Description</th>
-                                            <th>Category</th>
-                                            <th>Province</th>
-                                            <th>City</th>
-                                            <th>Barangay</th>
-                                            <th>Contact</th>
-                                            <th>Website</th>
+                                            <th>Place ID</th>
+                                            <th>User ID</th>
                                             <th>Date Created</th>
                                             <th>Date Updated</th>
-                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody">
@@ -233,141 +228,6 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addEventModalLabel">Add Places</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Form to add event details -->
-                                <form id="add-user-form" enctype="multipart/form-data">
-                                    <div class="mb-3">
-                                        <label for="eventImage" class="form-label">Places Image</label>
-                                        <input type="file" class="form-control" id="PlaceImage" name="image" accept="image/*">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventTitle" class="form-label">Title</label>
-                                        <input type="text" class="form-control" id="PlacesTitle" name="title" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventDescription" class="form-label">Description</label>
-                                        <textarea class="form-control" id="PlacesDescription" name="description" rows="3"
-                                            required></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="PlacesCategory" class="form-label">Category</label>
-                                        <select class="form-control" id="PlacesCategory" name="category" required readonly>
-                                            <option value="">Select a category</option>
-                                            <option value="swim">SWIM AND BEACHES</option>
-                                            <option value="nature">NATURE TRIP</option>
-                                            <option value="churches">CHURCHES</option>
-                                            <option value="events">EVENTS AND CULTURE</option>
-                                            <option value="hotels">HOTELS</option>
-                                            <option value="tourists">TOURIST SPOT</option>
-                                        </select>
-                                    </div>
-                                    
-                                        <div class="mb-3">
-                                            <label for="eventProvince" class="form-label">Province</label>
-                                            <input type="text" class="form-control" id="PlacesProvince" name="province" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="eventCity" class="form-label">City</label>
-                                            <input type="text" class="form-control" id="PlacesCity" name="city" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="eventCity" class="form-label">Barangay</label>
-                                            <input type="text" class="form-control" id="PlacesBarangay" name="barangay" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="eventCity" class="form-label">Contact</label>
-                                            <input type="text" class="form-control" id="PlacesContact" name="contact" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="eventCity" class="form-label">Website</label>
-                                            <input type="text" class="form-control" id="PlacesWebsite" name="website" required>
-                                        </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" id="btn-cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" id="btn-add-account" class="btn btn-primary">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit User</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="edit-user-form" enctype="multipart/form-data">
-                                <input type="hidden" name="id" id="edit-id">
-                                <div class="mb-3">
-                                    <label class="form-label">Image</label>
-                                    <div class="input-group">
-                                        <input type="file" class="form-control" id="PlaceImage" name="image" accept="image/*">
-                                        <input type="text" class="form-control" id="PlacesExistingImage" name="existingImage" placeholder="Existing Image URL">
-                                    </div>
-                                </div>                                
-                                
-                                <div class="mb-3">
-                                    <label for="eventTitle" class="form-label">Title</label>
-                                    <input type="text" class="form-control" id="PlacesTitle" name="title" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="eventDescription" class="form-label">Description</label>
-                                    <textarea class="form-control" id="PlacesDescription" name="description" rows="3"
-                                        required></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="PlacesCategory" class="form-label">Category</label>
-                                    <select class="form-control" id="PlacesCategory" name="category" required readonly>
-                                        <option value="">Select a category</option>
-                                        <option value="swim">SWIM AND BEACHES</option>
-                                        <option value="nature">NATURE TRIP</option>
-                                        <option value="churches">CHURCHES</option>
-                                        <option value="events">EVENTS AND CULTURE</option>
-                                        <option value="hotels">HOTELS</option>
-                                        <option value="tourists">TOURIST SPOT</option>
-                                    </select>
-                                </div>
-                                
-                                    <div class="mb-3">
-                                        <label for="eventProvince" class="form-label">Province</label>
-                                        <input type="text" class="form-control" id="PlacesProvince" name="province" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="PlacesCity" name="city" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventCity" class="form-label">Barangay</label>
-                                        <input type="text" class="form-control" id="PlacesBarangay" name="barangay" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventCity" class="form-label">Contact</label>
-                                        <input type="text" class="form-control" id="PlacesContact" name="contact" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="eventCity" class="form-label">Website</label>
-                                        <input type="text" class="form-control" id="PlacesWebsite" name="website" required>
-                                    </div>
-                                <input type="hidden" name="created_at">
-                                <input type="hidden" name="updated_at">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </form>
-                        </div>
-                        <!-- End of Main Content -->
 
                         <!-- Footer -->
                         <footer class="sticky-footer bg-white">
@@ -426,7 +286,7 @@
                 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
                 <!-- Page level custom scripts -->
-                <script src="js/demo/places.js"></script>
+                <script src="js/demo/itinerary_favorites.js"></script>
 
 </body>
 
