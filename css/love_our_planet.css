@@ -220,6 +220,9 @@ p {
     .slide-details h3{
         font-size: 20px;
     }
+    .container{
+        display: flow-root;
+    }
   }
   @media screen and (max-width: 315px) {
     .overlay-text{
@@ -240,6 +243,9 @@ p {
     }
     .slide-details h3{
         font-size: 20px;
+    }
+    .container{
+        display: flow-root;
     }
     
   }
