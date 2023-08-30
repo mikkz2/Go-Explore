@@ -5,7 +5,6 @@ const overlayTitle = document.querySelector('.overlay-title');
 const festivalTitle = document.querySelector('.festival-title');
 const festivalDescription = document.querySelector('.festival-description');
 
-// Function to populate the template with dynamic content
 function populateElements(data) {
     bgImage.style.backgroundImage = `url('${data.image}')`; 
     overlayTitle.textContent = data.title; 
@@ -13,11 +12,9 @@ function populateElements(data) {
     festivalDescription.textContent = data.description;
 }
 
-// Get the item_id query parameter from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const itemId = urlParams.get('item_id');
 
-// Fetch data from your server or database using the specific item_id
 fetch(`http://localhost:3000/festival/${itemId}`)
     .then(response => response.json())
     .then(data => {
@@ -28,113 +25,68 @@ fetch(`http://localhost:3000/festival/${itemId}`)
 
 
 
-// CARD DATA
-const contentData = [
-    {
-        imageSrc: 'image/resorts/1.png',
-        title: 'Camp Netanya Resort and Spa',
-        location: 'Location: Baun - Mabini Rd, Mabi, Batangas / Ligaya Mabini Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/2.png',
-        title: 'Aquaventure Reef Club',
-        location: 'Location: Sitio Looc, Barangay Bagalangit, Mabini, Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/3.png',
-        title: 'Casita Ysabel',
-        location: 'Location: Baun - Mabini Rd, Mabi, Batangas / Ligaya Mabini Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/4.png',
-        title: 'Eagle Point Beach and Dive Resort',
-        location: 'Location: Barangay Bagalangitm, Anilao, Mabini Batangas ',
-    },
-    {
-        imageSrc: 'image/resorts/5.png',
-        title: 'La Chevrerie resort and Spa',
-        location: 'Location: 052 Barangay Ligaya, Anilao, Mabini Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/6.png',
-        title: 'Sadayo Beach Resort',
-        location: 'Location: Sitio Bubuyan Brgy Locloc Baun Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/7.png',
-        title: 'Camp Raya Adventure Resort',
-        location: 'Location:San Luis Baun Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/8.png',
-        title: 'Destino Beach Club Dive Resort and Hotel',
-        location: 'Location: Sitio Nangkaan Brgy Locloc Bauan Batangas',
-    },
-    {
-        imageSrc: 'image/resorts/9.png',
-        title: 'New Yorkers Resort',
-        location: 'Location: Sitio Bubuyan Brgy Locloc Bauan Batangas',
-    },
-];
-
 // Find the element where you want to insert the content
 const carouselInner = document.querySelector('.carousel-inner');
 
-// Generate content cards from the contentData array with three cards per slide
-for (let i = 0; i < contentData.length; i += 3) {
-    const carouselItem = document.createElement('div');
-    carouselItem.classList.add('carousel-item');
+// Fetch data from the database endpoint
+fetch('http://localhost:3000/places')
+    .then(response => response.json())
+    .then(data => {
+        const hotelsData = data.filter(item => item.category === 'hotels');
 
-    const row = document.createElement('div');
-    row.classList.add('row');
+        for (let i = 0; i < hotelsData.length; i += 3) {
+            const carouselItem = document.createElement('div');
+            carouselItem.classList.add('carousel-item');
 
-    for (let j = i; j < i + 3 && j < contentData.length; j++) {
-        const col = document.createElement('div');
-        col.classList.add('col-md-4', 'mb-3');
+            const row = document.createElement('div');
+            row.classList.add('row');
 
-        const link = document.createElement('a');
-        link.href = 'resorts-content.php';
-        link.style.textDecoration = 'none';
-        link.style.color = 'black';
+            for (let j = i; j < i + 3 && j < hotelsData.length; j++) {
+                const col = document.createElement('div');
+                col.classList.add('col-md-4', 'mb-3');
 
-        const card = document.createElement('div');
-        card.classList.add('card');
+                const link = document.createElement('a');
+                link.href = 'explore_cardcontent.php?id=' + hotelsData[j].id;
+                link.style.textDecoration = 'none';
+                link.style.color = 'black';
 
-        const img = document.createElement('img');
-        img.classList.add('img-fluid');
-        img.alt = '100%x280';
-        img.src = contentData[j].imageSrc;
+                const card = document.createElement('div');
+                card.classList.add('card');
 
-        const cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
+                const img = document.createElement('img');
+                img.classList.add('img-fluid');
+                img.alt = '100%x280';
+                img.src = hotelsData[j].image;
 
-        const title = document.createElement('h4');
-        title.classList.add('card-title');
-        title.textContent = contentData[j].title;
+                const cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
 
-        const location = document.createElement('p');
-        location.classList.add('card-text');
-        location.textContent = contentData[j].location;
+                const title = document.createElement('h4');
+                title.classList.add('card-title');
+                title.textContent = hotelsData[j].title;
 
-        // Append elements to create the card structure
-        cardBody.appendChild(title);
-        cardBody.appendChild(location);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-        link.appendChild(card);
-        col.appendChild(link);
-        row.appendChild(col);
-    }
+                const city = document.createElement('p');
+                city.classList.add('card-text');
+                city.textContent = hotelsData[j].city;
 
-    carouselItem.appendChild(row);
+                cardBody.appendChild(title);
+                cardBody.appendChild(city);
+                card.appendChild(img);
+                card.appendChild(cardBody);
+                link.appendChild(card);
+                col.appendChild(link);
+                row.appendChild(col);
+            }
 
-    // Set the first item as active
-    if (i === 0) {
-        carouselItem.classList.add('active');
-    }
+            carouselItem.appendChild(row);
 
-    // Append the carousel item to the carousel inner
-    carouselInner.appendChild(carouselItem);
-}
+            if (i === 0) {
+                carouselItem.classList.add('active');
+            }
 
-
+            carouselInner.appendChild(carouselItem);
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });

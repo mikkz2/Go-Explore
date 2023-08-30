@@ -314,6 +314,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     };
                 });
 
+                console.log(mappedData);
+
                 dynamicData.push(...mappedData);
                 processData(); 
             })
