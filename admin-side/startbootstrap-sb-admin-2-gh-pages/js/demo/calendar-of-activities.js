@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
           const row = document.createElement('tr');
           row.innerHTML = `
                         <td>${user.id}</td>
-                        <td>${user.image}</td>
+                        <td><img src=${user.image} alt=""
+                        class="img-thumbnail" width="100px"></td>
                         <td>${user.title}</td>
                         <td>${user.description}</td>
                         <td>${user.date}</td>
