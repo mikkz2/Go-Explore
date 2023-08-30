@@ -15,6 +15,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-left: 50px;
 }
 .column {
   width: 100%;
@@ -131,7 +132,7 @@ p {
 .content {
   flex: 1;
   display: flex;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 0px; /* Adjust padding as needed */
 }
 
 .head {
@@ -152,15 +153,15 @@ h1{
 
 .iframe-container{
   overflow: hidden;
-  height: 40vh;
-  filter: brightness(0.7);
+  height: 30vh;
   flex: auto;
 }
 
 .content{
-  margin-top: 70px;
+  margin-top: 0px;
   place-items: start;
   text-align: start;
+  z-index: 10000;
 }
 
 .content h1{
@@ -185,7 +186,6 @@ h1{
   flex: 0 0 290px; 
   background-color: transparent;
   color: white;
-  padding: 20px;
   justify-content: center;
 }
 
@@ -193,7 +193,7 @@ h1{
 .services-content {
   padding-top: 35px;
   flex: 1;
-  padding-left: 40px; /* Add padding to separate content from sidebar */
+  padding-left: 10px; /* Add padding to separate content from sidebar */
 }
 
 .services {
@@ -289,6 +289,7 @@ h1{
   .side-nav{    
   flex: 0 0 100px; 
   justify-content: center;
+  padding-left: -20;
   }
   .nav-links li a p {
     display: none;
@@ -312,6 +313,10 @@ h1{
   }
   .iframe-container{
     height: 30vh;
+  }
+  .row{
+    padding-top: 0;
+    padding-right: 50px;
   }
 }
 

@@ -1,3 +1,12 @@
+const learnMoreLink = window.frameElement ? window.frameElement.contentDocument.getElementById('learn-more-link') : null;
+    
+    if (learnMoreLink) {
+        learnMoreLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            window.top.location.href = 'explore_main.php'; // Redirect the parent window
+        });
+    }
+
 window.addEventListener('scroll', function() {
 	var iframeContainer = document.querySelector('.iframe-container');
 	var scrollPosition = window.scrollY;

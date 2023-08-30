@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php'; ?>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Responsive Services Section</title>
@@ -14,6 +13,11 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
+
+<header>
+
+<?php include 'header.php'; ?>
+</header>
 <body>
 
     <div class="services-content" id="services-content">
