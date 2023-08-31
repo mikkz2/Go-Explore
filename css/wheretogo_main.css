@@ -6,7 +6,6 @@
 }
 
 body {
-  padding-top: 30px;
   background: rgb(22, 22, 22);
 }
 
@@ -73,9 +72,6 @@ h3 {
 @media screen and (min-width: 668px) {
   h3 {
     font-size: 60px;
-  }
-  body{
-    padding-top: 320px;
   }
 }
 

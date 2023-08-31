@@ -126,24 +126,36 @@ if (initialServices.length < initialItems) {
 displayServiceCards(initialServices);
 }
 
+const categoryLinks = document.querySelectorAll('.category-link');
+categoryLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('Clicked a category link');
+    // Rest of your code
+  });
+});
 
 $(document).ready(function() {
+  console.log('jQuery is working.');
 
   fetchServicesData();
-  
-$('.nav-links li a').click(function(e) {
-  e.preventDefault();
-  $('.nav-links li a').removeClass('active');
-  $(this).addClass('active');
-  const selectedCategory = $(this).data('category');
 
-  if (selectedCategory === undefined) { // Handle "See All" click
-  resetContent();
-  } else {
-    const filteredServices = servicesData.filter(service => service.category === selectedCategory);
-    displayServiceCards(filteredServices);
-  }
-});
+  
+  $('.category-link').click(function(e) {
+    e.preventDefault();
+    console.log('Clicked a category link');
+    $('.category-link').removeClass('active');
+    $(this).addClass('active');
+    const selectedCategory = $(this).data('category');
+  
+    if ($(this).hasClass('see-all')) { // Handle "See All" click
+      resetContent();
+    } else {
+      const filteredServices = servicesData.filter(service => service.category === selectedCategory);
+      displayServiceCards(filteredServices);
+    }
+  });
+  
 
 const loadMoreBtn = document.getElementById('load-more-btn');
 loadMoreBtn.addEventListener('click', toggleLoadMore);

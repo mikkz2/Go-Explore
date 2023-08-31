@@ -1,4 +1,5 @@
 *{
+  
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
@@ -45,7 +46,7 @@ section {
 }
 
 .card:hover {
-  background-image: url('image/places/swimandbeaches.png');
+  background-image: url('/assets/swimandbeaches.png');
   background-position: 0 100%;
 }
 .card:hover h3 {
@@ -80,7 +81,7 @@ section {
 }
 
 .card2:hover {
-  background-image: url('image/places/naturetrip.png');
+  background-image: url('/assets/naturetrip.png');
   background-position: 0 100%;
 }
 .card2:hover h3 {
@@ -115,7 +116,7 @@ section {
 }
 
 .card3:hover {
-  background-image: url('image/places/touristspots.png');
+  background-image: url('/assets/touristspots.png');
   background-position: 0 100%;
 }
 .card3:hover h3 {
@@ -150,7 +151,7 @@ section {
 }
 
 .card4:hover {
-  background-image: url('image/places/hotels.png');
+  background-image: url('/assets/hotels.png');
   background-position: 0 100%;
 }
 .card4:hover h3 {
@@ -185,7 +186,7 @@ section {
 }
 
 .card5:hover {
-  background-image: url('image/places/churches.png');
+  background-image: url('/assets/churches.png');
   background-position: 0 100%;
 }
 .card5:hover h3 {
@@ -220,7 +221,7 @@ section {
 }
 
 .card6:hover {
-  background-image: url('image/places/eventsandculture.PNG');
+  background-image: url('/assets/eventsandculture.PNG');
   background-position: 0 100%;
 }
 .card6:hover h3 {

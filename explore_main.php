@@ -18,8 +18,8 @@
 
   <div>
   <div class="iframe-container">
-    <div class="content" style="background: url('image/forest.png')">
-      <h1> GO EXPLORE </h1>
+    <div class="content" style="background: url('image/banig.jpg')">
+      <h1 ><i class="fa-solid fa-location"></i></h1>
     </div>
   </div>
 </div>

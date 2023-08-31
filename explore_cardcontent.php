@@ -22,12 +22,15 @@
                 <h3></h3>
               </div>
             </div>
-            <div class="ratings">
+            <div class="ratings" id="total-rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div id="number-of-visits">
+                <!-- Number of visits will be displayed here -->
             </div>
             <button id="add-to-favorites" class="add-to-favorites">
                 <i class="fas fa-heart"></i> Add to Favorites
@@ -46,7 +49,22 @@
             
         </section>
 
+        <div class="modal" id="contactModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Contact Information</h2>
+                <p id="contactInfo">Contact information will be displayed here</p>
+                <button id="copyButton">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+        </div>
+
+
     <section>
+            </p>
+        </div>
+
         <p class="dynamic-paragraph"></p>
     </section>
 
@@ -64,8 +82,6 @@
         <div class="comment-cards-container"></div>
       </section>
       
-
-      <script src="js/explore_cardcontent.js"></script>
- <?php include 'footer.php'; ?>
+<script src="js/explore_cardcontent.js"></script>
 </body>
 </html>
