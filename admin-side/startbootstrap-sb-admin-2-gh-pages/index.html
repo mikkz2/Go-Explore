@@ -219,14 +219,13 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 User Statistics</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-users"><!-- Total Number of Users --></div>
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Number of Men</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
-
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="men-users"><!-- Number of Men --></div>
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Number of Women</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="women-users"><!-- Number of Women --></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -235,6 +234,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-xl-5 col-md-12">
                             <div class="card user-activity-card">
                                 <div class="card-header">
@@ -311,54 +311,8 @@
                                     <a href="#" class="pull-right"><i class="fa fa-ellipsis-h"></i></a>
                                     Popular Destination
                                 </div>
-                                <div class="card__content">
-                                    <ul class="top-list">
-                                        <li>
-                                            <span class="chart-progress-indicator chart-progress-indicator--increase">
-                                                <span class="chart-progress-indicator__number">280</span>
-                                            </span>
-                                            Incorrect or no APN
-                                            <div class="progress wds-progress progress-bar-blue">
-                                                <div class="progress-bar" style="width: 95%;"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="chart-progress-indicator">
-                                                <span class="chart-progress-indicator__number">268</span>
-                                            </span>
-                                            Mobile data connection disabled
-                                            <div class="progress wds-progress progress-bar-blue">
-                                                <div class="progress-bar" style="width: 90%;"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="chart-progress-indicator">
-                                                <span class="chart-progress-indicator__number">260</span>
-                                            </span>
-                                            No network selected
-                                            <div class="progress wds-progress progress-bar-blue">
-                                                <div class="progress-bar" style="width: 70%;"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="chart-progress-indicator">
-                                                <span class="chart-progress-indicator__number">245</span>
-                                            </span>
-                                            Possible software issues
-                                            <div class="progress wds-progress progress-bar-blue">
-                                                <div class="progress-bar" style="width: 60%;"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="chart-progress-indicator">
-                                                <span class="chart-progress-indicator__number">140</span>
-                                            </span>
-                                            Device has developed faulty software
-                                            <div class="progress wds-progress progress-bar-blue">
-                                                <div class="progress-bar" style="width: 30%;"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <div class="card__content" id="popular-destinations">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -413,7 +367,7 @@
     <!-- Page level custom scripts -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="js/demo/index.js"></script>
 
 </body>
 

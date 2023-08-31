@@ -13,6 +13,32 @@
       "current_baranggay": "Taysan",
       "created_at": "18-08-2023",
       "updated_at": "25-08-2023"
+    },
+    {
+      "first_name": "Elly",
+      "last_name": "Kayo",
+      "gender": "Female",
+      "email": "elly@gmail.com",
+      "password": "elly",
+      "from_country": "Philippines",
+      "current_province": "Batangas",
+      "current_city": "Lipa",
+      "current_baranggay": "unknown",
+      "created_at": "01-09-2023",
+      "id": 2
+    },
+    {
+      "first_name": "Kent",
+      "last_name": "Jordan",
+      "gender": "Male",
+      "email": "kent@gmail.com",
+      "password": "kent",
+      "from_country": "Philippines",
+      "current_province": "Batangas",
+      "current_city": "Lipa",
+      "current_baranggay": "unknown",
+      "created_at": "01-09-2023",
+      "id": 3
     }
   ],
   "admin": [

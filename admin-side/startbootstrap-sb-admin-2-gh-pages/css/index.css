@@ -2,6 +2,14 @@
 .my-custom-card-body {
     height: 50px !important;
 }
+.no-bullet {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bold-rank {
+    font-weight: bold;
+}
 .card__wrapper{
     margin-top: -17.3rem;
 }
@@ -149,9 +157,9 @@
   }
 }
 
-
+/* RECENT ACTIVITY */
 .padding {
-    padding: 2rem !important;
+    padding: 3rem !important;
   }
   body {
     background-color: #f9f9fa;
