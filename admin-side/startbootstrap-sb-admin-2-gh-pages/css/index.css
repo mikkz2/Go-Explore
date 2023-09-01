@@ -1,6 +1,6 @@
 
 .my-custom-card-body {
-    height: 50px !important;
+    height: 455px !important;
 }
 .no-bullet {
     list-style: none;
@@ -10,9 +10,13 @@
 .bold-rank {
     font-weight: bold;
 }
-.card__wrapper{
-    margin-top: -17.3rem;
+.user-activity-card{
+    margin-top: -14.3rem;
 }
+.card__wrapper{
+margin-right: 50px;
+}
+
 .card{
   &__title{
     font-weight: bold;
@@ -247,4 +251,17 @@
   .text-center {
     margin-top: 15px;
   }
-  
+  /* #popular-destinations {
+    max-width: 100%; 
+    margin: 0 auto; 
+} */
+
+  @media only screen and (max-width: 1200px) {
+    .card__wrapper{
+        margin-top: -13.3rem;
+        margin-bottom: 30px;
+    }
+    .user-activity-card{
+      margin-top: 0;
+  }
+  }

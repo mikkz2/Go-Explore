@@ -71,9 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // handles image uploads
   const addForm = document.getElementById('add-user-form');
-
-
-  
   function editRow(event) {
     const button = event.target;
     const row = button.closest('tr');

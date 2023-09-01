@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let updated_at = `${currentDay}-${currentMonth}-${currentYear}`;
 
         editForm.elements.id.value = user.id;
-        // editForm.elements.image.value = user.image;
         editForm.elements.title.value = user.title;
         editForm.elements.description.value = user.description;
         editForm.elements.date.value = user.date;
@@ -93,10 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
         editForm.elements.updated_at.value = updated_at;
 
         // Get the existing image URL from the table row
-        const existingImageCell = row.querySelector('td.image-cell');
-        if (existingImageCell) {
-          editForm.elements.image.value = existingImageCell.textContent;
-        }
+        const existingImageCell = row.querySelector('td:nth-child(2)');
+        const existingImageURL = existingImageCell.querySelector('img').getAttribute('src');
+        editForm.elements.existingImage.value = existingImageURL;
 
         editModal.show();
       })
@@ -229,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(response => response.json())
           .then(data => {
             form.reset();
-            addEventModal.hide();
+            this.location.reload();
             populateTable();
           })
           .catch(error => console.error('Error adding item:', error));
