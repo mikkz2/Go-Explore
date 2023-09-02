@@ -16,13 +16,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-
-// POPULAR DESTINATION
+// popular destination
 document.addEventListener('DOMContentLoaded', function () {
-    // Fetch festival data from your localhost server
     fetch('http://localhost:3000/places')
         .then(response => response.json())
         .then(data => {
+            data.forEach(service => {
+                const storedVisits = localStorage.getItem(`service_${service.id}_visits`);
+                if (storedVisits) {
+                    service.visits = parseInt(storedVisits);
+                }
+            });
+
+            // Sort the data based on visits
             data.sort((a, b) => b.visits - a.visits);
 
             const top5Places = data.slice(0, 5);
@@ -35,8 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }));
 
             const popularDestinationsContainer = document.getElementById('popular-destinations');
-            
-            // Apply the CSS class to make the container wider
+
             popularDestinationsContainer.classList.add('wider-container');
 
             const ulElement = document.createElement('ul');
@@ -44,13 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             destinationsData.forEach(destination => {
                 const liElement = document.createElement('li');
+                console.log('Progress:', destination.progress);
                 liElement.innerHTML = `
                     <span class="chart-progress-indicator chart-progress-indicator--increase">
                         <span class="chart-progress-indicator__number">${destination.visits}</span>
                     </span>
                     <span class="bold-rank">Top ${destination.rank}:</span> ${destination.name}
                     <div class="progress wds-progress progress-bar-blue">
-                        <div class="progress-bar" style="width: ${destination.progress}%;"></div>
+                        <div class="progress-bar" style="width: ${destination.visits}%;"></div>
                     </div>
                 `;
 
@@ -61,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching data:', error));
 });
-
 
 // RECENT ACTIVITY
 const recentActivity = [

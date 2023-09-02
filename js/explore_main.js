@@ -1,6 +1,6 @@
-
-
 const servicesData = []; // Initialize as an empty array
+let totalVisits = 0;
+const MAX_VISITS = 100;
 
 const iconMappings = {
   'swim': 'fas fa-water',
@@ -22,7 +22,7 @@ function generateServiceCard(service) {
           <div class="icon-wrapper">
             <i class="${iconClass}"></i>
           </div>
-          <div class="card-content">
+          <div class="card-content" onclick="handleCardClick(${service.id})">
             <h3>${service.title}</h3>
             <p>${service.description}</p>
           </div>
@@ -31,23 +31,52 @@ function generateServiceCard(service) {
     </div>
   `;
 }
+// Inside your handleCardClick function
+function handleCardClick(serviceId) {
+  const clickedService = servicesData.find(service => service.id === serviceId);
+  if (clickedService) {
+    // Check if the service has a visit count stored in local storage
+    const storedVisits = localStorage.getItem(`service_${serviceId}_visits`);
+    const visits = storedVisits ? parseInt(storedVisits) : 0;
+
+    const newVisits = visits + 1;
+
+    localStorage.setItem(`service_${serviceId}_visits`, newVisits.toString());
+
+    // Update the progress value based on your logic
+    clickedService.progress = newVisits; // Set progress to the number of visits
+
+    // Update the total visits count and progress bar
+    totalVisits++;
+    updateProgressBar();
+  }
+}
+
+
+function updateProgressBar() {
+  const progress = (totalVisits / MAX_VISITS) * 100;
+  const progressBar = document.querySelector('.progress-bar');
+  progressBar.style.width = `${progress}%`;
+  
+  const visitsNumber = document.querySelector('.chart-progress-indicator__number');
+  visitsNumber.textContent = totalVisits;
+}
 
 function fetchServicesData() {
   fetch('http://localhost:3000/places')
     .then(response => response.json())
     .then(data => {
-      // Map the fetched data to match the required structure
       const mappedData = data.map(user => {
         return {
           id: user.id,
           category: user.category,
           title: user.title,
           description: user.description,
-          backgroundImage: user.image, // Use the correct field name
+          backgroundImage: user.image,
         };
       });
 
-      servicesData.push(...mappedData); // Push the mapped data into the servicesData array
+      servicesData.push(...mappedData); 
       displayServiceCards(servicesData.slice(0, initialItems));
     })
     .catch(error => console.error('Error fetching data:', error));
@@ -138,7 +167,7 @@ categoryLinks.forEach(link => {
 $(document).ready(function() {
   console.log('jQuery is working.');
 
-  fetchServicesData();
+fetchServicesData();
 
   
   $('.category-link').click(function(e) {
