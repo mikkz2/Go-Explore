@@ -107,5 +107,10 @@
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
    <script src="js/itinerary_visited.js"></script>
+
 </body>
+<footer>
+  
+<?php include 'footer.php'; ?>
+</footer>
 </html>

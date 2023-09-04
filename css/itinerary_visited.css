@@ -385,30 +385,33 @@
 
   
  /* PNAV BAR */
-
  .navbar {
-  background-color: #293241;
-  border-bottom: 2px solid #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
+  background-color: #293241 !important;
+  border-bottom: 2px solid #ffffff !important;
+  height: 200px !important;
+  width: 100%;
+  padding: 0 !important;
 }
+
 
 .navbar-nav {
-  display: flex;
-  flex-wrap: nowrap;
-  list-style-type: none;
   padding: 0;
-  justify-content: space-between; /* Align links in a single row with equal spacing */
+  list-style: none; /* Remove default list styles */
+  display: flex; 
+  align-items: center;/* Use flexbox to arrange items horizontally */
 }
+
+.navbar-nav .nav-item {
+  margin-right: 20px; /* Add spacing between items */
+}
+
 
 .nav-link {
   color: white;
   font-size: 18px;
-  padding: 10px;
-  margin: 5px;
   width: 150px; /* Remove fixed width */
+  padding-top: 0;
+  padding-bottom: 0;
   text-align: center; /* Center the link text */
   cursor: pointer;
   border-radius: 5px;
@@ -424,6 +427,11 @@
   animation: fadeIn 0.6s ease-in-out;
 }
 
+.navbar-expand-lg {
+  width: 100%;
+  padding: 0; /* Or any other styles you want for the expanded navbar at 1200px */
+}
+
 @keyframes fadeIn {
   0% {
      opacity: 0;
@@ -433,14 +441,4 @@
      opacity: 1;
      transform: translateY(0);
   }
-}
-
-
-.separator {
-  border: 1px solid #ccc; /* Customize the border style */
-  margin: 10px 0; /* Add some margin for spacing */
-}
-
-.star-ratings {
-  color: yellow; /* Set the color for the stars */
 }

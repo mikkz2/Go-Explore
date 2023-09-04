@@ -32,6 +32,7 @@ function generateServiceCard(service) {
   `;
 }
 
+
 function fetchServicesData() {
   fetch('http://localhost:3000/places')
     .then(response => response.json())
@@ -43,12 +44,13 @@ function fetchServicesData() {
           category: user.category,
           title: user.title,
           description: user.description,
-          backgroundImage: user.image, // Use the correct field name
+          backgroundImage: user.image,
         };
       });
 
-      servicesData.push(...mappedData); // Push the mapped data into the servicesData array
+      servicesData.push(...mappedData);
       displayServiceCards(servicesData.slice(0, initialItems));
+
     })
     .catch(error => console.error('Error fetching data:', error));
 }
@@ -126,12 +128,31 @@ if (initialServices.length < initialItems) {
 displayServiceCards(initialServices);
 }
 
+
 const categoryLinks = document.querySelectorAll('.category-link');
 categoryLinks.forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
     console.log('Clicked a category link');
-    // Rest of your code
+    
+    // Remove 'active' class from all category buttons
+    categoryLinks.forEach(category => {
+      category.classList.remove('active');
+    });
+
+    // Add 'active' class to the clicked category button
+    this.classList.add('active');
+
+    // Get the selected category from the clicked button's data-category attribute
+    const selectedCategory = this.getAttribute('data-category');
+
+    // Filter the servicesData based on the selected category
+    const filteredServices = selectedCategory
+      ? servicesData.filter(service => service.category === selectedCategory)
+      : servicesData;
+
+    // Display the filtered service cards
+    displayServiceCards(filteredServices);
   });
 });
 

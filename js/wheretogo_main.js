@@ -1,11 +1,13 @@
 // Function to fetch services data from the server
 function fetchServicesData() {
     return fetch('http://localhost:3000/places_cities')
-      .then(function(response) {
+      .then(async function(response) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
+        const cityData = await response.json();
+        // You can select the city based on your logic here
+        return cityData[0].city;
       })
       .catch(function(error) {
         console.error('Error fetching data:', error);
@@ -22,7 +24,7 @@ function fetchServicesData() {
           <div class="card">
             <div class="background-image" style="background-image: url('${service.image}');"></div>
             <div class="card-content">
-              <h3>${service.title}</h3>
+              <h3>${service.city}</h3>
             </div>
           </div>
         </a>
