@@ -129,6 +129,19 @@
       "image": "http://localhost:3001/images/46d395b9941aedccae6cc8468e4ba92c",
       "created_at": "01-09-2023",
       "id": 5
+    },
+    {
+      "title": "FDDG",
+      "description": "DFGDF",
+      "category": "churches",
+      "province": "FDGDF",
+      "city": "FDGDF",
+      "barangay": "GDFGDF",
+      "contact": "GFDGDF",
+      "website": "DFGDFG",
+      "image": "http://localhost:3001/images/24b67d4ec9fd6c9ee1e610a792669734",
+      "created_at": "04-09-2023",
+      "id": 6
     }
   ],
   "festival": [
@@ -246,13 +259,6 @@
       "updated_at": "30-08-2023"
     },
     {
-      "id": 4,
-      "place_id": 4,
-      "user_id": 1,
-      "created_at": "30-08-2023",
-      "updated_at": "30-08-2023"
-    },
-    {
       "id": 7,
       "place_id": 7,
       "user_id": 1,
@@ -294,6 +300,15 @@
       "created_at": "30-08-2023",
       "updated_at": "30-08-2023",
       "id": 3
+    },
+    {
+      "place_id": "4",
+      "user_id": 1,
+      "ratings": "3",
+      "comment": "great",
+      "created_at": "04-09-2023",
+      "updated_at": "04-09-2023",
+      "id": 4
     }
   ],
   "footer": [

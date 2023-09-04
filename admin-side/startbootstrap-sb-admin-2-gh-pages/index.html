@@ -186,46 +186,26 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-
+                        <div class="col-10">
+                            <h6 class="m-0 dashboard-title">Dashboard</h6>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary btn-sm" id="generate-report">Generate Report</button>
+                        </div>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <!-- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body my-custom-card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Platform Performance</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">100%</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-chart-line fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-md-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-success shadow py-2">
                                 <div class="card-body my-custom-card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                User Statistics</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-users"><!-- Total Number of Users --></div>
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Number of Men</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="men-users"><!-- Number of Men --></div>
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Number of Women</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="women-users"><!-- Number of Women --></div>
+                                                Total Number of Users</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-users">
+                                                <!-- Total Number of Users -->
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -234,29 +214,94 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-4">
+                            <div class="card border-left-primary shadow py-2">
+                                <div class="card-body my-custom-card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Number of Men
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="men-users">
+                                                <!-- Number of Men -->
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-male fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-left-pink shadow py-2">
+                                <div class="card-body my-custom-card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-pink text-uppercase mb-1">
+                                                Number of Women
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="women-users">
+                                                <!-- Number of Women -->
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-female fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/.row-->
+                    <div class="row">
+                        <div class="col-md-4">
                             <div class="card__wrapper">
-                                <div class="card__title">
-                                    <a href="#" class="pull-right"><i class="fa fa-ellipsis-h"></i></a>
-                                    Popular Destination
+                                <div class="card__title text-primary font-weight-bold">
+                                    Most Viewed Destination
                                 </div>
                                 <div class="card__content" id="popular-destinations">
                                     <!-- dynamic contents -->
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="col-xl-5 col-md-12">
+                        <div class="col-md-4">
+                            <div class="card__wrapper">
+                                <div class="card__title text-primary font-weight-bold">
+                                    Most Rated Resorts
+                                </div>
+                                <div class="card__content" id="rated-resort">
+                                    <ul class="top-list" id="resort-list">
+                                         <!-- Dynamic content-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card__wrapper">
+                                <div class="card__title text-primary font-weight-bold">
+                                    User Activity Locations
+                                </div>
+                                <div class="card__content" id="activity-locations">
+                                    <ul class="top-list" id="location-list">
+                                         <!-- Dynamic content-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                          
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="card user-activity-card">
                                 <div class="card-header">
                                     <h5>Recent Activity</h5>
                                 </div>
                                 <div class="card-block">
-                                    <!-- Dynamic content will be inserted here using JavaScript -->
+                                    <!-- Dynamic content-->
                                 </div>
                             </div>
                         </div>
-                    </div><!--/.row-->
+                    </div>
+                    
                 </div>
             </div>
         </div>

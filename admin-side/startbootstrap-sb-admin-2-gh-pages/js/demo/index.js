@@ -68,6 +68,68 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching data:', error));
 });
 
+// MOST REVIEWED RESORTS
+const resortsData = [
+    { name: "Incorrect or no APN", progress: 95 },
+    { name: "Mobile data connection disabled", progress: 90 },
+    { name: "No network selected", progress: 70 },
+    { name: "Possible software issues", progress: 60 },
+    { name: "Device has developed faulty software", progress: 30 }
+];
+
+function populateResorts() {
+    const resortList = document.getElementById("resort-list");
+
+    resortList.innerHTML = "";
+
+    resortsData.forEach(resort => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+            <span class="chart-progress-indicator chart-progress-indicator--increase">
+                <span class="chart-progress-indicator__number">${resort.progress}</span>
+            </span> 
+            ${resort.name}
+            <div class="progress wds-progress progress-bar-blue">
+                <div class="progress-bar" style="width: ${resort.progress}%;"></div>
+            </div>
+        `;
+        resortList.appendChild(listItem);
+    });
+}
+
+populateResorts();
+
+// User Activity Locations
+const locationData = [
+    { name: "Incorrect or no APN", progress: 95 },
+    { name: "Mobile data connection disabled", progress: 90 },
+    { name: "No network selected", progress: 70 },
+    { name: "Possible software issues", progress: 60 },
+    { name: "Device has developed faulty software", progress: 30 }
+];
+
+function populateLocation() {
+    const locationList = document.getElementById("location-list");
+
+    locationList.innerHTML = "";
+
+    locationData.forEach(location => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+            <span class="chart-progress-indicator chart-progress-indicator--increase">
+                <span class="chart-progress-indicator__number">${location.progress}</span>
+            </span> 
+            ${location.name}
+            <div class="progress wds-progress progress-bar-blue">
+                <div class="progress-bar" style="width: ${location.progress}%;"></div>
+            </div>
+        `;
+        locationList.appendChild(listItem);
+    });
+}
+
+populateLocation();
+
 // RECENT ACTIVITY
 const recentActivity = [
     {
