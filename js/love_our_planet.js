@@ -145,6 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const slideDescription = document.createElement('p');
         slideDescription.innerText = item.description; 
+        slideDescription.classList.add('love-our-planet-p');
+        slideDescription.style.margin = '10px 0';
+        slideDescription.style.color = '#ffffff';
 
         const slideLink = document.createElement('a');
         slideLink.href = item.link;
@@ -207,6 +210,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const slideDescription = document.createElement('p');
         slideDescription.innerText = item.description; 
+        slideDescription.classList.add('love-our-planet-p');
+        slideDescription.style.margin = '10px 0';
+        slideDescription.style.color = '#ffffff';
 
         const slideLink = document.createElement('a');
         slideLink.href = item.link;
@@ -272,6 +278,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const slideDescription = document.createElement('p');
         slideDescription.innerText = item.description;
+        slideDescription.classList.add('love-our-planet-p');
+        slideDescription.style.margin = '10px 0';
+        slideDescription.style.color = '#ffffff';
+
 
         const slideLink = document.createElement('a');
         slideLink.href = item.link;

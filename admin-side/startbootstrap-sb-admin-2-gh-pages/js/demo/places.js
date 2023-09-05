@@ -1,7 +1,3 @@
-// Call the dataTables jQuery plugin
-$(document).ready(function () {
-  $('#dataTable').DataTable();
-});
 
 // modal for add event
 $(document).ready(function () {

@@ -1,7 +1,3 @@
-$(document).ready(function () {
-    $('#dataTable').DataTable();
-  });
-  
   //modal for add user
   $(document).ready(function () {
     $("#addButton").click(function () {

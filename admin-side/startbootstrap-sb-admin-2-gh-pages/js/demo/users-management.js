@@ -170,8 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(response => response.json())
       .then(data => {
         form.reset();
-        addModal.hide();
-
+        this.location.reload();
         populateTable();
       })
       .catch(error => console.error('Error adding user:', error));

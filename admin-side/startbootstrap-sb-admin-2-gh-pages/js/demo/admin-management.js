@@ -167,9 +167,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       if (response.ok) {
-        const data = await response.json();
+        // const data = await response.json();
         form.reset();
-        addModal.hide();
+        this.location.reload();
         populateTable();
       } else {
         // Handle error response

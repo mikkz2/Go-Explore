@@ -207,7 +207,7 @@
             .then(response => response.json())
             .then(data => {
               form.reset();
-              addEventModal1.hide();
+              this.location.reload();
               populateTable();
             })
             .catch(error => console.error('Error adding item:', error));
