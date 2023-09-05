@@ -31,7 +31,9 @@
 
             </div>
         </div>
-
+    <div class="text-title">
+        <h2>Other Suggestions</h2>
+    </div>
         <div class="image-gallery">
                     <!-- Image gallery items will be dynamically added here -->
         </div>

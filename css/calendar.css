@@ -221,14 +221,13 @@ body {
     color: #fff;
     margin-bottom: 70px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 895px) {
    
     .overlay-text{
         font-size: 20px;
     }
     .image-gallery {
         grid-template-columns: repeat(1, 1fr);
-        padding: 2px;
     }
     #monthDropdown{
         width: 200px;

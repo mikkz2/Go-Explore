@@ -29,7 +29,8 @@ $(document).ready(function () {
             const row = document.createElement('tr');
             row.innerHTML = `
                           <td>${user.id}</td>
-                          <td>${user.image}</td>
+                          <td><img src=${user.image} alt=""
+                          class="img-thumbnail" width="100px"></td>
                           <td>${user.description}</td>
                           <td>${user.updated_at}</td>
                           <!-- ... Other cells ... -->
@@ -77,10 +78,10 @@ $(document).ready(function () {
           editForm.elements.description.value = user.description;
           editForm.elements.updated_at.value = updated_at;
   
-          const existingImageCell = row.querySelector('td.image-cell');
-          if (existingImageCell) {
-            editForm.elements.image.value = existingImageCell.textContent;
-          }
+           // Get the existing image URL from the table row
+           const existingImageCell = row.querySelector('td:nth-child(2)');
+           const existingImageURL = existingImageCell.querySelector('img').getAttribute('src');
+           editForm1.elements.existingImage.value = existingImageURL;
   
           editModal.show();
         })

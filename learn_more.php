@@ -4,6 +4,8 @@
 <head>
     <title>LEARN MORE</title>
     <link href="css/learn_more.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,9 +24,9 @@
                 </div>
             </div>
         </div>
+    
     <?php include 'footer.php'; ?>
-
+    <script src="https://kit.fontawesome.com/83c0f4a797.js" crossorigin="anonymous"></script>
     <script src="js/learn_more.js"></script>
 </body>
-
 </html>

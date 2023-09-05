@@ -54,7 +54,7 @@ body {
 .search input:focus {
 
     box-shadow: none;
-    border: 2px solid blue;
+    border: 2px solid rgb(48, 48, 255);
 
 
 }
@@ -74,7 +74,7 @@ body {
     right: 5px;
     height: 50px;
     width: 110px;
-    background: blue;
+    background: rgb(48, 48, 255);
 
 }
 
@@ -161,16 +161,16 @@ body {
 
 /* Button styling */
 .btn-custom {
-    background-color: #F5542E;
-    border-color: #F5542E;
+    background-color: rgb(48, 48, 255);
+    border-color: rgb(48, 48, 255);
     color: #fff;
     width: 200px;
     height: auto;
 }
 
 .btn-custom:hover {
-    background-color: #F5542E;
-    border-color: #F5542E;
+    background-color: rgb(48, 48, 255);
+    border-color: rgb(48, 48, 255);
 }
 
 .load-more {
@@ -178,4 +178,14 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
+}
+.text-title h2{
+    font-size: 20px; 
+    color: rgb(68, 68, 68);
+}
+
+@media only screen and (max-width: 600px) {
+    .image-gallery {
+        display: contents;
+    }
 }

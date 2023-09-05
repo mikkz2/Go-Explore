@@ -321,27 +321,31 @@
   "learnmore": [
     {
       "id": 1,
-      "image": "http://localhost:3001/images/78775629ea9b3b620de365e7c3a11fb4",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "updated_at": "27-08-2023"
+      "image": "http://localhost:3001/images/ae35c607b99ff04bf375189e92f23dd3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
+      "created_at": "",
+      "updated_at": "05-09-2023"
     },
     {
       "id": 2,
-      "image": "http://localhost:3001/images/f17ae3ae0e5b7015b4e302df29c0054c",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "updated_at": "27-08-2023"
+      "image": "http://localhost:3001/images/370ddc79fe7513b52c0e6e2ff747e4ab",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
+      "created_at": "",
+      "updated_at": "05-09-2023"
     },
     {
       "id": 3,
-      "image": "http://localhost:3001/images/b249fc512d58af338b5f7b25ecb0dcfb",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "updated_at": "27-08-2023"
+      "image": "http://localhost:3001/images/8709f201af5e5fd5147a7eccf6650745",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
+      "created_at": "",
+      "updated_at": "05-09-2023"
     },
     {
       "id": 4,
-      "image": "http://localhost:3001/images/32c58fabc5d2e4f29c5d27cf23f7ba70",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "updated_at": "27-08-2023"
+      "image": "http://localhost:3001/images/1458ddd4c95a43de6675222e10740d6f",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
+      "created_at": "",
+      "updated_at": "05-09-2023"
     }
   ],
   "thingstobring": [
