@@ -2,6 +2,8 @@
   "users": [
     {
       "id": 1,
+      "existingImage": "http://localhost:3001/images/8f6cd6e04c890960722981b0029ae158",
+      "image": "http://localhost:3001/images/442d0ea749f4107a30e2899f94c90896",
       "first_name": "Mikkay",
       "last_name": "Gabinete",
       "gender": "Female",
@@ -11,34 +13,22 @@
       "current_province": "Bicol",
       "current_city": "Legazpi",
       "current_baranggay": "Taysan",
-      "created_at": "18-08-2023",
-      "updated_at": "25-08-2023"
+      "created_at": "08-09-2023",
+      "updated_at": "08-09-2023"
     },
     {
-      "first_name": "Elly",
-      "last_name": "Kayo",
+      "first_name": "Gwen",
+      "last_name": "Stacy",
       "gender": "Female",
-      "email": "elly@gmail.com",
-      "password": "elly",
+      "email": "test@gmail.com",
+      "password": "test",
       "from_country": "Philippines",
       "current_province": "Batangas",
       "current_city": "Lipa",
-      "current_baranggay": "unknown",
-      "created_at": "01-09-2023",
+      "current_baranggay": "Antipolo",
+      "image": "http://localhost:3001/images/12f2844b55eb7d3912c712dbc1d4a5d7",
+      "created_at": "08-09-2023",
       "id": 2
-    },
-    {
-      "first_name": "Kent",
-      "last_name": "Jordan",
-      "gender": "Male",
-      "email": "kent@gmail.com",
-      "password": "kent",
-      "from_country": "Philippines",
-      "current_province": "Batangas",
-      "current_city": "Lipa",
-      "current_baranggay": "unknown",
-      "created_at": "01-09-2023",
-      "id": 3
     }
   ],
   "admin": [
@@ -61,8 +51,8 @@
   "places": [
     {
       "id": 1,
-      "image": "http://localhost:3001/images/3b6713377ec4eebe27ded0af292eddd2",
-      "existingImage": "http://localhost:3001/images/ba47b025a1c0a81adef4f0192124a15c",
+      "image": "http://localhost:3001/images/951735e40c2d33c813e9eefa36b7a1c5",
+      "existingImage": "[object",
       "title": "Camp Netanya Resort and Spa",
       "description": "Camp Netanya Resort and Spa claims its popularity from its Santorini architecture giving rise to its brilliant blue domes and white wash buildings. Camp Netanya offers 48 guest rooms and villas, dive shop, wellness center and family and friend everyone should enjoy.",
       "category": "hotels",
@@ -72,75 +62,71 @@
       "contact": "09278954092,  09397535074, 09166907269",
       "website": "www.campnetanya.com.ph",
       "created_at": "23-08-2023",
-      "updated_at": "30-08-2023"
+      "updated_at": "05-09-2023"
     },
     {
-      "id": 2,
-      "image": "http://localhost:3001/images/1210b566007f6c715ee6641371679b3b",
-      "existingImage": "alt=\"\"",
-      "title": "test",
-      "description": "ffghfhfhfghfhfh",
+      "title": "Aquaventure Reef Club",
+      "description": "Located in the stunning peninsula of Mabini along Batangas Bay, AquaVenture Reef Club is a full service dive resort, offering everything from airport pickup round-trip, comfortable, clean and Covid-Safe suites, diving classes to make the oceans accessible,local diving, ocean adventure tours and a diverse menu with a local flair in their restaurant.",
       "category": "hotels",
       "province": "Batangas",
-      "city": "Batangas City",
-      "barangay": "Lipa",
-      "contact": "Batangas City",
-      "website": "Batangas City",
-      "created_at": "23-08-2023",
-      "updated_at": "30-08-2023"
+      "city": "Mabini",
+      "barangay": " Sitio Looc, Barangay Bagalangit",
+      "contact": "0919-999-0436",
+      "website": "https://www.facebook.com/aquaventurereefclub",
+      "image": "http://localhost:3001/images/23a9d6b9d4543b9bfff616374f0e0592",
+      "created_at": "05-09-2023",
+      "id": 2
     },
     {
-      "id": 3,
-      "image": "http://localhost:3001/images/ff87923c0da1dd5e013eb1ce30f534d9",
-      "existingImage": "[object",
-      "title": "Beach",
-      "description": "gdfgfg",
-      "category": "swim",
-      "province": "dfgdfg",
-      "city": "dfgdfgd",
-      "barangay": "fgfdgfd",
-      "contact": "gfdgfd",
-      "website": "dfgfdgdf",
-      "created_at": "30-08-2023",
-      "updated_at": "30-08-2023"
+      "title": "Casita Ysabel",
+      "description": "Casita Ysabel is know for its rustic comfortnestled in Mabini, Batangas. It has now become a favorite destination among local and foreign guest who are looking for privacy and comfort. A place of true relaxation, rejuvenation and a distinct rainforest ocean experience. It’s beauty and tranquility enfolds you with the warmth and charm of a pradise home.",
+      "category": "hotels",
+      "province": "Batangas",
+      "city": "Mabini",
+      "barangay": "Baranggay San  Teodoro",
+      "contact": "0908-822-0012 / 0935-395-2345",
+      "website": "www.casitaysabel.co",
+      "image": "http://localhost:3001/images/7f3a956fe2df6d594fb91601e4973c7d",
+      "created_at": "05-09-2023",
+      "id": 3
     },
     {
-      "title": "dffd",
-      "description": "fdgfdg",
-      "category": "nature",
-      "province": "fgd",
-      "city": "dfgdfg",
-      "barangay": "gddf",
-      "contact": "gdfgdf",
-      "website": "fdgfd",
-      "image": "http://localhost:3001/images/584df0407d5f9e57d379d72676f241f8",
-      "created_at": "01-09-2023",
+      "title": "Eagle Point Beach and Dive Resort",
+      "description": "Eagle Point Resort is a seaside haven located at the tip of the Calumpang Peninsula in Anilao, Batangas. The resort is owned by a family corporation and is the largest and most popular diving destination for locals and foreigners in Batangas. . It is also the premier company outing venue in Batangas, as it offers exclusive access to private and secluded beaches and a plethora of water activities. Eagle Point Beach and Dive Resort is the Leading Scuba Diving, Leisure & Family Resort in\nAnilao Batangas.",
+      "category": "hotels",
+      "province": "Batangas",
+      "city": "Mabini",
+      "barangay": "Barangay Bagalangitm, Anilao",
+      "contact": "0917-846-3958 / 0927-351-0164",
+      "website": "https://www.facebook.com/eaglepointbeachanddiveresort",
+      "image": "http://localhost:3001/images/8fa78945ea28af75821d013af7330800",
+      "created_at": "07-09-2023",
       "id": 4
     },
     {
-      "title": "fdgfd",
-      "description": "gfdgfd",
-      "category": "churches",
-      "province": "fdgdf",
-      "city": "fdgdf",
-      "barangay": "dfgdf",
-      "contact": "gdfg",
-      "website": "dfgfd",
-      "image": "http://localhost:3001/images/46d395b9941aedccae6cc8468e4ba92c",
-      "created_at": "01-09-2023",
+      "title": "La Chevrerie resort and Spa",
+      "description": " A Seamless fusion of comfort and style of recreation and relaxation of simplicity and indulgence. A rustic yet luxuriously grand holiday escape it is the idea destination for a dream tropical vacation La Chevrerie is a 5 star resort in Anilao Batangas",
+      "category": "hotels",
+      "province": "Batangas",
+      "city": "Mabini",
+      "barangay": "052 Barangay Ligaya, Anilao",
+      "contact": "0917-703-3320",
+      "website": "https://www.facebook.com/lachevrerieresort ",
+      "image": "http://localhost:3001/images/4048d9513dca48fde179878946a38789",
+      "created_at": "07-09-2023",
       "id": 5
     },
     {
-      "title": "FDDG",
-      "description": "DFGDF",
-      "category": "churches",
-      "province": "FDGDF",
-      "city": "FDGDF",
-      "barangay": "GDFGDF",
-      "contact": "GFDGDF",
-      "website": "DFGDFG",
-      "image": "http://localhost:3001/images/24b67d4ec9fd6c9ee1e610a792669734",
-      "created_at": "04-09-2023",
+      "title": "Punta Fuego",
+      "description": "Fuego Point, also referred to as Punta Fuego, is a peninsula with a distinctive flame-like shape situated in the western region of Batangas province on Luzon Island in the Philippines. This headland stretches out as a promontory measuring 2.9 kilometers, extending into the South China Sea. It offers scenic views of Fortune Island, Nasugbu Bay, and Calayo Bay, all located in the municipality of Nasugbu.",
+      "category": "swim",
+      "province": "Batangas",
+      "city": "Nasugbu ",
+      "barangay": "",
+      "contact": "",
+      "website": "",
+      "image": "http://localhost:3001/images/d49424d09c4826892940eda37a152650",
+      "created_at": "07-09-2023",
       "id": 6
     }
   ],
@@ -252,63 +238,67 @@
       "updated_at": "30-08-2023"
     },
     {
-      "id": 6,
-      "place_id": 6,
-      "user_id": 1,
-      "created_at": "30-08-2023",
-      "updated_at": "30-08-2023"
-    },
-    {
       "id": 7,
       "place_id": 7,
       "user_id": 1,
       "created_at": "30-08-2023",
       "updated_at": "30-08-2023"
-    },
-    {
-      "id": 1,
-      "place_id": 1,
-      "user_id": 1,
-      "created_at": "31-08-2023",
-      "updated_at": "31-08-2023"
     }
   ],
   "itinerary_visited": [
     {
-      "id": 1,
-      "place_id": 1,
+      "place_id": "1",
       "user_id": 1,
-      "ratings": 4.3,
-      "comment": "The place is good",
-      "created_at": "28-08-2023",
-      "updated_at": "28-08-2023"
+      "ratings": "5",
+      "comment": "GREAT PLACE",
+      "created_at": "05-09-2023",
+      "updated_at": "05-09-2023",
+      "id": 5
     },
     {
-      "place_id": "7",
+      "place_id": "2",
       "user_id": 1,
-      "ratings": "0",
-      "comment": "The place is nice",
-      "created_at": "30-08-2023",
-      "updated_at": "30-08-2023",
-      "id": 2
+      "ratings": "3",
+      "comment": "GREAT PLACE",
+      "created_at": "05-09-2023",
+      "updated_at": "05-09-2023",
+      "id": 6
     },
     {
-      "place_id": "8",
+      "place_id": "3",
       "user_id": 1,
-      "ratings": "0",
-      "comment": "hyky",
-      "created_at": "30-08-2023",
-      "updated_at": "30-08-2023",
-      "id": 3
+      "ratings": "3",
+      "comment": "GREAT PLACE",
+      "created_at": "05-09-2023",
+      "updated_at": "05-09-2023",
+      "id": 7
     },
     {
       "place_id": "4",
       "user_id": 1,
-      "ratings": "3",
-      "comment": "great",
-      "created_at": "04-09-2023",
-      "updated_at": "04-09-2023",
-      "id": 4
+      "ratings": "1",
+      "comment": "poor service",
+      "created_at": "07-09-2023",
+      "updated_at": "07-09-2023",
+      "id": 8
+    },
+    {
+      "place_id": "5",
+      "user_id": 1,
+      "ratings": "2",
+      "comment": "nice place ",
+      "created_at": "07-09-2023",
+      "updated_at": "07-09-2023",
+      "id": 9
+    },
+    {
+      "place_id": "6",
+      "user_id": 1,
+      "ratings": "2",
+      "comment": "nice place",
+      "created_at": "07-09-2023",
+      "updated_at": "07-09-2023",
+      "id": 10
     }
   ],
   "footer": [

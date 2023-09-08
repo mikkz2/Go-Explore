@@ -68,36 +68,86 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching data:', error));
 });
 
-// MOST REVIEWED RESORTS
-const resortsData = [
-    { name: "Incorrect or no APN", progress: 95 },
-    { name: "Mobile data connection disabled", progress: 90 },
-    { name: "No network selected", progress: 70 },
-    { name: "Possible software issues", progress: 60 },
-    { name: "Device has developed faulty software", progress: 30 }
-];
+// MOST RATED RESORT
+const resortsData = [];
 
-function populateResorts() {
-    const resortList = document.getElementById("resort-list");
-
-    resortList.innerHTML = "";
-
-    resortsData.forEach(resort => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-            <span class="chart-progress-indicator chart-progress-indicator--increase">
-                <span class="chart-progress-indicator__number">${resort.progress}</span>
-            </span> 
-            ${resort.name}
-            <div class="progress wds-progress progress-bar-blue">
-                <div class="progress-bar" style="width: ${resort.progress}%;"></div>
-            </div>
-        `;
-        resortList.appendChild(listItem);
-    });
+function calculateAverageRating(ratings) {
+    if (ratings.length === 0) return 0;
+    const sum = ratings.reduce((total, rating) => total + rating, 0);
+    return (sum / ratings.length).toFixed(1);
 }
 
-populateResorts();
+function fetchResortNames() {
+    return fetch('http://localhost:3000/places')
+        .then(response => response.json())
+        .then(data => {
+            const resortNames = {};
+            if (Array.isArray(data)) {
+                // Filter places with the "hotels" category
+                const hotels = data.filter(place => place.category === "hotels");
+                hotels.forEach(place => {
+                    resortNames[place.id] = place.title;
+                });
+            }
+            return resortNames;
+        })
+        .catch(error => {
+            console.error('Error fetching resort names:', error);
+            return {}; 
+        });
+}
+
+async function populateAndSortResorts() {
+    const resortList = document.getElementById("resort-list");
+
+    const resortNames = await fetchResortNames();
+
+    fetch('http://localhost:3000/itinerary_visited')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Fetched data:', data);
+            if (Array.isArray(data)) {
+                resortsData.length = 0;
+                data.forEach(user => {
+                    const resort = {
+                        name: resortNames[user.place_id] || 'Unknown Resort',
+                        ratings: user.ratings.split(',').map(Number)
+                    };
+
+                    // Filter out resorts with no ratings and not in the "hotels" category
+                    if (resort.ratings.length > 0 && resortNames[user.place_id] !== undefined) {
+                        resortsData.push(resort);
+                    }
+                });
+
+                resortsData.sort((a, b) => calculateAverageRating(b.ratings) - calculateAverageRating(a.ratings));
+
+                resortList.innerHTML = "";
+
+                resortsData.slice(0, 5).forEach((resort, index) => {
+                    const averageRating = calculateAverageRating(resort.ratings);
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `
+                        <span class="chart-progress-indicator chart-progress-indicator--increase">
+                            <span class="chart-progress-indicator__number">${averageRating}</span>
+                        </span> 
+                        <span class="bold-rank">Top ${index + 1}:</span> ${resort.name}
+                        <div class="progress wds-progress progress-bar-blue">
+                            <div class="progress-bar" style="width: ${averageRating * 20}%;"></div>
+                        </div>
+                    `;
+                    resortList.appendChild(listItem);
+                });
+            } else {
+                console.error('Fetched data is not an array:', data);
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+populateAndSortResorts();
+
+
 
 // User Activity Locations
 const locationData = [

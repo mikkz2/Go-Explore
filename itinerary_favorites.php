@@ -59,6 +59,11 @@
               <i class="fas fa-check"></i> Visited
             </button>
           </li>
+          <li class="nav-item">
+            <button class="nav-link btn btn-link animate" id="accountButton">
+              <i class="fas fa-cog"></i> Account
+            </button>
+          </li>
         </ul>
       </nav>
       

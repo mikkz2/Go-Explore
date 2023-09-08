@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('.login-info-box').fadeOut();
     $('.login-show').addClass('show-log-panel');
 });
 
-$('.login-reg-panel input[type="radio"]').on('change', function() {
+$('.login-reg-panel input[type="radio"]').on('change', function () {
     if ($('#log-login-show').is(':checked')) {
-        if(screen.width > 768){
+        if (screen.width > 768) {
             $('.register-info-box').fadeOut();
             $('.login-info-box').fadeIn();
         }
@@ -14,7 +14,7 @@ $('.login-reg-panel input[type="radio"]').on('change', function() {
         $('.login-show').removeClass('show-log-panel');
 
     } else if ($('#log-reg-show').is(':checked')) {
-        if(screen.width > 768){
+        if (screen.width > 768) {
             $('.register-info-box').fadeIn();
             $('.login-info-box').fadeOut();
         }
@@ -40,8 +40,7 @@ registerButton.addEventListener('click', () => {
     const current_city = document.getElementById('current_city').value;
     const current_baranggay = document.getElementById('current_baranggay').value;
 
-    // Redirect to learnmore.php
-    window.location.href = 'learn_more.php';
+    window.location.href = 'itinerary_favorites.php';
 
     // Create an object with the form data
     const user = {
@@ -57,17 +56,17 @@ registerButton.addEventListener('click', () => {
     };
     const date = new Date();
 
-    let currentDay= String(date.getDate()).padStart(2, '0');
-    
-    let currentMonth = String(date.getMonth()+1).padStart(2,"0");
-    
+    let currentDay = String(date.getDate()).padStart(2, '0');
+
+    let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
+
     let currentYear = date.getFullYear();
-  
+
     // we will display the date as DD-MM-YYYY 
-  
+
     let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
-   // Add current date to the user object
-   user['created_at'] = currentDate; // or any other format you prefer
+    // Add current date to the user object
+    user['created_at'] = currentDate; // or any other format you prefer
 
     // Send POST request to JSON server
     fetch('http://localhost:3000/users', {
@@ -77,18 +76,18 @@ registerButton.addEventListener('click', () => {
         },
         body: JSON.stringify(user)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('User added:', data);
-        // Optionally, you can trigger table population here
-    })
-    .catch(error => console.error('Error adding user:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('User added:', data);
+            // Optionally, you can trigger table population here
+        })
+        .catch(error => console.error('Error adding user:', error));
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.getElementById('loginButton');
     const staticBackdropModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-    const closeButton = staticBackdropModal._element.querySelector('.btn-close'); 
+    const closeButton = staticBackdropModal._element.querySelector('.btn-close');
 
     if (loginButton) {
         loginButton.addEventListener('click', () => {
@@ -103,23 +102,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ email, password }) // Use the entered email and password
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.access_token && data.refresh_token) {
-                    // Valid login
-                    localStorage.setItem('access_token', data.access_token);
-                    localStorage.setItem('refresh_token', data.refresh_token);
+                .then(response => response.json())
+                .then(data => {
+                    if (data.access_token && data.refresh_token) {
+                        // Valid login
+                        localStorage.setItem('access_token', data.access_token);
+                        localStorage.setItem('refresh_token', data.refresh_token);
 
-                    console.log(data);
-                    console.log('Login successful');
-                    window.location.href = 'learn_more.php'; 
-                } else {
-                    // Invalid login
-                    console.log('Invalid login');
-                    staticBackdropModal.show();
-                }
-            })
-            .catch(error => console.error('Error checking login:', error));
+                        console.log('Login successful');
+                        // Set a flag or token to indicate the user is authenticated
+                        localStorage.setItem('isAuthenticated', 'true');
+
+                        // Reload the header to reflect the updated authentication status
+                        location.reload();
+                    } else {
+                        // Invalid login
+                        console.log('Invalid login');
+                        staticBackdropModal.show();
+                    }
+                })
+                .catch(error => console.error('Error checking login:', error));
         });
 
         // Close the modal when clicking on the close button

@@ -15,13 +15,27 @@
     const addAccountButton1 = document.getElementById('btn-add-account1');
     const editModal1 = new bootstrap.Modal(document.getElementById('editModal1')); 
     const editForm1 = document.getElementById('edit-user-form1'); 
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
   
-    function populateTable() {
-      fetch('http://localhost:3000/stufftoremember')
+    function populateTable(searchKeyword = '') {
+      let searchUrl = 'http://localhost:3000/stufftoremember';
+  
+      fetch(searchUrl)
         .then(response => response.json())
         .then(data => {
+          const filteredData = data.filter(user => {
+            return user.title.includes(searchKeyword) || user.description.includes(searchKeyword);
+          });
           tableBody1.innerHTML = ''; 
-          data.forEach(user => {
+          if (filteredData.length === 0) {
+            const noResultsRow = document.createElement('tr');
+            noResultsRow.innerHTML = `
+                <td colspan="7" style="text-align: center;">There are no relevant search results.</td>
+                `;
+            tableBody1.appendChild(noResultsRow);
+          } else {
+            filteredData.forEach(user => {
             const row = document.createElement('tr');
             row.innerHTML = `
                           <td>${user.id}</td>
@@ -43,6 +57,7 @@
                       `;
             tableBody1.appendChild(row);
           });
+        }
           const deleteButtons = document.querySelectorAll('.delete-button');
           deleteButtons.forEach(button => {
             button.addEventListener('click', deleteRow);
@@ -56,7 +71,13 @@
         })
         .catch(error => console.error('Error fetching data:', error));
     }
-  
+    populateTable();
+
+    searchButton.addEventListener('click', () => {
+      const searchKeyword = searchInput.value.trim();
+      console.log('Search keyword:', searchKeyword);
+      populateTable(searchKeyword);
+    });
     const addForm = document.getElementById('add-user-form1');
   
 //   EDIT

@@ -12,20 +12,34 @@ document.addEventListener('DOMContentLoaded', function () {
   const addButton = document.getElementById('addButton');
   const addEventModal = new bootstrap.Modal(document.getElementById('addEventModal'));
   const addAccountButton = document.getElementById('btn-add-account');
-  const editModal = new bootstrap.Modal(document.getElementById('editModal')); // Add this line
-  const editForm = document.getElementById('edit-user-form'); // Add this line
+  const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+  const editForm = document.getElementById('edit-user-form'); 
+  const searchButton = document.getElementById('searchButton');
+  const searchInput = document.getElementById('searchInput');
   let updatedUser = {};
 
+  function populateTable(searchKeyword = '') {
+    let searchUrl = 'http://localhost:3000/places';
 
-  // Fetch data from JSON server and populate the table
-  function populateTable() {
-    fetch('http://localhost:3000/places') // Replace with your JSON server URL
+    fetch(searchUrl)
       .then(response => response.json())
       .then(data => {
-        tableBody.innerHTML = ''; // Clear existing table data
-        data.forEach(user => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
+        const filteredData = data.filter(user => {
+          return user.title.includes(searchKeyword) || user.category.includes(searchKeyword) || user.province.includes(searchKeyword) || user.city.includes(searchKeyword) || user.barangay.includes(searchKeyword) || user.contact.includes(searchKeyword) || user.website.includes(searchKeyword);
+        });
+
+        tableBody.innerHTML = '';
+        if (filteredData.length === 0) {
+          const noResultsRow = document.createElement('tr');
+          noResultsRow.innerHTML = `
+          <td colspan="13" style="text-align: center;">There are no relevant search results.</td>
+          `;
+          tableBody.appendChild(noResultsRow);
+        } else {
+          // Populate the table with search results
+          filteredData.forEach(user => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
                         <td>${user.id}</td>
                         <td><img src=${user.image} alt=""
                         class="img-thumbnail" width="100px"></td>
@@ -49,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             </button>
                         </td>
                     `;
-          tableBody.appendChild(row);
-        });
+            tableBody.appendChild(row);
+          });
+        }
         const deleteButtons = document.querySelectorAll('.delete-button');
         deleteButtons.forEach(button => {
           button.addEventListener('click', deleteRow);
@@ -64,6 +79,13 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(error => console.error('Error fetching data:', error));
   }
+  populateTable();
+
+  searchButton.addEventListener('click', () => {
+    const searchKeyword = searchInput.value.trim();
+    console.log('Search keyword:', searchKeyword); 
+    populateTable(searchKeyword);
+  });
 
   // handles image uploads
   const addForm = document.getElementById('add-user-form');
@@ -160,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(response => response.json())
       .then(data => {
         editForm.reset();
-        editModal.hide(); 
+        editModal.hide();
         populateTable();
       })
       .catch(error => console.error('Error updating item data:', error));
@@ -180,61 +202,61 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageFile = imageInput.files[0];
 
     if (imageFile) {
-        formData.delete('image');
-        formData.append('image', imageFile);
+      formData.delete('image');
+      formData.append('image', imageFile);
     }
 
     var formData2 = new FormData();
     formData2.append('image', imageFile);
 
     fetch('http://localhost:3001/images', {
-        method: 'POST',
-        body: formData2
+      method: 'POST',
+      body: formData2
     })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Network response was not ok.');
-            }
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      })
+      .then(data => {
+        console.log('Uploaded image URL:', data.url);
+
+        // Declare and define the currentDate variable here
+        const date = new Date();
+        let currentDay = String(date.getDate()).padStart(2, '0');
+        let currentMonth = String(date.getMonth() + 1).padStart(2, '0');
+        let currentYear = date.getFullYear();
+        let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+
+        // Include the image data URL in the user object
+        const user = {
+          ...Object.fromEntries(formData.entries()),
+          image: data.url,
+          created_at: currentDate
+        };
+
+        // Send POST request to JSON server
+        fetch('http://localhost:3000/places', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(user)
         })
-        .then(data => {
-            console.log('Uploaded image URL:', data.url);
-
-            // Declare and define the currentDate variable here
-            const date = new Date();
-            let currentDay = String(date.getDate()).padStart(2, '0');
-            let currentMonth = String(date.getMonth() + 1).padStart(2, '0');
-            let currentYear = date.getFullYear();
-            let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
-
-            // Include the image data URL in the user object
-            const user = {
-                ...Object.fromEntries(formData.entries()),
-                image: data.url,
-                created_at: currentDate
-            };
-
-            // Send POST request to JSON server
-            fetch('http://localhost:3000/places', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            })
-            .then(response => response.json())
-            .then(data => {
-                form.reset();
-                this.location.reload();
-                populateTable();
-            })
-            .catch(error => console.error('Error adding item:', error));
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-});
+          .then(response => response.json())
+          .then(data => {
+            form.reset();
+            this.location.reload();
+            populateTable();
+          })
+          .catch(error => console.error('Error adding item:', error));
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  });
 
   // handle delete button
   function deleteRow(event) {

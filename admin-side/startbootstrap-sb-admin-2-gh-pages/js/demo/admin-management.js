@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const accessToken = getAccessTokenFromLocalStorage();
     let searchUrl = 'http://localhost:3000/admin';
 
-    if (searchKeyword.trim() !== '') {
-      searchUrl += `?search=${encodeURIComponent(searchKeyword)}`;
-    }
-
     fetch(searchUrl, {
       headers: {
         'Authorization': `Bearer ${accessToken}`
@@ -32,28 +28,42 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then(response => response.json())
       .then(data => {
-        tableBody.innerHTML = '';
-        data.forEach(user => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${user.id}</td>
-            <td>${user.user_name}</td>
-            <td>${user.email}</td>
-            <td>${maskPassword(user.password)}</td>
-            <td>${user.created_at}</td>
-            <td>${user.updated_at}</td>
-            <!-- ... Other cells ... -->
-            <td>
-              <button class="btn btn-primary btn-sm edit-button" data-user-id="${user.id}">
-                <i class="fa fa-pen"></i>
-              </button>
-              <button class="btn btn-danger btn-sm delete-button">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          `;
-          tableBody.appendChild(row);
+        const filteredData = data.filter(user => {
+          return user.user_name.includes(searchKeyword) || user.email.includes(searchKeyword);
         });
+
+        tableBody.innerHTML = ''; 
+
+        if (filteredData.length === 0) {
+          const noResultsRow = document.createElement('tr');
+          noResultsRow.innerHTML = `
+          <td colspan="7" style="text-align: center;">There are no relevant search results.</td>
+          `;
+          tableBody.appendChild(noResultsRow);
+        } else {
+          // Populate the table with search results
+          filteredData.forEach(user => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${user.id}</td>
+              <td>${user.user_name}</td>
+              <td>${user.email}</td>
+              <td>${maskPassword(user.password)}</td>
+              <td>${user.created_at}</td>
+              <td>${user.updated_at}</td>
+              <!-- ... Other cells ... -->
+              <td>
+                <button class="btn btn-primary btn-sm edit-button" data-user-id="${user.id}">
+                  <i class="fa fa-pen"></i>
+                </button>
+                <button class="btn btn-danger btn-sm delete-button">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            `;
+            tableBody.appendChild(row);
+          });
+        }
 
         const deleteButtons = document.querySelectorAll('.delete-button');
         deleteButtons.forEach(button => {
@@ -68,11 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
       .catch(error => console.error('Error fetching data:', error));
   }
 
+
   // Initial population of the table with all data
   populateTable();
 
   searchButton.addEventListener('click', () => {
     const searchKeyword = searchInput.value.trim();
+    console.log('Search keyword:', searchKeyword); // Debug log
     populateTable(searchKeyword);
   });
 
