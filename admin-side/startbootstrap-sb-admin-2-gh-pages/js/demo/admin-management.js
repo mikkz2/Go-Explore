@@ -1,4 +1,8 @@
 
+$(document).ready(function () {
+  $('#dataTable').DataTable();
+});
+
 //modal for add user
 $(document).ready(function () {
   $("#addButton").click(function () {
@@ -11,60 +15,46 @@ document.addEventListener('DOMContentLoaded', function () {
   const addButton = document.getElementById('addButton');
   const addModal = new bootstrap.Modal(document.getElementById('addModal'));
   const addAccountButton = document.getElementById('btn-add-account');
-  const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+  const editModal = new bootstrap.Modal(document.getElementById('editModal')); // Add this line
   const editForm = document.getElementById('edit-user-form');
-  const searchButton = document.getElementById('searchButton');
-  const searchInput = document.getElementById('searchInput');
 
-  // Function to fetch and populate the table
-  function populateTable(searchKeyword = '') {
-    const accessToken = getAccessTokenFromLocalStorage();
-    let searchUrl = 'http://localhost:3000/admin';
-
-    fetch(searchUrl, {
+  function getAccessTokenFromLocalStorage() {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken;
+  }
+  // Fetch data from JSON server and populate the table
+  function populateTable() {
+    const accessToken = getAccessTokenFromLocalStorage(); // Implement this function
+    fetch('http://localhost:3000/admin', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }
     })
+
       .then(response => response.json())
       .then(data => {
-        const filteredData = data.filter(user => {
-          return user.user_name.includes(searchKeyword) || user.email.includes(searchKeyword);
+        tableBody.innerHTML = '';
+        data.forEach(user => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+                      <td>${user.id}</td>
+                      <td>${user.user_name}</td>
+                      <td>${user.email}</td>
+                      <td>${maskPassword(user.password)}</td>
+                      <td>${user.created_at}</td>
+                      <td>${user.updated_at}</td>
+                      <!-- ... Other cells ... -->
+                      <td>
+                          <button class="btn btn-primary btn-sm edit-button" data-user-id="${user.id}">
+                              <i class="fa fa-pen"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm delete-button">
+                              <i class="fa fa-trash"></i>
+                          </button>
+                      </td>
+                  `;
+          tableBody.appendChild(row);
         });
-
-        tableBody.innerHTML = ''; 
-
-        if (filteredData.length === 0) {
-          const noResultsRow = document.createElement('tr');
-          noResultsRow.innerHTML = `
-          <td colspan="7" style="text-align: center;">There are no relevant search results.</td>
-          `;
-          tableBody.appendChild(noResultsRow);
-        } else {
-          // Populate the table with search results
-          filteredData.forEach(user => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-              <td>${user.id}</td>
-              <td>${user.user_name}</td>
-              <td>${user.email}</td>
-              <td>${maskPassword(user.password)}</td>
-              <td>${user.created_at}</td>
-              <td>${user.updated_at}</td>
-              <!-- ... Other cells ... -->
-              <td>
-                <button class="btn btn-primary btn-sm edit-button" data-user-id="${user.id}">
-                  <i class="fa fa-pen"></i>
-                </button>
-                <button class="btn btn-danger btn-sm delete-button">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            `;
-            tableBody.appendChild(row);
-          });
-        }
-
         const deleteButtons = document.querySelectorAll('.delete-button');
         deleteButtons.forEach(button => {
           button.addEventListener('click', deleteRow);
@@ -74,24 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
         editButtons.forEach(button => {
           button.addEventListener('click', editRow);
         });
+
       })
       .catch(error => console.error('Error fetching data:', error));
   }
 
-
-  // Initial population of the table with all data
-  populateTable();
-
-  searchButton.addEventListener('click', () => {
-    const searchKeyword = searchInput.value.trim();
-    console.log('Search keyword:', searchKeyword); // Debug log
-    populateTable(searchKeyword);
-  });
-
-  function getAccessTokenFromLocalStorage() {
-    const accessToken = localStorage.getItem('access_token');
-    return accessToken;
-  }
 
   function editRow(event) {
     const button = event.target;
@@ -108,13 +85,15 @@ document.addEventListener('DOMContentLoaded', function () {
         let currentYear = date.getFullYear();
         let updated_at = `${currentDay}-${currentMonth}-${currentYear}`;
 
+        // user['created_at'] = currentDate;
+        // Populate the edit form fields with user data
         editForm.elements.id.value = user.id;
         editForm.elements.user_name.value = user.user_name;
         editForm.elements.email.value = user.email;
         editForm.elements.password.value = user.password;
         editForm.elements.created_at.value = user.created_at;
         editForm.elements.updated_at.value = updated_at;
-
+        // Show the edit modal
         editModal.show();
       })
       .catch(error => console.error('Error fetching user data:', error));
@@ -179,9 +158,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       if (response.ok) {
-        // const data = await response.json();
+        const data = await response.json();
         form.reset();
-        this.location.reload();
+        addModal.hide();
         populateTable();
       } else {
         // Handle error response
@@ -215,4 +194,3 @@ document.addEventListener('DOMContentLoaded', function () {
 function maskPassword(password) {
   return '*'.repeat(password.length);
 }
-

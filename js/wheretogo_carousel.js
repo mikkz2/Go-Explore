@@ -28,7 +28,7 @@ const categoryToIcon = {
   
         cardElement.innerHTML = `
           <div class="icon card-icon ${iconClass}"></div>
-          <h2>${card.title}</h2>
+          <h2>${card.city}</h2>
           <span>${card.description}</span>
         `;
   
@@ -36,10 +36,11 @@ const categoryToIcon = {
   
         cardElement.addEventListener("click", () => {
           const redirectUrl = cardElement.dataset.redirectUrl;
+          console.log("Attempting to redirect to:", redirectUrl); // Debugging line
           if (redirectUrl) {
-            window.location.href = redirectUrl;
+            window.top.location.href = redirectUrl;
           }
-        });
+        });        
   
         carousel.appendChild(cardElement);
       });
@@ -106,9 +107,19 @@ const categoryToIcon = {
   }
   
   async function fetchAndGenerateAllCards() {
-    await fetchAndGenerateCards('http://localhost:3000/festival', true);
-    await fetchAndGenerateCards('http://localhost:3000/places');
+    try {
+      const city = await fetchCityData();
+      const festivalUrl = `http://localhost:3000/festival?city=${city}`;
+      const placesUrl = `http://localhost:3000/places?city=${city}`;
+  
+      await fetchAndGenerateCards(festivalUrl, true);
+      await fetchAndGenerateCards(placesUrl);
+    } catch (error) {
+      console.error('Error fetching city data or cards data:', error);
+    }
   }
   
+  // Call the function to fetch and generate cards dynamically
   fetchAndGenerateAllCards();
+  
   

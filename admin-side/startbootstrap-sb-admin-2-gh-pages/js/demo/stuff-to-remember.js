@@ -15,32 +15,17 @@
     const addAccountButton1 = document.getElementById('btn-add-account1');
     const editModal1 = new bootstrap.Modal(document.getElementById('editModal1')); 
     const editForm1 = document.getElementById('edit-user-form1'); 
-    const searchButton = document.getElementById('searchButton');
-    const searchInput = document.getElementById('searchInput');
   
-    function populateTable(searchKeyword = '') {
-      let searchUrl = 'http://localhost:3000/stufftoremember';
-  
-      fetch(searchUrl)
+    function populateTable() {
+      fetch('http://localhost:3000/stufftoremember')
         .then(response => response.json())
         .then(data => {
-          const filteredData = data.filter(user => {
-            return user.title.includes(searchKeyword) || user.description.includes(searchKeyword);
-          });
           tableBody1.innerHTML = ''; 
-          if (filteredData.length === 0) {
-            const noResultsRow = document.createElement('tr');
-            noResultsRow.innerHTML = `
-                <td colspan="7" style="text-align: center;">There are no relevant search results.</td>
-                `;
-            tableBody1.appendChild(noResultsRow);
-          } else {
-            filteredData.forEach(user => {
+          data.forEach(user => {
             const row = document.createElement('tr');
             row.innerHTML = `
                           <td>${user.id}</td>
-                          <td><img src=${user.image} alt=""
-                          class="img-thumbnail" width="100px"></td>
+                          <td>${user.image}</td>
                           <td>${user.title}</td>
                           <td>${user.description}</td>
                           <td>${user.created_at}</td>
@@ -57,7 +42,6 @@
                       `;
             tableBody1.appendChild(row);
           });
-        }
           const deleteButtons = document.querySelectorAll('.delete-button');
           deleteButtons.forEach(button => {
             button.addEventListener('click', deleteRow);
@@ -71,13 +55,7 @@
         })
         .catch(error => console.error('Error fetching data:', error));
     }
-    populateTable();
-
-    searchButton.addEventListener('click', () => {
-      const searchKeyword = searchInput.value.trim();
-      console.log('Search keyword:', searchKeyword);
-      populateTable(searchKeyword);
-    });
+  
     const addForm = document.getElementById('add-user-form1');
   
 //   EDIT
@@ -101,11 +79,10 @@
           editForm1.elements.created_at.value = user.created_at;
           editForm1.elements.updated_at.value = updated_at;
 
-          // Get the existing image URL from the table row
-          const existingImageCell = row.querySelector('td:nth-child(2)');
-          const existingImageURL = existingImageCell.querySelector('img').getAttribute('src');
-          editForm1.elements.existingImage.value = existingImageURL;
-
+          const existingImageCell = row.querySelector('td.image-cell');
+          if (existingImageCell) {
+            editForm1.elements.image.value = existingImageCell.textContent;
+          }
   
           editModal1.show();
         })
@@ -228,7 +205,7 @@
             .then(response => response.json())
             .then(data => {
               form.reset();
-              this.location.reload();
+              addEventModal1.hide();
               populateTable();
             })
             .catch(error => console.error('Error adding item:', error));

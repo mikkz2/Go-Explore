@@ -20,7 +20,7 @@ function fetchDynamicData() {
     const paragraphElement = document.querySelector(".dynamic-paragraph");
   
     backgroundElement.style.backgroundImage = `url('${selectedData.image}')`;
-    titleElement.textContent = selectedData.title;
+    titleElement.textContent = selectedData.city;
     paragraphElement.textContent = selectedData.description;
   }
   

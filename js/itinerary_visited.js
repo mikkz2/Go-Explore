@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
   visitedButton.addEventListener("click", function() {
     window.location.href = "itinerary_visited.php"; // Redirect to visited.html
   });
-  accountButton.addEventListener("click", function () {
-    window.location.href = "user-profile.php";
-  });
 
   const carouselInner = document.querySelector('.carousel-inner');
   const images = [

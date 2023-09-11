@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/wheretogo_main.css" />
   <script src="https://kit.fontawesome.com/e173e574d6.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <link href="css/footer.css" rel="stylesheet">
 
 </head>
 
@@ -29,4 +31,9 @@
  
     <script src="js/wheretogo_main.js"></script>
 </body>
+
+<footer>
+
+<?php include 'footer.php'; ?>
+</footer>
 </html>

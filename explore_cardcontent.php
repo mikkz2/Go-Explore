@@ -84,4 +84,8 @@
       
 <script src="js/explore_cardcontent.js"></script>
 </body>
+<footer>
+
+<?php include 'footer.php'; ?>
+</footer>
 </html>

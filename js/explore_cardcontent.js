@@ -289,13 +289,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                 });
 
-                cardElement.addEventListener("click", () => {
-                    const redirectUrl = `explore_cardcontent.php?id=${card.id}`;
-                    if (redirectUrl) {
-                      window.location.href = redirectUrl;
-                    }
-                  });
-
                   
     const dynamicData = [];
 

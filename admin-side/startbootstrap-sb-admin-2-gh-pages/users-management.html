@@ -68,8 +68,8 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Categories Collapse Menu -->
-            <li class="nav-item">
+              <!-- Nav Item - Categories Collapse Menu -->
+              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-folder"></i>
@@ -80,6 +80,7 @@
                         <h6 class="collapse-header">Webpage Categories:</h6>
                         <a class="collapse-item" href="places.html">Places</a>
                         <a class="collapse-item" href="calendar-of-activities.html">Calendar of Activities</a>
+                        <a class="collapse-item" href="favorites.html">Favorites</a>
                         <a class="collapse-item" href="footer.html">Footer</a>
                         <a class="collapse-item" href="learnmore.html">Learn More</a>
 
@@ -133,7 +134,8 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item dropdown no-arrow ">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
@@ -143,10 +145,11 @@
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" id="searchInput"
-                                            placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" id="searchButton">
+                                            <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
@@ -154,6 +157,7 @@
                                 </form>
                             </div>
                         </li>
+
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -204,7 +208,6 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Profile Picture</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Gender</th>
@@ -240,12 +243,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id="add-user-form" enctype="multipart/form-data">
-                                    <div class="mb-3">
-                                        <label for="eventImage" class="form-label">Profile Picture</label>
-                                        <input type="file" class="form-control" id="image" name="image"
-                                            accept="image/*">
-                                    </div>
+                                <form id="add-user-form">
                                     <div class="form-group">
                                         <label for="firstname">First Name</label>
                                         <input type="text" class="form-control" name="first_name" id="first_name"
@@ -315,13 +313,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="edit-user-form" enctype="multipart/form-data">
+                            <form id="edit-user-form">
                                 <input type="hidden" name="id" id="edit-id">
-                                <input type="hidden" name="existingImage" id="existingImage">
-                                <div class="mb-3">
-                                    <label for="eventImage" class="form-label">Profile Picture</label>
-                                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
-                                </div>
                                 <div class="mb-3">
                                     <label for="edit-first-name" class="form-label">First Name</label>
                                     <input type="text" class="form-control" id="first_name" name="first_name">
@@ -370,58 +363,64 @@
                         </div>
                         <!-- End of Main Content -->
 
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; Your Website 2020</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
                     </div>
                     <!-- End of Content Wrapper -->
 
                 </div>
-            </div>
-        </div>
+                <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+                <!-- Page level plugins -->
+                <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/users-management.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="js/demo/users-management.js"></script>
 
 </body>
 

@@ -51,8 +51,8 @@
   "places": [
     {
       "id": 1,
-      "image": "http://localhost:3001/images/951735e40c2d33c813e9eefa36b7a1c5",
-      "existingImage": "[object",
+      "image": "http://localhost:3001/images/3b6713377ec4eebe27ded0af292eddd2",
+      "existingImage": "http://localhost:3001/images/ba47b025a1c0a81adef4f0192124a15c",
       "title": "Camp Netanya Resort and Spa",
       "description": "Camp Netanya Resort and Spa claims its popularity from its Santorini architecture giving rise to its brilliant blue domes and white wash buildings. Camp Netanya offers 48 guest rooms and villas, dive shop, wellness center and family and friend everyone should enjoy.",
       "category": "hotels",
@@ -62,72 +62,31 @@
       "contact": "09278954092,  09397535074, 09166907269",
       "website": "www.campnetanya.com.ph",
       "created_at": "23-08-2023",
-      "updated_at": "05-09-2023"
+      "updated_at": "30-08-2023"
     },
     {
-      "title": "Aquaventure Reef Club",
-      "description": "Located in the stunning peninsula of Mabini along Batangas Bay, AquaVenture Reef Club is a full service dive resort, offering everything from airport pickup round-trip, comfortable, clean and Covid-Safe suites, diving classes to make the oceans accessible,local diving, ocean adventure tours and a diverse menu with a local flair in their restaurant.",
+      "id": 2,
+      "image": "http://localhost:3001/images/1210b566007f6c715ee6641371679b3b",
+      "existingImage": "alt=\"\"",
+      "title": "test",
+      "description": "ffghfhfhfghfhfh",
       "category": "hotels",
       "province": "Batangas",
-      "city": "Mabini",
-      "barangay": " Sitio Looc, Barangay Bagalangit",
-      "contact": "0919-999-0436",
-      "website": "https://www.facebook.com/aquaventurereefclub",
-      "image": "http://localhost:3001/images/23a9d6b9d4543b9bfff616374f0e0592",
-      "created_at": "05-09-2023",
-      "id": 2
-    },
+      "city": "Batangas City",
+      "barangay": "Lipa",
+      "contact": "Batangas City",
+      "website": "Batangas City",
+      "created_at": "23-08-2023",
+      "updated_at": "30-08-2023"
+    }
+  ],
+  "places_cities": [
     {
-      "title": "Casita Ysabel",
-      "description": "Casita Ysabel is know for its rustic comfortnestled in Mabini, Batangas. It has now become a favorite destination among local and foreign guest who are looking for privacy and comfort. A place of true relaxation, rejuvenation and a distinct rainforest ocean experience. It’s beauty and tranquility enfolds you with the warmth and charm of a pradise home.",
-      "category": "hotels",
-      "province": "Batangas",
-      "city": "Mabini",
-      "barangay": "Baranggay San  Teodoro",
-      "contact": "0908-822-0012 / 0935-395-2345",
-      "website": "www.casitaysabel.co",
-      "image": "http://localhost:3001/images/7f3a956fe2df6d594fb91601e4973c7d",
-      "created_at": "05-09-2023",
-      "id": 3
-    },
-    {
-      "title": "Eagle Point Beach and Dive Resort",
-      "description": "Eagle Point Resort is a seaside haven located at the tip of the Calumpang Peninsula in Anilao, Batangas. The resort is owned by a family corporation and is the largest and most popular diving destination for locals and foreigners in Batangas. . It is also the premier company outing venue in Batangas, as it offers exclusive access to private and secluded beaches and a plethora of water activities. Eagle Point Beach and Dive Resort is the Leading Scuba Diving, Leisure & Family Resort in\nAnilao Batangas.",
-      "category": "hotels",
-      "province": "Batangas",
-      "city": "Mabini",
-      "barangay": "Barangay Bagalangitm, Anilao",
-      "contact": "0917-846-3958 / 0927-351-0164",
-      "website": "https://www.facebook.com/eaglepointbeachanddiveresort",
-      "image": "http://localhost:3001/images/8fa78945ea28af75821d013af7330800",
-      "created_at": "07-09-2023",
-      "id": 4
-    },
-    {
-      "title": "La Chevrerie resort and Spa",
-      "description": " A Seamless fusion of comfort and style of recreation and relaxation of simplicity and indulgence. A rustic yet luxuriously grand holiday escape it is the idea destination for a dream tropical vacation La Chevrerie is a 5 star resort in Anilao Batangas",
-      "category": "hotels",
-      "province": "Batangas",
-      "city": "Mabini",
-      "barangay": "052 Barangay Ligaya, Anilao",
-      "contact": "0917-703-3320",
-      "website": "https://www.facebook.com/lachevrerieresort ",
-      "image": "http://localhost:3001/images/4048d9513dca48fde179878946a38789",
-      "created_at": "07-09-2023",
-      "id": 5
-    },
-    {
-      "title": "Punta Fuego",
-      "description": "Fuego Point, also referred to as Punta Fuego, is a peninsula with a distinctive flame-like shape situated in the western region of Batangas province on Luzon Island in the Philippines. This headland stretches out as a promontory measuring 2.9 kilometers, extending into the South China Sea. It offers scenic views of Fortune Island, Nasugbu Bay, and Calayo Bay, all located in the municipality of Nasugbu.",
-      "category": "swim",
-      "province": "Batangas",
-      "city": "Nasugbu ",
-      "barangay": "",
-      "contact": "",
-      "website": "",
-      "image": "http://localhost:3001/images/d49424d09c4826892940eda37a152650",
-      "created_at": "07-09-2023",
-      "id": 6
+      "city": "Lipa",
+      "description": "Great Place",
+      "image": "http://localhost:3001/images/df2d3d64a2014d48c51c6d76d0f606ad",
+      "created_at": "31-08-2023",
+      "id": 1
     }
   ],
   "festival": [
@@ -238,6 +197,20 @@
       "updated_at": "30-08-2023"
     },
     {
+      "id": 6,
+      "place_id": 6,
+      "user_id": 1,
+      "created_at": "30-08-2023",
+      "updated_at": "30-08-2023"
+    },
+    {
+      "id": 4,
+      "place_id": 4,
+      "user_id": 1,
+      "created_at": "30-08-2023",
+      "updated_at": "30-08-2023"
+    },
+    {
       "id": 7,
       "place_id": 7,
       "user_id": 1,
@@ -247,58 +220,31 @@
   ],
   "itinerary_visited": [
     {
-      "place_id": "1",
+      "id": 1,
+      "place_id": 1,
       "user_id": 1,
-      "ratings": "5",
-      "comment": "GREAT PLACE",
-      "created_at": "05-09-2023",
-      "updated_at": "05-09-2023",
-      "id": 5
+      "ratings": 4.3,
+      "comment": "The place is good",
+      "created_at": "28-08-2023",
+      "updated_at": "28-08-2023"
     },
     {
-      "place_id": "2",
+      "place_id": "7",
       "user_id": 1,
-      "ratings": "3",
-      "comment": "GREAT PLACE",
-      "created_at": "05-09-2023",
-      "updated_at": "05-09-2023",
-      "id": 6
+      "ratings": "0",
+      "comment": "The place is nice",
+      "created_at": "30-08-2023",
+      "updated_at": "30-08-2023",
+      "id": 2
     },
     {
-      "place_id": "3",
+      "place_id": "8",
       "user_id": 1,
-      "ratings": "3",
-      "comment": "GREAT PLACE",
-      "created_at": "05-09-2023",
-      "updated_at": "05-09-2023",
-      "id": 7
-    },
-    {
-      "place_id": "4",
-      "user_id": 1,
-      "ratings": "1",
-      "comment": "poor service",
-      "created_at": "07-09-2023",
-      "updated_at": "07-09-2023",
-      "id": 8
-    },
-    {
-      "place_id": "5",
-      "user_id": 1,
-      "ratings": "2",
-      "comment": "nice place ",
-      "created_at": "07-09-2023",
-      "updated_at": "07-09-2023",
-      "id": 9
-    },
-    {
-      "place_id": "6",
-      "user_id": 1,
-      "ratings": "2",
-      "comment": "nice place",
-      "created_at": "07-09-2023",
-      "updated_at": "07-09-2023",
-      "id": 10
+      "ratings": "0",
+      "comment": "hyky",
+      "created_at": "30-08-2023",
+      "updated_at": "30-08-2023",
+      "id": 3
     }
   ],
   "footer": [
@@ -311,31 +257,27 @@
   "learnmore": [
     {
       "id": 1,
-      "image": "http://localhost:3001/images/ae35c607b99ff04bf375189e92f23dd3",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
-      "created_at": "",
-      "updated_at": "05-09-2023"
+      "image": "http://localhost:3001/images/78775629ea9b3b620de365e7c3a11fb4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "updated_at": "27-08-2023"
     },
     {
       "id": 2,
-      "image": "http://localhost:3001/images/370ddc79fe7513b52c0e6e2ff747e4ab",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
-      "created_at": "",
-      "updated_at": "05-09-2023"
+      "image": "http://localhost:3001/images/f17ae3ae0e5b7015b4e302df29c0054c",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "updated_at": "27-08-2023"
     },
     {
       "id": 3,
-      "image": "http://localhost:3001/images/8709f201af5e5fd5147a7eccf6650745",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
-      "created_at": "",
-      "updated_at": "05-09-2023"
+      "image": "http://localhost:3001/images/b249fc512d58af338b5f7b25ecb0dcfb",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "updated_at": "27-08-2023"
     },
     {
       "id": 4,
-      "image": "http://localhost:3001/images/1458ddd4c95a43de6675222e10740d6f",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip .",
-      "created_at": "",
-      "updated_at": "05-09-2023"
+      "image": "http://localhost:3001/images/32c58fabc5d2e4f29c5d27cf23f7ba70",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "updated_at": "27-08-2023"
     }
   ],
   "thingstobring": [

@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const favoritesButton = document.getElementById("favoritesButton");
     const visitedButton = document.getElementById("visitedButton");
-    const accountButton = document.getElementById("accountButton");
     const completedButtons = document.querySelectorAll('.completed-button');
     const ratingModal = new bootstrap.Modal(document.getElementById('ratingModal'));
     const saveRatingButton = document.getElementById('saveRating');
