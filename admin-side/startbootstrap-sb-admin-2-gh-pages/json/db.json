@@ -62,21 +62,15 @@
       "website": "Batangas City",
       "created_at": "23-08-2023",
       "updated_at": "30-08-2023"
-    },
+    }
+  ],
+  "places_cities": [
     {
-      "id": 3,
-      "image": "http://localhost:3001/images/ff87923c0da1dd5e013eb1ce30f534d9",
-      "existingImage": "[object",
-      "title": "Beach",
-      "description": "gdfgfg",
-      "category": "swim",
-      "province": "dfgdfg",
-      "city": "dfgdfgd",
-      "barangay": "fgfdgfd",
-      "contact": "gfdgfd",
-      "website": "dfgfdgdf",
-      "created_at": "30-08-2023",
-      "updated_at": "30-08-2023"
+      "city": "Lipa",
+      "description": "Great Place",
+      "image": "http://localhost:3001/images/df2d3d64a2014d48c51c6d76d0f606ad",
+      "created_at": "31-08-2023",
+      "id": 1
     }
   ],
   "festival": [
