@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('.login-info-box').fadeOut();
     $('.login-show').addClass('show-log-panel');
 });
@@ -6,9 +6,9 @@ $('.preference-button').click(function () {
     $(this).toggleClass('active');
 });
 
-$('.login-reg-panel input[type="radio"]').on('change', function () {
+$('.login-reg-panel input[type="radio"]').on('change', function() {
     if ($('#log-login-show').is(':checked')) {
-        if (screen.width > 768) {
+        if(screen.width > 768){
             $('.register-info-box').fadeOut();
             $('.login-info-box').fadeIn();
         }
@@ -17,7 +17,7 @@ $('.login-reg-panel input[type="radio"]').on('change', function () {
         $('.login-show').removeClass('show-log-panel');
 
     } else if ($('#log-reg-show').is(':checked')) {
-        if (screen.width > 768) {
+        if(screen.width > 768){
             $('.register-info-box').fadeIn();
             $('.login-info-box').fadeOut();
         }
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.getElementById('loginButton');
     const staticBackdropModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-    const closeButton = staticBackdropModal._element.querySelector('.btn-close');
+    const closeButton = staticBackdropModal._element.querySelector('.btn-close'); 
 
     if (loginButton) {
         loginButton.addEventListener('click', () => {
@@ -110,12 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ email, password })
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.access_token && data.refresh_token) {
-                        // Valid login
-                        localStorage.setItem('access_token', data.access_token);
-                        localStorage.setItem('refresh_token', data.refresh_token);
+            .then(response => response.json())
+            .then(data => {
+                if (data.access_token && data.refresh_token) {
+                    // Valid login
+                    localStorage.setItem('access_token', data.access_token);
+                    localStorage.setItem('refresh_token', data.refresh_token);
 
                         console.log('Login successful');
 

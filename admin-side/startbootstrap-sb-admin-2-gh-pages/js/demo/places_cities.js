@@ -33,7 +33,7 @@ $(document).ready(function () {
                           <td>${user.id}</td>
                           <td><img src=${user.image} alt=""
                           class="img-thumbnail" width="100px"></td>
-                          <td>${user.title}</td>
+                          <td>${user.city}</td>
                           <td>${user.description}</td>
                           <td>${user.created_at}</td>
                           <td>${user.updated_at}</td>

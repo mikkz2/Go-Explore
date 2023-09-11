@@ -9,9 +9,9 @@ $(document).ready(function () {
         fetch('http://localhost:3000/itinerary_visited')
             .then(response => response.json())
             .then(data => {
-                console.log('Fetched data:', data); 
+                console.log('Fetched data:', data); // Log the fetched data for debugging
                 if (Array.isArray(data)) {
-                    tableBody.innerHTML = ''; 
+                    tableBody.innerHTML = ''; // Clear existing table data
                     data.forEach(user => {
                         const row = document.createElement('tr');
                         row.innerHTML = `

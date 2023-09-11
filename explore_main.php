@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/explore_main.css" />
   <script src="https://kit.fontawesome.com/e173e574d6.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <link href="css/footer.css" rel="stylesheet">
 </head>
 <body>
 
@@ -30,16 +32,14 @@
         <div class="header">
           <h1>EXPLORE INTERESTS</h1>
         </div>
-        <li><a href="#" class="category-link swim-beaches" data-category="SWIM AND BEACHES"><i class="fa-solid fa-water"></i><p>Swim and Beaches</p></a></li>
-        <li><a href="#" class="category-link nature-trip" data-category="NATURE TRIP"><i class="fa-solid fa-leaf"></i><p>Nature Trip</p></a></li>
-        <li><a href="#" class="category-link tourist-spots" data-category="TOURIST SPOT"><i class="fa-solid fa-location-dot"></i><p>Tourist Spots</p></a></li>
-        <li><a href="#" class="category-link hotel" data-category="HOTEL"><i class="fa-solid fa-hotel"></i><p>Hotel</p></a></li>
-        <li><a href="#" class="category-link churches" data-category="CHURCHES"><i class="fa-solid fa-church"></i><p>Churches</p></a></li>
-        <li><a href="#" class="category-link events-culture" data-category="EVENTS AND CULTURE"><i class="fa-solid fa-calendar-days"></i><p>Events and Culture</p></a></li>
+        <li><a href="#" class="category-link swim-beaches" data-category="swim"><i class="fa-solid fa-water"></i><p>Swim and Beaches</p></a></li>
+        <li><a href="#" class="category-link nature-trip" data-category="nature"><i class="fa-solid fa-leaf"></i><p>Nature Trip</p></a></li>
+        <li><a href="#" class="category-link tourist-spots" data-category="tourist"><i class="fa-solid fa-location-dot"></i><p>Tourist Spots</p></a></li>
+        <li><a href="#" class="category-link hotel" data-category="hotels"><i class="fa-solid fa-hotel"></i><p>Hotel</p></a></li>
+        <li><a href="#" class="category-link churches" data-category="churches"><i class="fa-solid fa-church"></i><p>Churches</p></a></li>
+        <li><a href="#" class="category-link events-culture" data-category="events"><i class="fa-solid fa-calendar-days"></i><p>Events and Culture</p></a></li>
         <li><a href="#" class="category-link see-all"><i class="fa-solid fa-eye"></i><p>See All</p></a></li>
       </ul>
-      
-      
         
     </div>
     <div class="services-content" id="services-content">
@@ -55,8 +55,43 @@
     
       
   </section>
+
   
-  <?php include 'footer.php'; ?>
+  <footer>
+<body>
+        <section id="footer">
+            <!-- Site footer -->
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="row" id="footer-content">
+                        <!-- Dynamic content will be added here -->
+                    </div>
+                    <hr>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <p class="copyright-text">
+                                Copyright &copy; 2023 All Rights Reserved by
+                                <a href="#">Go Explore</a>.
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <ul class="social-icons">
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+        <script src="js/footer.js"></script>
+    </body>
+</footer>
   <script src="js/explore_main.js"></script>
 </body>
 

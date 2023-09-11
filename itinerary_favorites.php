@@ -49,19 +49,15 @@
       
       <nav class="navbar navbar-expand-lg">
         <ul class="navbar-nav">
+
           <li class="nav-item">
             <button class="nav-link btn btn-link animate" id="favoritesButton">
-              <i class="fas fa-heart"></i> Favorites
+              <i class="fas fa-heart"></i>
             </button>
           </li>
           <li class="nav-item">
             <button class="nav-link btn btn-link animate" id="visitedButton">
-              <i class="fas fa-check"></i> Visited
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link btn btn-link animate" id="accountButton">
-              <i class="fas fa-cog"></i> Account
+              <i class="fas fa-check"></i>
             </button>
           </li>
         </ul>
@@ -113,4 +109,8 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
    <script src="js/itinerary_favorites.js"></script>
 </body>
+<footer>
+  
+<?php include 'footer.php'; ?>
+</footer>
 </html>

@@ -1,3 +1,8 @@
+// Call the dataTables jQuery plugin
+$(document).ready(function () {
+  $('#dataTable').DataTable();
+});
+
 // modal for add event
 $(document).ready(function () {
   $("#addButton").click(function () {
@@ -11,39 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const addButton = document.getElementById('addButton');
   const addEventModal = new bootstrap.Modal(document.getElementById('addEventModal'));
   const addAccountButton = document.getElementById('btn-add-account');
-  const editModal = new bootstrap.Modal(document.getElementById('editModal'));
-  const editForm = document.getElementById('edit-user-form');
-  const searchButton = document.getElementById('searchButton');
-  const searchInput = document.getElementById('searchInput');
+  const editModal = new bootstrap.Modal(document.getElementById('editModal')); // Add this line
+  const editForm = document.getElementById('edit-user-form'); // Add this line
 
 
-  function populateTable(searchKeyword = '') {
-    let searchUrl = 'http://localhost:3000/festival';
-
-    fetch(searchUrl)
+  // Fetch data from JSON server and populate the table
+  function populateTable() {
+    fetch('http://localhost:3000/festival') // Replace with your JSON server URL
       .then(response => response.json())
       .then(data => {
-        const filteredData = data.filter(user => {
-          return user.title.includes(searchKeyword) || 
-          user.date.includes(searchKeyword) || 
-          user.province.includes(searchKeyword) || 
-          user.city.includes(searchKeyword) || 
-          user.description.includes(searchKeyword);
-        });
-
-        tableBody.innerHTML = '';
-
-        if (filteredData.length === 0) {
-          const noResultsRow = document.createElement('tr');
-          noResultsRow.innerHTML = `
-          <td colspan="10" style="text-align: center;">There are no relevant search results.</td>
-          `;
-          tableBody.appendChild(noResultsRow);
-        } else {
-          // Populate the table with search results
-          filteredData.forEach(user => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
+        tableBody.innerHTML = ''; // Clear existing table data
+        data.forEach(user => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
                         <td>${user.id}</td>
                         <td><img src=${user.image} alt=""
                         class="img-thumbnail" width="100px"></td>
@@ -64,9 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             </button>
                         </td>
                     `;
-            tableBody.appendChild(row);
-          });
-        }
+          tableBody.appendChild(row);
+        });
         const deleteButtons = document.querySelectorAll('.delete-button');
         deleteButtons.forEach(button => {
           button.addEventListener('click', deleteRow);
@@ -80,13 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(error => console.error('Error fetching data:', error));
   }
-  populateTable();
-
-  searchButton.addEventListener('click', () => {
-    const searchKeyword = searchInput.value.trim();
-    console.log('Search keyword:', searchKeyword);
-    populateTable(searchKeyword);
-  });
 
   // handles image uploads
   const addForm = document.getElementById('add-user-form');
@@ -106,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let updated_at = `${currentDay}-${currentMonth}-${currentYear}`;
 
         editForm.elements.id.value = user.id;
+        // editForm.elements.image.value = user.image;
         editForm.elements.title.value = user.title;
         editForm.elements.description.value = user.description;
         editForm.elements.date.value = user.date;
@@ -114,13 +92,15 @@ document.addEventListener('DOMContentLoaded', function () {
         editForm.elements.created_at.value = user.created_at;
         editForm.elements.updated_at.value = updated_at;
 
-        const existingImageCell = row.querySelector('td:nth-child(2)');
-        const existingImageURL = existingImageCell.querySelector('img').getAttribute('src');
-        editForm.elements.existingImage.value = existingImageURL;
+        // Get the existing image URL from the table row
+        const existingImageCell = row.querySelector('td.image-cell');
+        if (existingImageCell) {
+          editForm.elements.image.value = existingImageCell.textContent;
+        }
 
         editModal.show();
       })
-    .catch(error => console.error('Error fetching user data:', error));
+      .catch(error => console.error('Error fetching user data:', error));
   }
 
   // Handle edit form submission
@@ -132,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
       updatedUser[key] = value;
     });
 
+    // If there's an image file, handle its upload
     const imageInput = editForm.querySelector('input[type="file"]');
     const imageFile = imageInput.files[0];
 
@@ -153,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
           console.log('Uploaded image URL:', data.url);
 
+          // Update the user's image URL only if a new image is uploaded
           updatedUser.image = data.url;
 
           // Continue with sending the PUT request to update user data
@@ -162,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.error('There was a problem with the fetch operation:', error);
         });
     } else {
-
+      // No new image file, just send the PUT request to update user data
       sendEditRequest(updatedUser);
     }
   });
@@ -247,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(response => response.json())
           .then(data => {
             form.reset();
-            this.location.reload();
+            addEventModal.hide();
             populateTable();
           })
           .catch(error => console.error('Error adding item:', error));
