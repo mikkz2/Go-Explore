@@ -59,7 +59,7 @@
                     <input type="text" placeholder="Province" name="current_province" id="current_province" autocomplete="off">
                     <input type="text" placeholder="City" name="city" id="current_city" autocomplete="off">
                     <input type="text" placeholder="Baranggay" name="current_baranggay" id="current_baranggay" autocomplete="off">
-                    <input type="button" id="registerButton" value="Register">
+                    <input type="button" id="registerButton" value="Register" data-toggle="modal" data-target="#preferenceModal">
                 </div>
                 <div class="login-reg-panel-mini">
                     <div class="login-info-box-mini">
@@ -101,9 +101,68 @@
         </div>
     </div>
 
+    <div class="modal fade" id="preferenceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">User Preference</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h6>Please choose what are you interested the most:</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="preference-button btn btn-swim">
+                                    <i class="fas fa-swimmer"></i> Swim and Beaches
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="preference-button btn btn-nature">
+                                    <i class="fas fa-tree"></i> Nature Trip
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="preference-button btn btn-churches">
+                                    <i class="fas fa-church"></i> Churches
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="preference-button btn btn-events">
+                                    <i class="fas fa-calendar-alt"></i> Events and Culture
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="preference-button btn btn-hotel">
+                                    <i class="fas fa-hotel"></i> Hotel
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="preference-button btn btn-tourist-spots">
+                                    <i class="fas fa-camera"></i> Tourist Spots
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Skip</button>
+                    <button type="button" class="btn btn-primary">Save Preferences</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <?php include 'footer.php'; ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/login_register.js"></script>
 </body>
 

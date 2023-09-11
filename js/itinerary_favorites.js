@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     accountButton.addEventListener("click", function () {
       window.location.href = "user-profile.php";
     });
+    
     const images = [
       'image/places/churches.png',
       'image/places/hotels.png',

@@ -13,6 +13,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/user-profile.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -112,7 +113,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="" alt="" />
+                        <img src="" alt="" id="profile-img" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -123,8 +124,8 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="edit-profile-button" id="profile-edit-btn" name="btnEditProfile" value="Edit Profile" data-bs-toggle="modal" data-bs-target="#editModal" />
-                    <input type="submit" class="profile-logout-btn" id="profile-logout-btn" name="btnLogout" value="Logout" />
+                    <input type="button" class="edit-profile-button" id="profile-edit-btn" name="btnEditProfile" value="Edit Profile" data-bs-toggle="modal" data-bs-target="#editModal" />
+                    <input type="button" class="profile-logout-btn" id="profile-logout-btn" name="btnLogout" value="Logout" data-bs-toggle="modal" data-bs-target="#logoutModal" />
                 </div>
             </div>
             <div class="row">
@@ -146,7 +147,7 @@
             </div>
         </form>
     </div>
-
+    <!-- edit modal -->
     <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -203,10 +204,27 @@
                         </div>
                         <input type="hidden" name="created_at">
                         <input type="hidden" name="updated_at">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" class="btn btn-primary" id="updateProfileButton">Save Changes</button>
                     </form>
                 </div>
 
+            </div>
+        </div>
+    </div>
+    <!-- logout -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm Logout</h5>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmLogout">Logout</button>
+                </div>
             </div>
         </div>
     </div>

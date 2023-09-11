@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "existingImage": "http://localhost:3001/images/8f6cd6e04c890960722981b0029ae158",
-      "image": "http://localhost:3001/images/442d0ea749f4107a30e2899f94c90896",
+      "existingImage": "http://localhost:3001/images/e78f5d30d511b2c13d9eddee835433bd",
+      "image": "http://localhost:3001/images/ddc12a6b2c1645ea70331603f18c4cf0",
       "first_name": "Mikkay",
       "last_name": "Gabinete",
       "gender": "Female",
@@ -13,8 +13,8 @@
       "current_province": "Bicol",
       "current_city": "Legazpi",
       "current_baranggay": "Taysan",
-      "created_at": "08-09-2023",
-      "updated_at": "08-09-2023"
+      "created_at": "",
+      "updated_at": ""
     },
     {
       "first_name": "Gwen",

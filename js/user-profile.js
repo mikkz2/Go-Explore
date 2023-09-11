@@ -8,18 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const stars = document.querySelectorAll('.star');
     const boxContainer = document.querySelector('.box-container');
     const editProfileButton = document.querySelector('.edit-profile-button');
-
+    const editModal = new bootstrap.Modal(document.getElementById('editModal'));
 
     let selectedPlaceId;
     let selectedUserId;
 
-
+    document.getElementById("confirmLogout").addEventListener("click", function () {
+        console.log("Click");
+        localStorage.removeItem("access_token");
+        window.location.href = "login_register.php";
+    });
+    
+    // EDIT PROFILE
     editProfileButton.addEventListener('click', function () {
-        // Show the edit modal when the button is clicked
-        const editModal = new bootstrap.Modal(document.getElementById('editModal'));
         editModal.show();
-
-        // Fetch and populate the form fields with user data
         fetch('http://localhost:3000/users')
             .then(response => response.json())
             .then(data => {
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById('current_province').value = user.current_province;
                     document.getElementById('current_city').value = user.current_city;
                     document.getElementById('current_baranggay').value = user.current_baranggay;
-                    
+
                     editModal.show();
                 } else {
                     console.error("No user data found.");
@@ -47,7 +49,100 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
+    document.getElementById('updateProfileButton').addEventListener('click', function () {
+        const userId = document.getElementById('edit-id').value;
+        const updatedUserData = {
+            first_name: document.getElementById('first_name').value,
+            last_name: document.getElementById('last_name').value,
+            gender: document.getElementById('gender').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            from_country: document.getElementById('from_country').value,
+            current_province: document.getElementById('current_province').value,
+            current_city: document.getElementById('current_city').value,
+            current_baranggay: document.getElementById('current_baranggay').value,
+        };
 
+        fetch(`http://localhost:3000/users/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedUserData),
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Profile updated successfully');
+                this.location.reload();
+            } else {
+                console.error('Failed to update profile');
+            }
+        })
+        .catch(error => {
+            console.error('Error updating profile:', error);
+        });
+    });
+    const editForm = document.getElementById('edit-user-form');
+
+    editForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(editForm);
+        const updatedUser = {};
+        formData.forEach((value, key) => {
+            updatedUser[key] = value;
+        });
+
+        const imageInput = editForm.querySelector('input[type="file"]');
+        const imageFile = imageInput.files[0];
+
+        if (imageFile) {
+            var formData2 = new FormData();
+            formData2.append('image', imageFile);
+
+            fetch('http://localhost:3001/images', {
+                method: 'POST',
+                body: formData2,
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
+            })
+            .then(data => {
+                console.log('Uploaded image URL:', data.url);
+                updatedUser.image = data.url;
+
+                sendEditRequest(updatedUser);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        } else {
+            sendEditRequest(updatedUser);
+        }
+    });
+
+    function sendEditRequest(updatedUser) {
+        const userId = updatedUser.id; 
+        fetch(`http://localhost:3000/users/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedUser),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Profile updated:', data);
+            editModal.hide();
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Error updating profile:', error);
+        });
+    }
 
     favoritesButton.addEventListener("click", function () {
       window.location.href = "itinerary_favorites.php";
@@ -189,9 +284,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
-  
-
-
     stars.forEach(star => {
         star.addEventListener('click', () => {
             const rating = star.getAttribute('data-rating');
@@ -259,6 +351,9 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(error => {
         alert('Error adding to feedback: ' + error);
     });
+
+
+    
 });
 
     
