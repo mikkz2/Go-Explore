@@ -26,7 +26,30 @@
                     </label>
                 </div>
 
-            <div class="nav-links">
+                <div class="nav-links">
+                    <a class="nav-link-1" href="explore_main.php">Let's Explore</a>
+                    <a class="nav-link-2" href="wheretogo_main.php">Where to Go</a>
+                    <a class="nav-link-3" href="calendar.php">Calendar of Activities</a>
+                    <a class="nav-link-4" href="love_our_planet.php">Love Our Planet</a>
+                    <a class="nav-link-5" href="itinerary_favorites.php">Favorites</a>
+                    <a class="nav-search-icon" href="search_page.php">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                    </a>
+                    <a class="nav-user-icon" href="login_register.php">
+                        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+            </div>
+<<<<<<< HEAD
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="nav-links" id="nav-container">
                 <a class="nav-link-1" href="explore_main.php">Let's Explore</a>
                 <a class="nav-link-2" href="wheretogo_main.php">Where to Go</a>
                 <a class="nav-link-3" href="calendar.php">Calendar of Activities</a>
@@ -34,19 +57,51 @@
                 <a class="nav-search-icon" href="search_page.php">
                     <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                 </a>
-                <?php
-                session_start();
-                
-                $isAuthenticated = isset($_SESSION['user_id']);
 
-                if ($isAuthenticated) {
-                    include('itinerary_favorites.php');
-                } else {
-                    echo '<a class="nav-user-icon" href="login_register.php">';
-                    echo '<i class="fa-solid fa-user" style="color: #ffffff;"></i>';
-                    echo '</a>';
-                }
-                ?>
+                <script>
+                    // Function to check if the user is authenticated
+                    function checkAuthentication() {
+                        var isAuthenticated = localStorage.getItem("access_token");
+
+                        if (isAuthenticated != null) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                    // Function to redirect the user to the login page if not authenticated
+                    function redirectToLogin() {
+                        window.location.href = 'login_register.php';
+                    }
+
+                    // Check authentication and update the navigation bar accordingly
+                    document.addEventListener('DOMContentLoaded', () => {
+                        var isAuthenticated = checkAuthentication();
+                        var navUserIcon = document.createElement("a");
+                        var icon = document.createElement("i");
+                        icon.className = "fa-solid fa-user";
+                        icon.style.color = "#ffffff";
+                        navUserIcon.appendChild(icon);
+
+                        if (isAuthenticated) {
+                            navUserIcon.className = "nav-user-icon";
+                            navUserIcon.href = "itinerary_favorites.php";
+                        } else {
+                            navUserIcon.className = "nav-user-icon";
+                            navUserIcon.href = "login_register.php";
+
+                            if (!window.location.href.includes('login_register.php')) {
+                                redirectToLogin();
+                            }
+                        }
+
+                        // Append the created element to the appropriate place in the DOM.
+                        var navContainer = document.getElementById("nav-container");
+                        navContainer.appendChild(navUserIcon);
+                    });
+                </script>
+
 
             </div>
         </div>
@@ -54,3 +109,8 @@
 </body>
 
 </html>
+=======
+        </header>
+    </body>
+</html>
+>>>>>>> 5b80c7fec8ad6d63d596f1d79121bee3495b7294
