@@ -18,13 +18,15 @@
                         <a href="home_main.php" style="text-decoration: none; color: white; ">Go Explore</a>
                     </div>
                 </div>
-                <div class="nav-btn">
-                    <label for="nav-check">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </label>
-                </div>
+                
+<<<<<<< HEAD
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
 
             <div class="nav-links" id="nav-container">
                 <a class="nav-link-1" href="explore_main.php">Let's Explore</a>
@@ -86,3 +88,8 @@
 </body>
 
 </html>
+=======
+        </header>
+    </body>
+</html>
+>>>>>>> 5b80c7fec8ad6d63d596f1d79121bee3495b7294
